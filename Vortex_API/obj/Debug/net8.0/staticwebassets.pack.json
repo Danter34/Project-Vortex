@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\wwwroot\\uploads\\news\\1ae8a119-40ca-4245-91b2-f8ec5a843266.jpg",
+      "PackagePath": "staticwebassets\\uploads\\news\\1ae8a119-40ca-4245-91b2-f8ec5a843266.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Vortex_API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Vortex_API.props",
+      "PackagePath": "build\\Vortex_API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Vortex_API.props",
+      "PackagePath": "buildMultiTargeting\\Vortex_API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Vortex_API.props",
+      "PackagePath": "buildTransitive\\Vortex_API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

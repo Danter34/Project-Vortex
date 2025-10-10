@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "wgbJDpyR2hamsajD16maY0KOFj7HS5Z4runoi7NQiwc=",
+  "Source": "Vortex_API",
+  "BasePath": "_content/Vortex_API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Vortex_API\\wwwroot",
+      "Source": "Vortex_API",
+      "ContentRoot": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\wwwroot\\",
+      "BasePath": "_content/Vortex_API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\wwwroot\\uploads\\news\\1ae8a119-40ca-4245-91b2-f8ec5a843266.jpg",
+      "SourceId": "Vortex_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\wwwroot\\",
+      "BasePath": "_content/Vortex_API",
+      "RelativePath": "uploads/news/1ae8a119-40ca-4245-91b2-f8ec5a843266.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\news\\1ae8a119-40ca-4245-91b2-f8ec5a843266.jpg"
+    }
+  ]
+}
