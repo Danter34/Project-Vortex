@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Vortex_API.Model.DTO;
 using Vortex_API.Repositories.Interface;
@@ -8,6 +9,7 @@ namespace Vortex_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryRepository _categoryRepo;
@@ -18,6 +20,7 @@ namespace Vortex_API.Controllers
         }
 
         [HttpGet("get-all-category")]
+        //[Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetAll([FromQuery] string? filterOn,
         [FromQuery] string? filterQuery,
         [FromQuery] string? sortBy,
@@ -38,6 +41,7 @@ namespace Vortex_API.Controllers
         }
 
         [HttpGet("get-category-by-id/{id}")]
+        //[Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetById(int id)
         {
             var category = await _categoryRepo.GetCategoryById(id);
@@ -48,6 +52,7 @@ namespace Vortex_API.Controllers
         }
 
         [HttpPost("add-category")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([FromBody] CategoryDTO categoryDto)
         {
             if (!ModelState.IsValid)
@@ -58,6 +63,7 @@ namespace Vortex_API.Controllers
         }
 
         [HttpPut("update-category-by-id/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id, [FromBody] CategoryDTO categoryDto)
         {
             var updated = await _categoryRepo.UpdateCategory(id, categoryDto);
@@ -68,6 +74,7 @@ namespace Vortex_API.Controllers
         }
 
         [HttpDelete("delete-category/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var success = await _categoryRepo.DeleteCategory(id);

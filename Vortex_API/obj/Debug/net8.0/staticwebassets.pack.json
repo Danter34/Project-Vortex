@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\uploads\\news\\1ae8a119-40ca-4245-91b2-f8ec5a843266.jpg"
     },
     {
+      "Id": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\wwwroot\\uploads\\products\\da37886f-6d18-42ae-957a-6561248a7bc3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\da37886f-6d18-42ae-957a-6561248a7bc3.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Vortex_API.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

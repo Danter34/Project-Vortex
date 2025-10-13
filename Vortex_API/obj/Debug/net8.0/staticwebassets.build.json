@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wgbJDpyR2hamsajD16maY0KOFj7HS5Z4runoi7NQiwc=",
+  "Hash": "rLL16cI+HaHLlk4F1dXnBZvN+PyvbW82O6zqe9NshAw=",
   "Source": "Vortex_API",
   "BasePath": "_content/Vortex_API",
   "Mode": "Default",
@@ -34,6 +34,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\news\\1ae8a119-40ca-4245-91b2-f8ec5a843266.jpg"
+    },
+    {
+      "Identity": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\wwwroot\\uploads\\products\\da37886f-6d18-42ae-957a-6561248a7bc3.jpg",
+      "SourceId": "Vortex_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\wwwroot\\",
+      "BasePath": "_content/Vortex_API",
+      "RelativePath": "uploads/products/da37886f-6d18-42ae-957a-6561248a7bc3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\products\\da37886f-6d18-42ae-957a-6561248a7bc3.jpg"
     }
   ]
 }

@@ -21,6 +21,7 @@ namespace Vortex_API.Model.Domain
 
         public double Rate { get; set; } = 0;
         public bool IsHot { get; set; }
+        public bool IsNew { get; set; }
 
         // Liên kết tới danh mục
         public int CategoryId { get; set; }

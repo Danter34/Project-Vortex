@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Vortex_API.Model.Domain;
 using Vortex_API.Model.DTO;
@@ -8,6 +9,7 @@ namespace Vortex_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
     public class BannerController : ControllerBase
     {
         private readonly IBannerRepository _bannerRepository;
@@ -18,6 +20,7 @@ namespace Vortex_API.Controllers
         }
 
         [HttpGet("Get-all-banner")]
+        //[Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetAll()
         {
             var banners = await _bannerRepository.GetAllBanner();
@@ -25,6 +28,7 @@ namespace Vortex_API.Controllers
         }
 
         [HttpGet("get-banner-by-id/{id}")]
+        //[Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetById(int id)
         {
             var banner = await _bannerRepository.GetBannerById(id);
@@ -34,6 +38,7 @@ namespace Vortex_API.Controllers
         }
 
         [HttpPost("add-banner")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([FromForm] BannerDTO dto)
         {
             if (!ModelState.IsValid)
@@ -44,6 +49,7 @@ namespace Vortex_API.Controllers
         }
 
         [HttpPut("update-banner-by-id/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id, [FromBody] EdditBannerDTO dto)
         {
             var updated = await _bannerRepository.UpdateBanner(id, dto);
@@ -54,6 +60,7 @@ namespace Vortex_API.Controllers
         }
 
         [HttpDelete("delete-banner-by-id/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var deleted = await _bannerRepository.DeleteBanner(id);

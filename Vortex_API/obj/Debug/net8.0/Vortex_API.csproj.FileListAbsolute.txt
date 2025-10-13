@@ -143,3 +143,10 @@ D:\Project-Vortex\Vortex_API\Vortex_API\obj\Debug\net8.0\Vortex_API.pdb
 D:\Project-Vortex\Vortex_API\Vortex_API\obj\Debug\net8.0\Vortex_API.genruntimeconfig.cache
 D:\Project-Vortex\Vortex_API\Vortex_API\obj\Debug\net8.0\ref\Vortex_API.dll
 D:\Project-Vortex\Vortex_API\Vortex_API\bin\Debug\net8.0\Vortex_API.staticwebassets.runtime.json
+D:\Project-Vortex\Vortex_API\Vortex_API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Project-Vortex\Vortex_API\Vortex_API\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Project-Vortex\Vortex_API\Vortex_API\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Project-Vortex\Vortex_API\Vortex_API\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Project-Vortex\Vortex_API\Vortex_API\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\Project-Vortex\Vortex_API\Vortex_API\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+D:\Project-Vortex\Vortex_API\Vortex_API\obj\Debug\net8.0\Vortex_API.sourcelink.json

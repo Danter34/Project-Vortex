@@ -15,6 +15,7 @@ namespace Vortex_API.Model.DTO
 
         public double Rate { get; set; } = 0;
         public bool IsHot { get; set; }
+        public bool IsNew { get; set; }
 
         [Required]
         public int CategoryId { get; set; }
@@ -34,6 +35,7 @@ namespace Vortex_API.Model.DTO
 
         public double Rate { get; set; } = 0;
         public bool IsHot { get; set; }
+        public bool IsNew { get; set; }
 
         [Required]
         public int CategoryId { get; set; }

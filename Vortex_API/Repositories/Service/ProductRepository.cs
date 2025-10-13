@@ -51,6 +51,10 @@ namespace Vortex_API.Repositories.Service
                         if (bool.TryParse(filterQuery, out bool isHot))
                             products = products.Where(p => p.IsHot == isHot);
                         break;
+                    case "isnew":
+                        if (bool.TryParse(filterQuery, out bool isNew))
+                            products = products.Where(p => p.IsNew == isNew);
+                        break;
 
                     default:
                         break;
@@ -115,6 +119,7 @@ namespace Vortex_API.Repositories.Service
                 Price = dto.Price,
                 Rate = dto.Rate,
                 IsHot = dto.IsHot,
+                IsNew = dto.IsNew,
                 CategoryId = dto.CategoryId,
                 CreatedAt = DateTime.UtcNow
             };
@@ -171,6 +176,7 @@ namespace Vortex_API.Repositories.Service
             product.Price = dto.Price;
             product.Rate = dto.Rate;
             product.IsHot = dto.IsHot;
+            product.IsNew = dto.IsNew;
             product.CategoryId = dto.CategoryId;
 
             await _context.SaveChangesAsync();

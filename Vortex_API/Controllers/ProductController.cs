@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Vortex_API.Model.DTO;
 using Vortex_API.Repositories.Interface;
@@ -7,6 +8,7 @@ namespace Vortex_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IProductRepository _productRepository;
@@ -17,6 +19,7 @@ namespace Vortex_API.Controllers
         }
 
         [HttpGet("get-all-product")]
+        //[Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetAll([FromQuery] string? filterOn,
         [FromQuery] string? filterQuery,
         [FromQuery] string? sortBy,
@@ -36,6 +39,7 @@ namespace Vortex_API.Controllers
         }
 
         [HttpGet("get-product-by-id/{id}")]
+        //[Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetById(int id)
         {
             var product = await _productRepository.GetProductById(id);
@@ -46,6 +50,7 @@ namespace Vortex_API.Controllers
         }
 
         [HttpPost("add-product")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([FromForm] ProductDTO dto)
         {
             if (!ModelState.IsValid)
@@ -56,6 +61,7 @@ namespace Vortex_API.Controllers
         }
 
         [HttpPut("update-product-by-id/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id, [FromBody] EdditProductDTO dto)
         {
             var updated = await _productRepository.UpdateProduct(id, dto);
@@ -66,6 +72,7 @@ namespace Vortex_API.Controllers
         }
 
         [HttpDelete("delete-product/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var deleted = await _productRepository.DeleteProduct(id);
