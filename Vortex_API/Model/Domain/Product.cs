@@ -19,7 +19,8 @@ namespace Vortex_API.Model.Domain
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
 
-        public double Rate { get; set; } = 0;
+        public double AverageRating { get; set; } = 0;
+        public ICollection<Review> Reviews { get; set; } = new List<Review>();
         public bool IsHot { get; set; }
         public bool IsNew { get; set; }
 

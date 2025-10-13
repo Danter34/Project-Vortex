@@ -12,13 +12,13 @@ namespace Vortex_API.Model.Domain
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public decimal TotalAmount { get; set; }
         [MaxLength(500)]
-        public string? ShippingAddress { get; set; }
+        public string ShippingAddress { get; set; }
 
         [MaxLength(200)]
-        public string? Name { get; set; }
+        public string Name { get; set; }
 
-        [MaxLength(50)]
-        public string? Phone { get; set; }
+        [MaxLength(10)]
+        public int Phone { get; set;}
         public ICollection<OrderItem> Items { get; set; } = new List<OrderItem>();
         public string Status { get; set; } = "Pending";
     }

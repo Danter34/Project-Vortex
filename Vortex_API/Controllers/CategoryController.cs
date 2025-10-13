@@ -53,7 +53,7 @@ namespace Vortex_API.Controllers
 
         [HttpPost("add-category")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create([FromBody] CategoryDTO categoryDto)
+        public async Task<IActionResult> Create([FromForm] CategoryDTO categoryDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

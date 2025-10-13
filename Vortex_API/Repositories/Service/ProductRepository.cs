@@ -78,11 +78,7 @@ namespace Vortex_API.Repositories.Service
                             : products.OrderByDescending(p => p.Price);
                         break;
 
-                    case "rate":
-                        products = isAscending
-                            ? products.OrderBy(p => p.Rate)
-                            : products.OrderByDescending(p => p.Rate);
-                        break;
+                    
 
                     case "category":
                         products = isAscending
@@ -117,7 +113,6 @@ namespace Vortex_API.Repositories.Service
                 Title = dto.Title,
                 Description = dto.Description,
                 Price = dto.Price,
-                Rate = dto.Rate,
                 IsHot = dto.IsHot,
                 IsNew = dto.IsNew,
                 CategoryId = dto.CategoryId,
@@ -174,7 +169,6 @@ namespace Vortex_API.Repositories.Service
             product.Title = dto.Title;
             product.Description = dto.Description;
             product.Price = dto.Price;
-            product.Rate = dto.Rate;
             product.IsHot = dto.IsHot;
             product.IsNew = dto.IsNew;
             product.CategoryId = dto.CategoryId;

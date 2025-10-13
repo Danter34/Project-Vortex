@@ -13,7 +13,6 @@ namespace Vortex_API.Model.DTO
         [Required]
         public decimal Price { get; set; }
 
-        public double Rate { get; set; } = 0;
         public bool IsHot { get; set; }
         public bool IsNew { get; set; }
 
@@ -33,7 +32,6 @@ namespace Vortex_API.Model.DTO
         [Required]
         public decimal Price { get; set; }
 
-        public double Rate { get; set; } = 0;
         public bool IsHot { get; set; }
         public bool IsNew { get; set; }
 
