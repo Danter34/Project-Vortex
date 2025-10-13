@@ -150,3 +150,4 @@ D:\Project-Vortex\Vortex_API\Vortex_API\bin\Debug\net8.0\Microsoft.AspNetCore.Id
 D:\Project-Vortex\Vortex_API\Vortex_API\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 D:\Project-Vortex\Vortex_API\Vortex_API\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 D:\Project-Vortex\Vortex_API\Vortex_API\obj\Debug\net8.0\Vortex_API.sourcelink.json
+D:\Project-Vortex\Vortex_API\Vortex_API\bin\Debug\net8.0\QRCoder.dll

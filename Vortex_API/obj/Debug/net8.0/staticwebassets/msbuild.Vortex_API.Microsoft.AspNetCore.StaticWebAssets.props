@@ -1,11 +1,11 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\news\1ae8a119-40ca-4245-91b2-f8ec5a843266.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\products\124ab783-7105-49f9-a0e8-340ea9dc7167.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Vortex_API</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Vortex_API</BasePath>
-      <RelativePath>uploads/news/1ae8a119-40ca-4245-91b2-f8ec5a843266.jpg</RelativePath>
+      <RelativePath>uploads/products/124ab783-7105-49f9-a0e8-340ea9dc7167.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -14,14 +14,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\news\1ae8a119-40ca-4245-91b2-f8ec5a843266.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\products\124ab783-7105-49f9-a0e8-340ea9dc7167.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\products\da37886f-6d18-42ae-957a-6561248a7bc3.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\products\b18b7a07-9137-426b-9ab3-b037f9d1c9e5.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Vortex_API</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Vortex_API</BasePath>
-      <RelativePath>uploads/products/da37886f-6d18-42ae-957a-6561248a7bc3.jpg</RelativePath>
+      <RelativePath>uploads/products/b18b7a07-9137-426b-9ab3-b037f9d1c9e5.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -30,7 +30,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\products\da37886f-6d18-42ae-957a-6561248a7bc3.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\products\b18b7a07-9137-426b-9ab3-b037f9d1c9e5.jpg))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

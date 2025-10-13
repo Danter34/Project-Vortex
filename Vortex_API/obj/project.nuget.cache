@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SWg+01KikKdLrI99tpI5NbOYxXq7h+XApGKhn5JPjK0cRn28yZcLXbpiFBhOadxL3gfqvuePBDqqWkflyoyrMQ==",
+  "dgSpecHash": "ClwrTXHLpjFaNk4fI/7aSHattMHBbxrp5FWy7HswqwUWidVR+aclPHK+OMs+k6rv04RpUZLPXWg3y0i3OjvrzQ==",
   "success": true,
   "projectFilePath": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Vortex_API.csproj",
   "expectedPackageFiles": [
@@ -51,6 +51,7 @@
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\pc\\.nuget\\packages\\qrcoder\\1.7.0\\qrcoder.1.7.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",

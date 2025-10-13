@@ -3,7 +3,163 @@
   "WorkspaceRootPath": "D:\\Project-Vortex\\Vortex_API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\repositories\\service\\cartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\controllers\\revenuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\controllers\\revenuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\repositories\\service\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\service\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\repositories\\interface\\ipaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\interface\\ipaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\controllers\\bannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\controllers\\bannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\repositories\\service\\revenuerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\service\\revenuerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\repositories\\service\\reviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\service\\reviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\repositories\\interface\\irevenuerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\interface\\irevenuerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\repositories\\interface\\ireviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\interface\\ireviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\repositories\\interface\\ipaymentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\interface\\ipaymentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\model\\dto\\revenuedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\dto\\revenuedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\model\\dto\\paymentrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\dto\\paymentrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\model\\dto\\paymentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\dto\\paymentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\dto\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\dto\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\repositories\\interface\\itokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\interface\\itokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\repositories\\service\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\service\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\model\\domain\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\banner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\banner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\repositories\\service\\paymentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\service\\paymentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\repositories\\service\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\service\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\vortex_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\vortex_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Migrations\\20251013102018_add payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Vortex_API\\Migrations\\20251013102018_add payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\dto\\bannerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\dto\\bannerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\repositories\\service\\cartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\service\\cartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -15,24 +171,8 @@
       "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\interface\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\dto\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\dto\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\repositories\\interface\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,44 +183,8 @@
       "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\dto\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\repositories\\service\\reviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\service\\reviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\repositories\\interface\\ireviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\interface\\ireviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\model\\dto\\reviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\dto\\reviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\dto\\reviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Migrations\\20251013082746_create.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Vortex_API\\Migrations\\20251013082746_create.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\repositories\\service\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\service\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\model\\domain\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|d:\\project-vortex\\vortex_api\\vortex_api\\model\\domain\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -91,24 +195,8 @@
       "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\dto\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\dto\\cartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\dto\\cartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\repositories\\interface\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -119,16 +207,8 @@
       "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\service\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\repositories\\interface\\icartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\interface\\icartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -139,20 +219,12 @@
       "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\controllers\\imagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\controllers\\bannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\controllers\\bannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\data\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\data\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\repositories\\service\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\service\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\repositories\\interface\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -167,24 +239,12 @@
       "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\service\\tokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\repositories\\interface\\itokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\interface\\itokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\repositories\\service\\bannerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\repositories\\service\\bannerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\vortex_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\vortex_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\repositories\\interface\\inewsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -215,24 +275,16 @@
       "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\dto\\imageuploaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\dto\\bannerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\dto\\bannerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\banner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\banner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\domain\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\domain\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\vortex_api\\model\\dto\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:vortex_api\\model\\dto\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Migrations\\20251010111640_FirstCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Vortex_API\\Migrations\\20251010111640_FirstCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Migrations\\20251013082746_create.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C9FB3A-BC69-4F08-A740-82225A4B24D3}|Vortex_API\\Vortex_API.csproj|solutionrelative:Vortex_API\\Migrations\\20251013082746_create.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -242,7 +294,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -250,171 +302,145 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "OrderDTO.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\OrderDTO.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Model\\DTO\\OrderDTO.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\OrderDTO.cs",
-              "RelativeToolTip": "Vortex_API\\Model\\DTO\\OrderDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T07:02:40.172Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Order.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Order.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\Order.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Order.cs",
-              "RelativeToolTip": "Vortex_API\\Model\\Domain\\Order.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T06:54:10.996Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\OrderController.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Controllers\\OrderController.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\OrderController.cs",
-              "RelativeToolTip": "Vortex_API\\Controllers\\OrderController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T07:18:05.09Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IOrderRepository.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\IOrderRepository.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Interface\\IOrderRepository.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\IOrderRepository.cs",
-              "RelativeToolTip": "Vortex_API\\Repositories\\Interface\\IOrderRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T07:04:37.48Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OrderRepository.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\OrderRepository.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Service\\OrderRepository.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\OrderRepository.cs",
-              "RelativeToolTip": "Vortex_API\\Repositories\\Service\\OrderRepository.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAQwBcAAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T07:08:17.901Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CartRepository.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\CartRepository.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Service\\CartRepository.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\CartRepository.cs",
-              "RelativeToolTip": "Vortex_API\\Repositories\\Service\\CartRepository.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAgwDEAAAANAAAA",
+              "Title": "RevenueController.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\RevenueController.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Controllers\\RevenueController.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\RevenueController.cs",
+              "RelativeToolTip": "Vortex_API\\Controllers\\RevenueController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T07:05:47.111Z",
+              "WhenOpened": "2025-10-13T11:17:32.57Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "CategoryController.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\CategoryController.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Controllers\\CategoryController.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\CategoryController.cs",
-              "RelativeToolTip": "Vortex_API\\Controllers\\CategoryController.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAYwDcAAAA5AAAA",
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Controllers\\ProductController.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Vortex_API\\Controllers\\ProductController.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAYwDMAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T12:27:59.208Z",
+              "WhenOpened": "2025-10-10T12:44:20.838Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Category.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Category.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\Category.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Category.cs",
-              "RelativeToolTip": "Vortex_API\\Model\\Domain\\Category.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAgAAAA",
+              "DocumentIndex": 1,
+              "Title": "PaymentController.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\PaymentController.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Controllers\\PaymentController.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\PaymentController.cs",
+              "RelativeToolTip": "Vortex_API\\Controllers\\PaymentController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAcAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T10:49:57.758Z",
+              "WhenOpened": "2025-10-13T10:22:59.877Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IProductRepository.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\IProductRepository.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Interface\\IProductRepository.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\IProductRepository.cs",
-              "RelativeToolTip": "Vortex_API\\Repositories\\Interface\\IProductRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "DocumentIndex": 3,
+              "Title": "IPaymentService.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\IPaymentService.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Interface\\IPaymentService.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\IPaymentService.cs",
+              "RelativeToolTip": "Vortex_API\\Repositories\\Interface\\IPaymentService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T11:26:00.821Z",
+              "WhenOpened": "2025-10-13T10:32:11.627Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PaymentService.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\PaymentService.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Service\\PaymentService.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\PaymentService.cs",
+              "RelativeToolTip": "Vortex_API\\Repositories\\Service\\PaymentService.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAAADoAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T10:21:13.294Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ProductDTO.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\ProductDTO.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Model\\DTO\\ProductDTO.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\ProductDTO.cs",
-              "RelativeToolTip": "Vortex_API\\Model\\DTO\\ProductDTO.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T11:23:34.946Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "ReviewController.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\ReviewController.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Controllers\\ReviewController.cs",
               "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\ReviewController.cs",
               "RelativeToolTip": "Vortex_API\\Controllers\\ReviewController.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAxwA0AAAA9AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-13T08:34:48.679Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Data\\AppDbContext.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Vortex_API\\Data\\AppDbContext.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAA7wBIAAAAIAAAA",
+              "DocumentIndex": 6,
+              "Title": "BannerController.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\BannerController.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Controllers\\BannerController.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\BannerController.cs",
+              "RelativeToolTip": "Vortex_API\\Controllers\\BannerController.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAYwAsAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T10:52:12.53Z",
+              "WhenOpened": "2025-10-10T12:39:58.428Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Review.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Review.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\Review.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Review.cs",
-              "RelativeToolTip": "Vortex_API\\Model\\Domain\\Review.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
+              "DocumentIndex": 7,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Controllers\\CartController.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\CartController.cs",
+              "RelativeToolTip": "Vortex_API\\Controllers\\CartController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T08:14:53.218Z",
+              "WhenOpened": "2025-10-13T07:27:03.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RevenueRepository.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\RevenueRepository.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Service\\RevenueRepository.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\RevenueRepository.cs",
+              "RelativeToolTip": "Vortex_API\\Repositories\\Service\\RevenueRepository.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAYwEUAAABpAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T11:07:13.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ReviewRepository.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\ReviewRepository.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Service\\ReviewRepository.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\ReviewRepository.cs",
+              "RelativeToolTip": "Vortex_API\\Repositories\\Service\\ReviewRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T08:32:55.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IRevenueRepository.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\IRevenueRepository.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Interface\\IRevenueRepository.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\IRevenueRepository.cs",
+              "RelativeToolTip": "Vortex_API\\Repositories\\Interface\\IRevenueRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T11:06:52.316Z",
               "EditorCaption": ""
             },
             {
@@ -432,72 +458,111 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ReviewRepository.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\ReviewRepository.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Service\\ReviewRepository.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\ReviewRepository.cs",
-              "RelativeToolTip": "Vortex_API\\Repositories\\Service\\ReviewRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAkAAAA",
+              "DocumentIndex": 12,
+              "Title": "IPaymentRepository.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\IPaymentRepository.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Interface\\IPaymentRepository.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\IPaymentRepository.cs",
+              "RelativeToolTip": "Vortex_API\\Repositories\\Interface\\IPaymentRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T08:32:55.711Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Product.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Product.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\Product.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Product.cs",
-              "RelativeToolTip": "Vortex_API\\Model\\Domain\\Product.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAABOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T10:50:35.028Z",
+              "WhenOpened": "2025-10-13T10:14:36.532Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
+              "Title": "RevenueDTO.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\RevenueDTO.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\DTO\\RevenueDTO.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\RevenueDTO.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\DTO\\RevenueDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T11:06:07.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PaymentRequestDTO.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\PaymentRequestDTO.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\DTO\\PaymentRequestDTO.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\PaymentRequestDTO.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\DTO\\PaymentRequestDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T10:13:15.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PaymentResponseDTO.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\PaymentResponseDTO.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\DTO\\PaymentResponseDTO.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\PaymentResponseDTO.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\DTO\\PaymentResponseDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T10:13:35.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ProductDTO.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\ProductDTO.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\DTO\\ProductDTO.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\ProductDTO.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\DTO\\ProductDTO.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T11:23:34.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ITokenRepository.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\ITokenRepository.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Interface\\ITokenRepository.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\ITokenRepository.cs",
+              "RelativeToolTip": "Vortex_API\\Repositories\\Interface\\ITokenRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T05:49:06.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Controllers\\OrderController.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Vortex_API\\Controllers\\OrderController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T07:18:05.09Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Program.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Program.cs",
               "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Program.cs",
               "RelativeToolTip": "Vortex_API\\Program.cs",
-              "ViewState": "AQIAAE4AAAAAAAAAAAAAAGEAAABCAAAA",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAAAGQAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-10T11:11:56.912Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ReviewDTO.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\ReviewDTO.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Model\\DTO\\ReviewDTO.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\ReviewDTO.cs",
-              "RelativeToolTip": "Vortex_API\\Model\\DTO\\ReviewDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T08:19:01.958Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "20251013082746_create.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Migrations\\20251013082746_create.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Migrations\\20251013082746_create.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Migrations\\20251013082746_create.cs",
-              "RelativeToolTip": "Vortex_API\\Migrations\\20251013082746_create.cs",
-              "ViewState": "AQIAAFUAAAAAAAAAAAAQwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T08:27:46.528Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "ProductRepository.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\ProductRepository.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Service\\ProductRepository.cs",
@@ -510,7 +575,345 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Order.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\Order.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Order.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\Domain\\Order.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T06:54:10.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "News.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\News.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\News.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\News.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\Domain\\News.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T10:58:15.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Image.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Image.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\Image.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Image.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\Domain\\Image.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T10:51:06.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\OrderItem.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\OrderItem.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\OrderItem.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\Domain\\OrderItem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T06:58:01.13Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Payment.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Payment.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\Payment.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Payment.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\Domain\\Payment.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T10:00:16.356Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Product.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\Product.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Product.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\Domain\\Product.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAowCUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T10:50:35.028Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 21,
+              "Title": "Review.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Review.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\Review.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Review.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\Domain\\Review.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T08:14:53.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Category.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\Category.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Category.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\Domain\\Category.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T10:49:57.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "CartItem.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\CartItem.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\CartItem.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\CartItem.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\Domain\\CartItem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T06:53:23.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Cart.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\Cart.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Cart.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\Domain\\Cart.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T06:52:15.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Banner.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Banner.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\Banner.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Banner.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\Domain\\Banner.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T11:06:58.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\ApplicationUser.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\ApplicationUser.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\Domain\\ApplicationUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T05:27:14.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "PaymentRepository.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\PaymentRepository.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Service\\PaymentRepository.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\PaymentRepository.cs",
+              "RelativeToolTip": "Vortex_API\\Repositories\\Service\\PaymentRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T10:17:26.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "AuthRepository.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\AuthRepository.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Service\\AuthRepository.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\AuthRepository.cs",
+              "RelativeToolTip": "Vortex_API\\Repositories\\Service\\AuthRepository.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwCoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T05:53:07.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "20251013102018_add payment.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Migrations\\20251013102018_add payment.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Migrations\\20251013102018_add payment.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Migrations\\20251013102018_add payment.cs",
+              "RelativeToolTip": "Vortex_API\\Migrations\\20251013102018_add payment.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T10:20:18.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Vortex_API.csproj",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Vortex_API.csproj",
+              "RelativeDocumentMoniker": "Vortex_API\\Vortex_API.csproj",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Vortex_API.csproj",
+              "RelativeToolTip": "Vortex_API\\Vortex_API.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-10T10:51:44.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Data\\AppDbContext.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Vortex_API\\Data\\AppDbContext.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAYwBMAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T10:52:12.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "BannerDTO.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\BannerDTO.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\DTO\\BannerDTO.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\BannerDTO.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\DTO\\BannerDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T11:24:03.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "OrderRepository.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\OrderRepository.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Service\\OrderRepository.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\OrderRepository.cs",
+              "RelativeToolTip": "Vortex_API\\Repositories\\Service\\OrderRepository.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwBcAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T07:08:17.901Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "IOrderRepository.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\IOrderRepository.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Interface\\IOrderRepository.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\IOrderRepository.cs",
+              "RelativeToolTip": "Vortex_API\\Repositories\\Interface\\IOrderRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T07:04:37.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "OrderDTO.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\OrderDTO.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\DTO\\OrderDTO.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\OrderDTO.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\DTO\\OrderDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T07:02:40.172Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "CartRepository.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\CartRepository.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Service\\CartRepository.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\CartRepository.cs",
+              "RelativeToolTip": "Vortex_API\\Repositories\\Service\\CartRepository.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAYwDEAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T07:05:47.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Controllers\\CategoryController.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "Vortex_API\\Controllers\\CategoryController.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAYwDcAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T12:27:59.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Interface\\IProductRepository.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\IProductRepository.cs",
+              "RelativeToolTip": "Vortex_API\\Repositories\\Interface\\IProductRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T11:26:00.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "ReviewDTO.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\ReviewDTO.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Model\\DTO\\ReviewDTO.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\ReviewDTO.cs",
+              "RelativeToolTip": "Vortex_API\\Model\\DTO\\ReviewDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T08:19:01.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "20251013082746_create.cs",
+              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Migrations\\20251013082746_create.cs",
+              "RelativeDocumentMoniker": "Vortex_API\\Migrations\\20251013082746_create.cs",
+              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Migrations\\20251013082746_create.cs",
+              "RelativeToolTip": "Vortex_API\\Migrations\\20251013082746_create.cs",
+              "ViewState": "AQIAAFUAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T08:27:46.528Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
               "Title": "RegisterDTO.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\RegisterDTO.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Model\\DTO\\RegisterDTO.cs",
@@ -523,7 +926,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 46,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\appsettings.json",
               "RelativeDocumentMoniker": "Vortex_API\\appsettings.json",
@@ -536,20 +939,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Controllers\\ProductController.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "Vortex_API\\Controllers\\ProductController.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAYwEkAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T12:44:20.838Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 48,
               "Title": "CartItemDTO.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\CartItemDTO.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Model\\DTO\\CartItemDTO.cs",
@@ -557,47 +947,12 @@
               "RelativeToolTip": "Vortex_API\\Model\\DTO\\CartItemDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T07:02:08.885Z"
+              "WhenOpened": "2025-10-13T07:02:08.885Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "OrderItem.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\OrderItem.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\OrderItem.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\OrderItem.cs",
-              "RelativeToolTip": "Vortex_API\\Model\\Domain\\OrderItem.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T06:58:01.13Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Image.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Image.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\Image.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Image.cs",
-              "RelativeToolTip": "Vortex_API\\Model\\Domain\\Image.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T10:51:06.5Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "CartController.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\CartController.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Controllers\\CartController.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\CartController.cs",
-              "RelativeToolTip": "Vortex_API\\Controllers\\CartController.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAAgwCkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T07:27:03.34Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 49,
               "Title": "ICategoryRepository.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\ICategoryRepository.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Interface\\ICategoryRepository.cs",
@@ -605,11 +960,12 @@
               "RelativeToolTip": "Vortex_API\\Repositories\\Interface\\ICategoryRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T11:25:41.977Z"
+              "WhenOpened": "2025-10-10T11:25:41.977Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 50,
               "Title": "CategoryRepository.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\CategoryRepository.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Service\\CategoryRepository.cs",
@@ -617,23 +973,12 @@
               "RelativeToolTip": "Vortex_API\\Repositories\\Service\\CategoryRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T11:27:00.426Z"
+              "WhenOpened": "2025-10-10T11:27:00.426Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "CartItem.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\CartItem.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\CartItem.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\CartItem.cs",
-              "RelativeToolTip": "Vortex_API\\Model\\Domain\\CartItem.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T06:53:23.479Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 51,
               "Title": "ICartRepository.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\ICartRepository.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Interface\\ICartRepository.cs",
@@ -641,23 +986,12 @@
               "RelativeToolTip": "Vortex_API\\Repositories\\Interface\\ICartRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T07:03:40.139Z"
+              "WhenOpened": "2025-10-13T07:03:40.139Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Cart.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Cart.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\Cart.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Cart.cs",
-              "RelativeToolTip": "Vortex_API\\Model\\Domain\\Cart.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T06:52:15.854Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 54,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Controllers\\AuthController.cs",
@@ -665,11 +999,12 @@
               "RelativeToolTip": "Vortex_API\\Controllers\\AuthController.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAACQAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T05:54:09.8Z"
+              "WhenOpened": "2025-10-13T05:54:09.8Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 52,
               "Title": "NewsController.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\NewsController.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Controllers\\NewsController.cs",
@@ -677,11 +1012,12 @@
               "RelativeToolTip": "Vortex_API\\Controllers\\NewsController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T12:47:53.924Z"
+              "WhenOpened": "2025-10-10T12:47:53.924Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 53,
               "Title": "ImageController.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\ImageController.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Controllers\\ImageController.cs",
@@ -689,23 +1025,12 @@
               "RelativeToolTip": "Vortex_API\\Controllers\\ImageController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T14:25:59.264Z"
+              "WhenOpened": "2025-10-10T14:25:59.264Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "BannerController.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\BannerController.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Controllers\\BannerController.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Controllers\\BannerController.cs",
-              "RelativeToolTip": "Vortex_API\\Controllers\\BannerController.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAYwAsAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T12:39:58.428Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 55,
               "Title": "DbInitializer.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Data\\DbInitializer.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Data\\DbInitializer.cs",
@@ -713,11 +1038,12 @@
               "RelativeToolTip": "Vortex_API\\Data\\DbInitializer.cs",
               "ViewState": "AQIAAAcAAAAAAAAAAAAzwCEAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T06:01:50.666Z"
+              "WhenOpened": "2025-10-13T06:01:50.666Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 56,
               "Title": "IAuthRepository.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\IAuthRepository.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Interface\\IAuthRepository.cs",
@@ -725,11 +1051,12 @@
               "RelativeToolTip": "Vortex_API\\Repositories\\Interface\\IAuthRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T05:50:51.124Z"
+              "WhenOpened": "2025-10-13T05:50:51.124Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 57,
               "Title": "LoginDTO.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\LoginDTO.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Model\\DTO\\LoginDTO.cs",
@@ -737,23 +1064,12 @@
               "RelativeToolTip": "Vortex_API\\Model\\DTO\\LoginDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T05:51:32.742Z"
+              "WhenOpened": "2025-10-13T05:51:32.742Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "AuthRepository.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\AuthRepository.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Service\\AuthRepository.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\AuthRepository.cs",
-              "RelativeToolTip": "Vortex_API\\Repositories\\Service\\AuthRepository.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAAwCoAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T05:53:07.969Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 58,
               "Title": "TokenRepository.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\TokenRepository.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Service\\TokenRepository.cs",
@@ -761,23 +1077,12 @@
               "RelativeToolTip": "Vortex_API\\Repositories\\Service\\TokenRepository.cs",
               "ViewState": "AQIAAA0AAAAAAAAAAAAzwCwAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T05:49:56.929Z"
+              "WhenOpened": "2025-10-13T05:49:56.929Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "ITokenRepository.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\ITokenRepository.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Interface\\ITokenRepository.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\ITokenRepository.cs",
-              "RelativeToolTip": "Vortex_API\\Repositories\\Interface\\ITokenRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAABJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T05:49:06.75Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 60,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Vortex_API\\Properties\\launchSettings.json",
@@ -785,11 +1090,12 @@
               "RelativeToolTip": "Vortex_API\\Properties\\launchSettings.json",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAAB4AAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-13T05:35:04.764Z"
+              "WhenOpened": "2025-10-13T05:35:04.764Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 59,
               "Title": "BannerRepository.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\BannerRepository.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Service\\BannerRepository.cs",
@@ -797,35 +1103,12 @@
               "RelativeToolTip": "Vortex_API\\Repositories\\Service\\BannerRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAEIAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T11:27:43.859Z"
+              "WhenOpened": "2025-10-10T11:27:43.859Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "Vortex_API.csproj",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Vortex_API.csproj",
-              "RelativeDocumentMoniker": "Vortex_API\\Vortex_API.csproj",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Vortex_API.csproj",
-              "RelativeToolTip": "Vortex_API\\Vortex_API.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-10T10:51:44.958Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\ApplicationUser.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\ApplicationUser.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\ApplicationUser.cs",
-              "RelativeToolTip": "Vortex_API\\Model\\Domain\\ApplicationUser.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T05:27:14.893Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 61,
               "Title": "INewsRepository.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\INewsRepository.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Interface\\INewsRepository.cs",
@@ -833,11 +1116,12 @@
               "RelativeToolTip": "Vortex_API\\Repositories\\Interface\\INewsRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T11:26:18.461Z"
+              "WhenOpened": "2025-10-10T11:26:18.461Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 62,
               "Title": "IImageRepository.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\IImageRepository.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Interface\\IImageRepository.cs",
@@ -845,11 +1129,12 @@
               "RelativeToolTip": "Vortex_API\\Repositories\\Interface\\IImageRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T14:14:28.959Z"
+              "WhenOpened": "2025-10-10T14:14:28.959Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 63,
               "Title": "IBannerRepository.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Interface\\IBannerRepository.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Interface\\IBannerRepository.cs",
@@ -857,11 +1142,12 @@
               "RelativeToolTip": "Vortex_API\\Repositories\\Interface\\IBannerRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T11:26:39.764Z"
+              "WhenOpened": "2025-10-10T11:26:39.764Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 64,
               "Title": "ImageRepository.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\ImageRepository.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Service\\ImageRepository.cs",
@@ -869,11 +1155,12 @@
               "RelativeToolTip": "Vortex_API\\Repositories\\Service\\ImageRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACgAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T14:19:37.127Z"
+              "WhenOpened": "2025-10-10T14:19:37.127Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 65,
               "Title": "NewsRepository.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Repositories\\Service\\NewsRepository.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Repositories\\Service\\NewsRepository.cs",
@@ -881,11 +1168,12 @@
               "RelativeToolTip": "Vortex_API\\Repositories\\Service\\NewsRepository.cs",
               "ViewState": "AQIAADkAAAAAAAAAAAA7wEYAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T11:27:31.448Z"
+              "WhenOpened": "2025-10-10T11:27:31.448Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 66,
               "Title": "NewsDTO.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\NewsDTO.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Model\\DTO\\NewsDTO.cs",
@@ -893,11 +1181,12 @@
               "RelativeToolTip": "Vortex_API\\Model\\DTO\\NewsDTO.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABoAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T11:23:49.745Z"
+              "WhenOpened": "2025-10-10T11:23:49.745Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 67,
               "Title": "ImageUploadDTO.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\ImageUploadDTO.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Model\\DTO\\ImageUploadDTO.cs",
@@ -905,47 +1194,12 @@
               "RelativeToolTip": "Vortex_API\\Model\\DTO\\ImageUploadDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T14:15:13.26Z"
+              "WhenOpened": "2025-10-10T14:15:13.26Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "BannerDTO.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\BannerDTO.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Model\\DTO\\BannerDTO.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\BannerDTO.cs",
-              "RelativeToolTip": "Vortex_API\\Model\\DTO\\BannerDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T11:24:03.009Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "News.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\News.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\News.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\News.cs",
-              "RelativeToolTip": "Vortex_API\\Model\\Domain\\News.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T10:58:15.071Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "Banner.cs",
-              "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Banner.cs",
-              "RelativeDocumentMoniker": "Vortex_API\\Model\\Domain\\Banner.cs",
-              "ToolTip": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\Domain\\Banner.cs",
-              "RelativeToolTip": "Vortex_API\\Model\\Domain\\Banner.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T11:06:58.929Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 68,
               "Title": "CategoryDTO.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Model\\DTO\\CategoryDTO.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Model\\DTO\\CategoryDTO.cs",
@@ -953,11 +1207,12 @@
               "RelativeToolTip": "Vortex_API\\Model\\DTO\\CategoryDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T11:23:22.055Z"
+              "WhenOpened": "2025-10-10T11:23:22.055Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 69,
               "Title": "20251010111640_FirstCreate.cs",
               "DocumentMoniker": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Migrations\\20251010111640_FirstCreate.cs",
               "RelativeDocumentMoniker": "Vortex_API\\Migrations\\20251010111640_FirstCreate.cs",
@@ -965,7 +1220,8 @@
               "RelativeToolTip": "Vortex_API\\Migrations\\20251010111640_FirstCreate.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T11:16:40.514Z"
+              "WhenOpened": "2025-10-10T11:16:40.514Z",
+              "EditorCaption": ""
             }
           ]
         }

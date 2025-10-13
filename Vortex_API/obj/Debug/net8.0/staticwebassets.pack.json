@@ -1,12 +1,12 @@
 {
   "Files": [
     {
-      "Id": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\wwwroot\\uploads\\news\\1ae8a119-40ca-4245-91b2-f8ec5a843266.jpg",
-      "PackagePath": "staticwebassets\\uploads\\news\\1ae8a119-40ca-4245-91b2-f8ec5a843266.jpg"
+      "Id": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\wwwroot\\uploads\\products\\124ab783-7105-49f9-a0e8-340ea9dc7167.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\124ab783-7105-49f9-a0e8-340ea9dc7167.jpg"
     },
     {
-      "Id": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\wwwroot\\uploads\\products\\da37886f-6d18-42ae-957a-6561248a7bc3.jpg",
-      "PackagePath": "staticwebassets\\uploads\\products\\da37886f-6d18-42ae-957a-6561248a7bc3.jpg"
+      "Id": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\wwwroot\\uploads\\products\\b18b7a07-9137-426b-9ab3-b037f9d1c9e5.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\b18b7a07-9137-426b-9ab3-b037f9d1c9e5.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Vortex_API.Microsoft.AspNetCore.StaticWebAssets.props",
