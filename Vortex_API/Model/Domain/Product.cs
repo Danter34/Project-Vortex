@@ -33,5 +33,6 @@ namespace Vortex_API.Model.Domain
         // Danh sách ảnh của sản phẩm
         public ICollection<Image>? Images { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public int StockQuantity { get; set; } 
     }
 }

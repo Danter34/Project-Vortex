@@ -112,6 +112,7 @@ namespace Vortex_API.Repositories.Service
             {
                 Title = dto.Title,
                 Description = dto.Description,
+                StockQuantity = dto.StockQuantity,
                 Price = dto.Price,
                 IsHot = dto.IsHot,
                 IsNew = dto.IsNew,
@@ -168,6 +169,7 @@ namespace Vortex_API.Repositories.Service
 
             product.Title = dto.Title;
             product.Description = dto.Description;
+            product.StockQuantity = dto.StockQuantity;
             product.Price = dto.Price;
             product.IsHot = dto.IsHot;
             product.IsNew = dto.IsNew;

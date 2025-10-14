@@ -9,6 +9,7 @@ namespace Vortex_API.Model.DTO
 
         [MaxLength(2000)]
         public string? Description { get; set; }
+        public int StockQuantity { get; set; }
 
         [Required]
         public decimal Price { get; set; }
@@ -28,6 +29,7 @@ namespace Vortex_API.Model.DTO
 
         [MaxLength(2000)]
         public string? Description { get; set; }
+        public int StockQuantity { get; set; }
 
         [Required]
         public decimal Price { get; set; }

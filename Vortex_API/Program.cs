@@ -8,9 +8,18 @@ using Vortex_API.Data;
 using Vortex_API.Model.Domain;
 using Vortex_API.Repositories.Interface;
 using Vortex_API.Repositories.Service;
-
+using Vortex_API.BackgroundServices;
+using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container. 
+var _logger = new LoggerConfiguration()
+    .WriteTo.Console()// ghi ra console 
+    .WriteTo.File("Logs/Book_log.txt", rollingInterval: RollingInterval.Minute) //ghi ra file lưu trong thư mục Logs 
+    .MinimumLevel.Information() 
+    .CreateLogger();
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(_logger);
 // Add services to the container.
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -99,6 +108,9 @@ builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 builder.Services.AddScoped<IRevenueRepository, RevenueRepository>();
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 builder.Services.AddScoped<IFeedbackRepository, FeedbackRepository>();
+//background service
+builder.Services.AddHostedService<PaymentCleanupService>();
+
 
 
 builder.Services.AddAuthorization();

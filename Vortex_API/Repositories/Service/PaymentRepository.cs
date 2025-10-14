@@ -92,13 +92,35 @@ namespace Vortex_API.Repositories.Service
         public async Task<bool> HandleMomoReturn(string orderId, string resultCode)
         {
             var payment = await _context.Payments
+                .Include(p => p.Order)
+                .ThenInclude(o => o.Items)
+                .ThenInclude(i => i.Product)
                 .FirstOrDefaultAsync(p => p.MomoOrderId == orderId);
 
             if (payment == null) return false;
 
-            if (resultCode == "0")
+            if (resultCode == "0") 
             {
                 payment.Status = "Paid";
+
+                var order = payment.Order;
+                if (order != null)
+                {
+                    order.Status = "Pending";
+
+                    foreach (var item in order.Items)
+                    {
+                        var product = item.Product;
+                        if (product != null)
+                        {
+                            if (product.StockQuantity < item.Quantity)
+                                throw new Exception($"Sản phẩm '{product.Title}' không đủ hàng (còn {product.StockQuantity}).");
+
+                            product.StockQuantity -= item.Quantity;
+                        }
+                    }
+                }
+
                 await _context.SaveChangesAsync();
                 return true;
             }
@@ -119,5 +141,39 @@ namespace Vortex_API.Repositories.Service
             byte[] hashValue = hmac.ComputeHash(Encoding.UTF8.GetBytes(rawData));
             return BitConverter.ToString(hashValue).Replace("-", "").ToLower();
         }
+        public async Task CheckFailedPaymentsAsync()
+        {
+            var now = DateTime.Now;
+
+            var payments = await _context.Payments
+                .Include(p => p.Order)
+                .Where(p => p.Status == "Pending" || p.Status == "Failed")
+                .ToListAsync();
+
+            var expiredPayments = payments
+                .Where(p => p.Status == "Failed" ||
+                            (p.Status == "Pending" && (now - p.CreatedAt).TotalMinutes > 2))
+                .ToList();
+
+            foreach (var payment in expiredPayments)
+            {
+                if (payment.Order != null)
+                {
+                    payment.Order.Status = "PaymentFailed";
+                    payment.Status = "Failed";
+                }
+            }
+
+            await _context.SaveChangesAsync();
+
+            var failedOrders = _context.Orders.Where(o => o.Status == "PaymentFailed").ToList();
+
+            if (failedOrders.Any())
+            {
+                _context.Orders.RemoveRange(failedOrders);
+                await _context.SaveChangesAsync();
+            }
+        }
+
     }
 }
