@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yNSXHUF/YBXBxOeVPooILxKZY62CWP8zJQ87G6X5oBY=",
+  "Hash": "YQqD7RnJ9HA3jSpYR0JrcmxRolIDv3fwLpDYSSW3iM0=",
   "Source": "Vortex_API",
   "BasePath": "_content/Vortex_API",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\wwwroot\\uploads\\products\\11ec8468-c6be-4243-b1ce-2d782a6b2758.jpg",
+      "SourceId": "Vortex_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\wwwroot\\",
+      "BasePath": "_content/Vortex_API",
+      "RelativePath": "uploads/products/11ec8468-c6be-4243-b1ce-2d782a6b2758.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\products\\11ec8468-c6be-4243-b1ce-2d782a6b2758.jpg"
+    },
     {
       "Identity": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\wwwroot\\uploads\\products\\124ab783-7105-49f9-a0e8-340ea9dc7167.jpg",
       "SourceId": "Vortex_API",

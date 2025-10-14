@@ -15,7 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container. 
 var _logger = new LoggerConfiguration()
     .WriteTo.Console()// ghi ra console 
-    .WriteTo.File("Logs/Book_log.txt", rollingInterval: RollingInterval.Minute) //ghi ra file lưu trong thư mục Logs 
+    .WriteTo.File("Logs/Vortex_log.txt", rollingInterval: RollingInterval.Minute) //ghi ra file lưu trong thư mục Logs 
     .MinimumLevel.Information() 
     .CreateLogger();
 builder.Logging.ClearProviders();

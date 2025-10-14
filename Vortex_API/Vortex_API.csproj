@@ -27,7 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Logs\" />
     <Folder Include="wwwroot\uploads\news\" />
     <Folder Include="wwwroot\uploads\banners\" />
     <Folder Include="wwwroot\uploads\products\" />

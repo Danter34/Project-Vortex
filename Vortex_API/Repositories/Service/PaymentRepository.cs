@@ -165,14 +165,6 @@ namespace Vortex_API.Repositories.Service
             }
 
             await _context.SaveChangesAsync();
-
-            var failedOrders = _context.Orders.Where(o => o.Status == "PaymentFailed").ToList();
-
-            if (failedOrders.Any())
-            {
-                _context.Orders.RemoveRange(failedOrders);
-                await _context.SaveChangesAsync();
-            }
         }
 
     }

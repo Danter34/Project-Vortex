@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\wwwroot\\uploads\\products\\11ec8468-c6be-4243-b1ce-2d782a6b2758.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\11ec8468-c6be-4243-b1ce-2d782a6b2758.jpg"
+    },
+    {
       "Id": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\wwwroot\\uploads\\products\\124ab783-7105-49f9-a0e8-340ea9dc7167.jpg",
       "PackagePath": "staticwebassets\\uploads\\products\\124ab783-7105-49f9-a0e8-340ea9dc7167.jpg"
     },
