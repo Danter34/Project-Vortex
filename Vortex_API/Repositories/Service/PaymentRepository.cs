@@ -1,30 +1,123 @@
-﻿using Vortex_API.Data;
+﻿using System.Security.Cryptography;
+using System.Text;
+using Vortex_API.Data;
 using Vortex_API.Model.Domain;
 using Vortex_API.Repositories.Interface;
+using Vortex_API.Model.DTO;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+
 namespace Vortex_API.Repositories.Service
 {
-    public class PaymentRepository: IPaymentRepository
+    public class PaymentRepository : IPaymentRepository
     {
         private readonly AppDbContext _context;
-        public PaymentRepository(AppDbContext ctx) { _context = ctx; }
+        private readonly IConfiguration _config;
 
-        public async Task<Payment> CreatePaymentAsync(Payment p)
+        public PaymentRepository(AppDbContext context, IConfiguration config)
         {
-            _context.Payments.Add(p);
-            await _context.SaveChangesAsync();
-            return p;
+            _context = context;
+            _config = config;
         }
 
-        public async Task<Payment?> GetByIdAsync(int id)
+        public async Task<PaymentResponse> CreatePayment(PaymentRequest dto)
         {
-            return await _context.Payments.Include(x => x.Order).FirstOrDefaultAsync(x => x.Id == id);
+            var order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == dto.OrderId);
+            if (order == null) throw new Exception("Order not found");
+
+            var momoConfig = _config.GetSection("MomoSettings");
+            var endpoint = momoConfig["Endpoint"];
+            var partnerCode = momoConfig["PartnerCode"];
+            var accessKey = momoConfig["AccessKey"];
+            var secretKey = momoConfig["SecretKey"];
+            var returnUrl = momoConfig["ReturnUrl"];
+            var notifyUrl = momoConfig["NotifyUrl"];
+
+            string orderInfo = $"Thanh toán đơn hàng #{order.Id}";
+            string amount = order.TotalAmount.ToString("0");
+            string momoOrderId = DateTime.Now.Ticks.ToString(); // orderId MoMo dùng
+            string requestId = momoOrderId;
+            string requestType = "captureWallet";
+
+            string rawHash = $"accessKey={accessKey}&amount={amount}&extraData=&ipnUrl={notifyUrl}&orderId={momoOrderId}&orderInfo={orderInfo}&partnerCode={partnerCode}&redirectUrl={returnUrl}&requestId={requestId}&requestType={requestType}";
+            string signature = CreateSignature(rawHash, secretKey);
+
+            var body = new
+            {
+                partnerCode,
+                partnerName = "Vortex",
+                storeId = "VortexShop",
+                requestId,
+                amount,
+                orderId = momoOrderId,
+                orderInfo,
+                redirectUrl = returnUrl,
+                ipnUrl = notifyUrl,
+                lang = "vi",
+                requestType,
+                extraData = "",
+                signature
+            };
+
+            using var client = new HttpClient();
+            var response = await client.PostAsync(endpoint,
+                new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json"));
+
+            var json = await response.Content.ReadAsStringAsync();
+            dynamic momoResponse = JsonConvert.DeserializeObject(json)!;
+
+            Console.WriteLine("Momo response: " + json);
+
+            var payment = new Payment
+            {
+                OrderId = order.Id,
+                MomoOrderId = momoOrderId, // lưu lại để truy xuất khi MoMo redirect
+                Amount = order.TotalAmount,
+                PaymentMethod = "MoMo",
+                Status = "Pending",
+                PayUrl = momoResponse.payUrl
+            };
+
+            _context.Payments.Add(payment);
+            await _context.SaveChangesAsync();
+
+            return new PaymentResponse
+            {
+                PaymentId = payment.Id,
+                Amount = payment.Amount,
+                PayUrl = payment.PayUrl!,
+                Status = payment.Status
+            };
+        }
+        public async Task<bool> HandleMomoReturn(string orderId, string resultCode)
+        {
+            var payment = await _context.Payments
+                .FirstOrDefaultAsync(p => p.MomoOrderId == orderId);
+
+            if (payment == null) return false;
+
+            if (resultCode == "0")
+            {
+                payment.Status = "Paid";
+                await _context.SaveChangesAsync();
+                return true;
+            }
+
+            payment.Status = "Failed";
+            await _context.SaveChangesAsync();
+            return false;
         }
 
-        public async Task UpdateAsync(Payment p)
+        public async Task<bool> HandleMomoNotify(string orderId, string resultCode)
         {
-            _context.Payments.Update(p);
-            await _context.SaveChangesAsync();
+            return await HandleMomoReturn(orderId, resultCode);
+        }
+
+        private string CreateSignature(string rawData, string secretKey)
+        {
+            using var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(secretKey));
+            byte[] hashValue = hmac.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+            return BitConverter.ToString(hashValue).Replace("-", "").ToLower();
         }
     }
 }

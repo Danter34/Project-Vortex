@@ -1,11 +1,12 @@
-﻿using Vortex_API.Model.Domain;
+﻿
+using Vortex_API.Model.DTO;
 
 namespace Vortex_API.Repositories.Interface
 {
     public interface IPaymentRepository
     {
-        Task<Payment> CreatePaymentAsync(Payment p);
-        Task<Payment?> GetByIdAsync(int id);
-        Task UpdateAsync(Payment p);
+        Task<PaymentResponse> CreatePayment(PaymentRequest dto);
+        Task<bool> HandleMomoReturn(string orderId, string resultCode);
+        Task<bool> HandleMomoNotify(string orderId, string resultCode);
     }
 }
