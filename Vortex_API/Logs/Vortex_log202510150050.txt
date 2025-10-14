@@ -1,0 +1,52 @@
+2025-10-15 00:50:05.121 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161/api/Cart/get-cart - null null
+2025-10-15 00:50:05.171 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.CartController.GetCart (Vortex_API)'
+2025-10-15 00:50:05.175 +07:00 [INF] Route matched with {action = "GetCart", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCart() on controller Vortex_API.Controllers.CartController (Vortex_API).
+2025-10-15 00:50:05.224 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[UserId], [t0].[Id], [t0].[CartId], [t0].[ProductId], [t0].[Quantity], [t0].[Id0], [t0].[AverageRating], [t0].[CategoryId], [t0].[CreatedAt], [t0].[Description], [t0].[IsHot], [t0].[IsNew], [t0].[Price], [t0].[StockQuantity], [t0].[Title]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [c0].[Id], [c0].[CartId], [c0].[ProductId], [c0].[Quantity], [p].[Id] AS [Id0], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title]
+    FROM [CartItems] AS [c0]
+    INNER JOIN [Products] AS [p] ON [c0].[ProductId] = [p].[Id]
+) AS [t0] ON [t].[Id] = [t0].[CartId]
+ORDER BY [t].[Id], [t0].[Id]
+2025-10-15 00:50:05.233 +07:00 [INF] Executing OkObjectResult, writing value of type 'Vortex_API.Model.Domain.Cart'.
+2025-10-15 00:50:05.251 +07:00 [INF] Executed action Vortex_API.Controllers.CartController.GetCart (Vortex_API) in 73.9452ms
+2025-10-15 00:50:05.252 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.CartController.GetCart (Vortex_API)'
+2025-10-15 00:50:05.253 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161/api/Cart/get-cart - 200 null application/json; charset=utf-8 132.1197ms
+2025-10-15 00:50:10.759 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7161/api/Auth/change-password - application/json 97
+2025-10-15 00:50:10.762 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.AuthController.ChangePassword (Vortex_API)'
+2025-10-15 00:50:10.763 +07:00 [INF] Route matched with {action = "ChangePassword", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ChangePassword(Vortex_API.Model.DTO.ChangePasswordDTO) on controller Vortex_API.Controllers.AuthController (Vortex_API).
+2025-10-15 00:50:10.801 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Balance], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-10-15 00:50:10.872 +07:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-10-15 00:50:10.874 +07:00 [INF] Executed action Vortex_API.Controllers.AuthController.ChangePassword (Vortex_API) in 109.415ms
+2025-10-15 00:50:10.875 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.AuthController.ChangePassword (Vortex_API)'
+2025-10-15 00:50:10.876 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7161/api/Auth/change-password - 400 null text/plain; charset=utf-8 117.293ms
+2025-10-15 00:50:17.530 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7161/api/Auth/change-password - application/json 99
+2025-10-15 00:50:17.532 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.AuthController.ChangePassword (Vortex_API)'
+2025-10-15 00:50:17.533 +07:00 [INF] Route matched with {action = "ChangePassword", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ChangePassword(Vortex_API.Model.DTO.ChangePasswordDTO) on controller Vortex_API.Controllers.AuthController (Vortex_API).
+2025-10-15 00:50:17.546 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Balance], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-10-15 00:50:17.707 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Balance], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-10-15 00:50:17.789 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@p16='?' (Size = 450), @p0='?' (DbType = Int32), @p1='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p2='?' (Size = 4000), @p17='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [Balance] = @p1, [ConcurrencyStamp] = @p2, [Email] = @p3, [EmailConfirmed] = @p4, [FullName] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [PhoneNumber] = @p11, [PhoneNumberConfirmed] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserName] = @p15
+OUTPUT 1
+WHERE [Id] = @p16 AND [ConcurrencyStamp] = @p17;
+2025-10-15 00:50:17.799 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-15 00:50:17.801 +07:00 [INF] Executed action Vortex_API.Controllers.AuthController.ChangePassword (Vortex_API) in 266.6617ms
+2025-10-15 00:50:17.802 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.AuthController.ChangePassword (Vortex_API)'
+2025-10-15 00:50:17.803 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7161/api/Auth/change-password - 200 null application/json; charset=utf-8 273.1836ms

@@ -7,4 +7,5 @@ namespace Vortex_API.Model.Domain
         public decimal Balance { get; set; }
         public string? FullName { get; set; }
     }
+
 }

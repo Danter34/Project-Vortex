@@ -1,0 +1,12 @@
+2025-10-15 00:39:03.533 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7161/api/Auth/change-password - application/json 103
+2025-10-15 00:39:03.543 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.AuthController.ChangePassword (Vortex_API)'
+2025-10-15 00:39:03.552 +07:00 [INF] Route matched with {action = "ChangePassword", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ChangePassword(Vortex_API.Model.DTO.ChangePasswordDTO) on controller Vortex_API.Controllers.AuthController (Vortex_API).
+2025-10-15 00:39:03.582 +07:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-10-15 00:39:03.592 +07:00 [INF] Executed action Vortex_API.Controllers.AuthController.ChangePassword (Vortex_API) in 38.325ms
+2025-10-15 00:39:03.593 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.AuthController.ChangePassword (Vortex_API)'
+2025-10-15 00:39:03.594 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7161/api/Auth/change-password - 401 null application/problem+json; charset=utf-8 61.5548ms
+2025-10-15 00:39:56.168 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Amount], [p].[CreatedAt], [p].[MomoOrderId], [p].[OrderId], [p].[PayUrl], [p].[PaymentMethod], [p].[Status], [o].[Id], [o].[CreatedAt], [o].[Name], [o].[Phone], [o].[ShippingAddress], [o].[Status], [o].[TotalAmount], [o].[UserId]
+FROM [Payments] AS [p]
+INNER JOIN [Orders] AS [o] ON [p].[OrderId] = [o].[Id]
+WHERE [p].[Status] IN (N'Pending', N'Failed')

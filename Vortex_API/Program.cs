@@ -108,6 +108,7 @@ builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 builder.Services.AddScoped<IRevenueRepository, RevenueRepository>();
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 builder.Services.AddScoped<IFeedbackRepository, FeedbackRepository>();
+builder.Services.AddScoped<IUserManagementRepository, UserManagementRepository>();
 //background service
 builder.Services.AddHostedService<PaymentCleanupService>();
 

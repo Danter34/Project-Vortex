@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Vortex_API.Model.DTO;
 using Vortex_API.Repositories.Interface;
-
+using Microsoft.AspNetCore.Authorization;
 namespace Vortex_API.Controllers
 {
     [Route("api/[controller]")]
@@ -51,6 +51,18 @@ namespace Vortex_API.Controllers
 
             _logger.LogInformation("User logged in successfully: {Email}", dto.Email);
             return Ok(new { token });
+        }
+        [HttpPut("change-password")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDTO dto)
+        {
+            var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId)) return Unauthorized();
+
+            var success = await _authRepository.ChangePasswordAsync(userId, dto);
+            if (!success)
+                return BadRequest("Change password failed. Current password may be incorrect or new passwords do not match.");
+
+            return Ok(new { message = "Password changed successfully" });
         }
     }
 }

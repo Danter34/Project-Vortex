@@ -41,5 +41,16 @@ namespace Vortex_API.Repositories.Service
 
             return result;
         }
+        public async Task<bool> ChangePasswordAsync(string userId, ChangePasswordDTO dto)
+        {
+            if (dto.NewPassword != dto.ConfirmNewPassword)
+                return false; // Xác nhận mật khẩu mới không khớp
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return false;
+
+            var result = await _userManager.ChangePasswordAsync(user, dto.CurrentPassword, dto.NewPassword);
+            return result.Succeeded;
+        }
     }
 }

@@ -1,0 +1,14 @@
+2025-10-15 00:45:22.693 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7161/api/Auth/change-password - application/json 97
+2025-10-15 00:45:22.705 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.AuthController.ChangePassword (Vortex_API)'
+2025-10-15 00:45:22.709 +07:00 [INF] Route matched with {action = "ChangePassword", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ChangePassword(Vortex_API.Model.DTO.ChangePasswordDTO) on controller Vortex_API.Controllers.AuthController (Vortex_API).
+2025-10-15 00:45:22.716 +07:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-10-15 00:45:22.725 +07:00 [INF] Executed action Vortex_API.Controllers.AuthController.ChangePassword (Vortex_API) in 14.6925ms
+2025-10-15 00:45:22.726 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.AuthController.ChangePassword (Vortex_API)'
+2025-10-15 00:45:22.727 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7161/api/Auth/change-password - 401 null application/problem+json; charset=utf-8 36.5182ms
+2025-10-15 00:45:33.365 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7161/api/Auth/change-password - application/json 99
+2025-10-15 00:45:33.368 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.AuthController.ChangePassword (Vortex_API)'
+2025-10-15 00:45:33.370 +07:00 [INF] Route matched with {action = "ChangePassword", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ChangePassword(Vortex_API.Model.DTO.ChangePasswordDTO) on controller Vortex_API.Controllers.AuthController (Vortex_API).
+2025-10-15 00:45:33.380 +07:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-10-15 00:45:33.382 +07:00 [INF] Executed action Vortex_API.Controllers.AuthController.ChangePassword (Vortex_API) in 9.4895ms
+2025-10-15 00:45:33.383 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.AuthController.ChangePassword (Vortex_API)'
+2025-10-15 00:45:33.383 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7161/api/Auth/change-password - 401 null application/problem+json; charset=utf-8 18.878ms
