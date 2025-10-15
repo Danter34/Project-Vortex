@@ -1,0 +1,270 @@
+﻿@using System.Security.Claims
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    var cartCount = 0;
+    if (Context.Request.Cookies.TryGetValue("CartCount", out var value))
+    {
+        int.TryParse(value, out cartCount);
+    }
+}
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortex Play - Thiên Đường Gaming</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Google Fonts: Orbitron -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/css/styles.css">
+</head>
+
+<body>
+
+    <!-- =========== HEADER =========== -->
+    <header class="header-main sticky-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <button class="btn btn-neon me-3" id="sidebar-toggle-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a class="navbar-brand logo" href="/index.html">VORTEX PLAY</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                   <div class="search-container ms-auto me-auto">
+                        <form asp-controller="Home" asp-action="Filter" method="get" class="d-flex search-form">
+                            <input class="form-control" type="search" name="search" placeholder="Tìm kiếm sản phẩm..." aria-label="Search">
+                            <button class="btn btn-search" type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+
+                    </div>
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            @if (User.Identity != null && User.Identity.IsAuthenticated)
+                            {
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                    <i class="fas fa-user-astronaut"></i> @User.Identity.Name
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="@Url.Action("Profile", "Account")">Hồ sơ của tôi</a></li>
+                                    <li><a class="dropdown-item" href="@Url.Action("Orders", "Account")">Theo dõi đơn hàng</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <form method="post" asp-controller="Auth" asp-action="Logout">
+                                            <button type="submit" class="dropdown-item">Đăng xuất</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            }
+                            else
+                            {
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                    <i class="fas fa-user-astronaut"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="@Url.Action("Login", "Auth")">Đăng nhập</a></li>
+                                    <li><a class="dropdown-item" href="@Url.Action("Register", "Auth")">Đăng ký</a></li>
+                                </ul>
+                            }
+                        </li>
+                        <li class="nav-item">
+                            @await Component.InvokeAsync("CartBadge")
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Mobile Search Bar -->
+        <div class="mobile-search-wrapper d-lg-none p-3">
+             <div class="search-container">
+                <form asp-controller="Home" asp-action="Filter" method="get" class="d-flex search-form" role="search">
+                    <input class="form-control" type="search" placeholder="Tìm kiếm sản phẩm..." aria-label="Search">
+                    <button class="btn btn-search" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <!-- =========== END HEADER =========== -->
+
+
+    <div class="main-wrapper d-flex">
+        <!-- =========== SIDEBAR =========== -->
+        <aside class="sidebar" id="sidebar">
+        <nav class="sidebar-nav">
+            <ul class="list-unstyled">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                           data-bs-target="#game-console" aria-expanded="false" aria-controls="game-console">
+                            <i class="fas fa-gamepad"></i> Máy Chơi Game
+                        </a>
+                        <ul id="game-console" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item-child">
+                                <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#console-new" aria-expanded="false" aria-controls="console-new">
+                                    Máy Mới
+                                </a>
+                                <ul id="console-new" class="sidebar-dropdown list-unstyled collapse ms-3">
+                                    <li><a href="@Url.Action("Filter", "Home", new { categoryId = 4 })" class="sidebar-link">Nintendo</a></li>
+                                    <li><a href="@Url.Action("Filter", "Home", new { categoryId = 5 })" class="sidebar-link">PlayStation</a></li>
+                                    <li><a href="@Url.Action("Filter", "Home", new { categoryId = 6 })" class="sidebar-link">Xbox</a></li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-item-child">
+                                <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#console-used" aria-expanded="false" aria-controls="console-used">
+                                    Máy Cũ
+                                </a>
+                                <ul id="console-used" class="sidebar-dropdown list-unstyled collapse ms-3">
+                                    <li><a href="@Url.Action("Filter", "Home", new { categoryId = 7 })" class="sidebar-link">Nintendo</a></li>
+                                    <li><a href="@Url.Action("Filter", "Home", new { categoryId = 8 })" class="sidebar-link">PlayStation</a></li>
+                                    <li><a href="@Url.Action("Filter", "Home", new { categoryId = 9 })" class="sidebar-link">Xbox</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                           data-bs-target="#accessories" aria-expanded="false" aria-controls="accessories">
+                            <i class="fas fa-headphones-alt"></i> Phụ Kiện
+                        </a>
+                        <ul id="accessories" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item-child"><a href="@Url.Action("Filter", "Home", new { categoryId = 11 })" class="sidebar-link">Tay cầm</a></li>
+                            <li class="sidebar-item-child"><a href="@Url.Action("Filter", "Home", new { categoryId = 12 })" class="sidebar-link">Đế tản nhiệt</a></li>
+                            <li class="sidebar-item-child"><a href="@Url.Action("Filter", "Home", new { categoryId = 13 })" class="sidebar-link">Dock sạc</a></li>
+                            <li class="sidebar-item-child"><a href="@Url.Action("Filter", "Home", new { categoryId = 14 })" class="sidebar-link">Skin</a></li>
+                            <li class="sidebar-item-child"><a href="@Url.Action("Filter", "Home", new { categoryId = 15 })" class="sidebar-link">Bộ nhớ</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                           data-bs-target="#digital-card" aria-expanded="false" aria-controls="digital-card">
+                            <i class="fas fa-credit-card"></i> Digital Card
+                        </a>
+                        <ul id="digital-card" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item-child"><a href="@Url.Action("Filter", "Home", new { categoryId = 17 })" class="sidebar-link">eShop Card</a></li>
+                            <li class="sidebar-item-child"><a href="@Url.Action("Filter", "Home", new { categoryId = 18 })" class="sidebar-link">PSN Card</a></li>
+                            <li class="sidebar-item-child"><a href="@Url.Action("Filter", "Home", new { categoryId = 19 })" class="sidebar-link">Xbox Card</a></li>
+                            <li class="sidebar-item-child"><a href="@Url.Action("Filter", "Home", new { categoryId = 20 })" class="sidebar-link">Steam</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                           data-bs-target="#games" aria-expanded="false" aria-controls="games">
+                            <i class="fas fa-compact-disc"></i> Đĩa Game
+                        </a>
+                        <ul id="games" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item-child"><a href="@Url.Action("Filter", "Home", new { categoryId = 22 })" class="sidebar-link">Game Nintendo</a></li>
+                            <li class="sidebar-item-child"><a href="@Url.Action("Filter", "Home", new { categoryId = 23 })" class="sidebar-link">Game PlayStation</a></li>
+                            <li class="sidebar-item-child"><a href="@Url.Action("Filter", "Home", new { categoryId = 24 })" class="sidebar-link">Game Xbox</a></li>
+                        </ul>
+                    </li>
+                <li class="sidebar-item d-lg-none">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                            data-bs-target="#user-profile-mobile" aria-expanded="false" aria-controls="user-profile-mobile">
+                            <i class="fas fa-user-astronaut"></i> Tài Khoản
+                        </a>
+                        <ul id="user-profile-mobile" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            @if (HttpContextAccessor.HttpContext.User.Identity != null && HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
+                            {
+                                <li class="sidebar-item-child">
+                                    <a class="sidebar-link" href="@Url.Action("Profile", "Account")">Hồ sơ của tôi</a>
+                                </li>
+                                <li class="sidebar-item-child">
+                                    <a class="sidebar-link" href="@Url.Action("Orders", "Account")">Theo dõi đơn hàng</a>
+                                </li>
+                                <li class="sidebar-item-child">
+                                    <form method="post" asp-controller="Account" asp-action="Logout" class="d-inline">
+                                        <button type="submit" class="sidebar-link btn btn-link p-0 m-0">Đăng xuất</button>
+                                    </form>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="sidebar-item-child">
+                                    <a class="sidebar-link" href="@Url.Action("Login", "Auth")">Đăng nhập</a>
+                                </li>
+                                <li class="sidebar-item-child">
+                                    <a class="sidebar-link" href="@Url.Action("Register", "Auth")">Đăng ký</a>
+                                </li>
+                            }
+                        </ul>
+                </li>
+                <li class="sidebar-item d-lg-none">
+                        <a href="cart.html" class="sidebar-link">
+                            <i class="fas fa-shopping-cart"></i> Giỏ Hàng 
+                            <span class="badge bg-danger ms-auto"></span>
+                        </a>
+                    </li>
+                <li class="sidebar-item">
+                    <a href="contact.html" class="sidebar-link">
+                    <i class="fas fa-envelope"></i> Liên Hệ
+                    </a>
+                </li>
+            </ul>
+        </nav>
+      </aside>
+      @RenderBody()
+     
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer-main">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="footer-title">VORTEX PLAY</h5>
+                    <p>Chuyên cung cấp máy chơi game, phụ kiện, đĩa game và thẻ digital card chính hãng. Cam kết chất
+                        lượng và dịch vụ tốt nhất cho cộng đồng game thủ.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">DANH MỤC</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">PlayStation</a></li>
+                        <li><a href="#">Xbox</a></li>
+                        <li><a href="#">Nintendo</a></li>
+                        <li><a href="#">Phụ kiện</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="footer-title">CHÍNH SÁCH</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản dịch vụ</a></li>
+                    </ul>
+                </div>
+                 <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="footer-title">LIÊN HỆ</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Gaming St, District 1, HCMC</li>
+                        <li><i class="fas fa-phone"></i> (028) 3344 5566</li>
+                        <li><i class="fas fa-envelope"></i> contact@vortexplay.vn</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--  END FOOTER -->
+
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="~/js/script.js"></script>
+</body>
+
+</html>

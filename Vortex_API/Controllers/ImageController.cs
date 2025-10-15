@@ -35,6 +35,7 @@ namespace Vortex_API.Controllers
             var image = await _imageRepo.UploadImage(productId, dto);
             if (image == null)
                 return NotFound("Product not found");
+            image.FilePath = $"{Request.Scheme}://{Request.Host}{image.FilePath}";
 
             return Ok(image);
         }

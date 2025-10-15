@@ -18,7 +18,7 @@ namespace Vortex_API.Controllers
             _reviewRepository = reviewRepository;
         }
 
-        [HttpGet("get-review{productId}")]
+        [HttpGet("get-review/{productId}")]
         public async Task<IActionResult> GetReviews(int productId)
         {
             var reviews = await _reviewRepository.GetReviewsByProduct(productId);

@@ -10,6 +10,7 @@ using Vortex_API.Repositories.Interface;
 using Vortex_API.Repositories.Service;
 using Vortex_API.BackgroundServices;
 using Serilog;
+using Microsoft.Extensions.FileProviders;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container. 
@@ -126,6 +127,12 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads")),
+    RequestPath = "/uploads"
+});
 app.UseHttpsRedirection();
 
 app.UseAuthentication();

@@ -43,8 +43,18 @@ namespace Vortex_API.Repositories.Service
                         products = products.Where(p => p.Description != null && p.Description.Contains(filterQuery));
                         break;
 
-                    case "category":
-                        products = products.Where(p => p.Category.Name.Contains(filterQuery));
+                    case "categoryid":
+                        if (int.TryParse(filterQuery, out int categoryId))
+                        {
+                            // Lấy luôn các category con của category này
+                            var childCategoryIds = _context.Categories
+                                .Where(c => c.ParentId == categoryId)
+                                .Select(c => c.Id)
+                                .ToList();
+
+                            products = products.Where(p =>
+                                p.CategoryId == categoryId || childCategoryIds.Contains(p.CategoryId));
+                        }
                         break;
 
                     case "ishot":

@@ -1,0 +1,259 @@
+﻿@model Vortex.Models.ProductViewModel
+<style>
+    .product-detail-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .card-detail {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-color);
+        border-radius: 15px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .product-description h4,
+    .product-reviews h4 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: var(--primary-neon);
+    }
+
+    .review-item {
+        padding: 1rem 0;
+    }
+
+    .star-rating i {
+        color: #ffc107;
+    }
+
+    .star-rating-form i {
+        cursor: pointer;
+        color: #ffc107;
+        margin-right: 5px;
+        transition: transform 0.2s;
+    }
+
+        .star-rating-form i:hover {
+            transform: scale(1.2);
+        }
+</style>
+<main class="content-wrapper flex-grow-1">
+    <div class="container my-5">
+        <div class="card-detail">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <!-- Product Image Gallery -->
+                    <div class="product-gallery">
+                        <div class="main-image-container mb-3">
+                            <img src="@Model.Images.FirstOrDefault()?.FilePath"
+                                 id="main-product-image"
+                                 class="img-fluid rounded"
+                                 alt="@Model.Title" />
+                        </div>
+                        <div class="thumbnail-container d-flex justify-content-center">
+                            @foreach (var img in Model.Images)
+                            {
+                                <img src="@img.FilePath"
+                                     class="img-thumbnail @(img == Model.Images.FirstOrDefault() ? "active" : "")"
+                                     alt="@Model.Title" />
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- Product Info -->
+                    <h1 class="product-detail-title">@Model.Title</h1>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="star-rating">
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                if (i <= Model.AverageRating)
+                                {
+                                    <i class="fas fa-star"></i>
+                                }
+                                else if (i - 0.5 == Model.AverageRating)
+                                {
+                                    <i class="fas fa-star-half-alt"></i>
+                                }
+                                else
+                                {
+                                    <i class="far fa-star"></i>
+                                }
+                            }
+                        </div>
+                        <span class="ms-2 text-muted">(@Model.Reviews.Count đánh giá)</span>
+                    </div>
+
+                    <p class="product-detail-price">@Model.Price.ToString("N0")₫</p>
+                    <p class="product-status">
+                        Tình trạng:
+                        <span class="fw-bold @(Model.StockQuantity > 0 ? "text-success" : "text-danger")">
+                            @(Model.StockQuantity > 0 ? "Còn hàng" : "Hết hàng")
+                        </span>
+                    </p>
+
+                    <p class="product-description">@Model.Description</p>
+                    <div class="d-flex align-items-center my-4">
+                        <label for="quantity" class="form-label me-3">Số lượng:</label>
+                        <input type="number" id="quantity" name="quantity" class="form-control quantity-input" value="1" min="1" max="10" />
+                    </div>
+
+                    <form asp-controller="Cart" asp-action="AddToCart" method="post" class="w-100">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        <input type="hidden" name="quantity" id="quantity-hidden" value="1" />
+                        <button type="submit" class="btn btn-add-to-cart btn-lg w-100">
+                            <i class="fas fa-cart-plus"></i> Thêm vào giỏ hàng
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Tabs -->
+        <div class="product-tabs mt-5">
+
+            <div class="product-detail-container">
+
+                <!-- Description -->
+                <section class="product-description card-detail mb-4">
+                    <h4>Mô tả sản phẩm</h4>
+                    <div class="description-content">
+                        @Html.Raw(Model.Description)
+                    </div>
+                </section>
+
+                <section class="product-reviews card-detail">
+                    <h4>Đánh giá sản phẩm</h4>
+
+                    @if (User.Identity != null && User.Identity.IsAuthenticated)
+                    {
+                        @* Thông báo lỗi / thành công từ server *@
+                        @if (TempData["ReviewError"] != null)
+                        {
+                            <div class="alert alert-danger">@TempData["ReviewError"]</div>
+                        }
+                        else if (TempData["ReviewSuccess"] != null)
+                        {
+                            <div class="alert alert-success">@TempData["ReviewSuccess"]</div>
+                        }
+
+                        <form method="post" asp-controller="Review" asp-action="Create">
+                            <input type="hidden" name="ProductId" value="@Model.Id" />
+
+                            <div class="mb-3">
+                                <label class="form-label">Đánh giá của bạn:</label>
+                                <div class="star-rating-form">
+                                    @for (int i = 1; i <= 5; i++)
+                                    {
+                                        <i class="far fa-star" data-value="@i"></i>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="review-text" class="form-label">Bình luận</label>
+                                <textarea class="form-control" id="review-text" name="Comment" rows="3"
+                                          placeholder="Sản phẩm tuyệt vời...">@TempData["ReviewComment"]</textarea>
+                            </div>
+
+                            <input type="hidden" id="review-rating" name="Rating" value="@((TempData["ReviewRating"] != null) ? TempData["ReviewRating"] : 0)" />
+
+                            <button type="submit" class="btn btn-neon">Gửi đánh giá</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <p>Vui lòng <a href="@Url.Action("Login", "Auth")">đăng nhập</a> để đánh giá sản phẩm.</p>
+                    }
+
+                    <hr />
+
+                    <!-- Existing Reviews -->
+                    <div id="existing-reviews">
+                        @foreach (var r in Model.Reviews)
+                        {
+                            var avatarChar = !string.IsNullOrEmpty(r.FullName)
+                            ? r.FullName.Substring(0, 1).ToUpper()
+                            : "?";
+
+                            <div class="review-item">
+                                <div class="d-flex">
+                                    <img src="https://placehold.co/50x50/00f5d4/ffffff?text=@avatarChar"
+                                         class="rounded-circle"
+                                         alt="avatar">
+                                    <div class="ms-3">
+                                        <h6 class="mb-0">@r.FullName</h6>
+                                        <div class="star-rating">
+                                            @for (int i = 1; i <= 5; i++)
+                                            {
+                                                if (i <= r.Rating)
+                                                {
+                                                    <i class="fas fa-star"></i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="far fa-star"></i>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-2">@r.Comment</p>
+                            </div>
+                            <hr />
+                        }
+                    </div>
+                </section>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const stars = document.querySelectorAll(".star-rating-form i");
+                        const ratingInput = document.getElementById("review-rating");
+                        const initialRating = parseInt(ratingInput.value);
+
+                        // Nếu có TempData["ReviewRating"], tô sao sẵn
+                        if (initialRating > 0) {
+                            stars.forEach(s => {
+                                if (s.dataset.value <= initialRating) {
+                                    s.classList.remove("far");
+                                    s.classList.add("fas");
+                                }
+                            });
+                        }
+
+                        stars.forEach(star => {
+                            star.addEventListener("click", function () {
+                                const value = this.dataset.value;
+                                ratingInput.value = value;
+
+                                // Update UI: tô vàng các sao đã chọn
+                                stars.forEach(s => {
+                                    if (s.dataset.value <= value) {
+                                        s.classList.remove("far");
+                                        s.classList.add("fas");
+                                    } else {
+                                        s.classList.remove("fas");
+                                        s.classList.add("far");
+                                    }
+                                });
+                            });
+                        });
+                    });
+                </script>
+
+            </div>
+    </div>
+</main>
+<script>
+    // đồng bộ input hiển thị và hidden trước khi submit
+    const qtyInput = document.getElementById('quantity');
+    const qtyHidden = document.getElementById('quantity-hidden');
+    qtyInput.addEventListener('input', function () {
+        qtyHidden.value = this.value || 1;
+    });
+</script>

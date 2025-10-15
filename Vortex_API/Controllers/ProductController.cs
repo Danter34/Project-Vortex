@@ -24,14 +24,16 @@ namespace Vortex_API.Controllers
         [HttpGet("get-all-product")]
         //[Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetAll([FromQuery] string? filterOn,
-                                                [FromQuery] string? filterQuery,
-                                                [FromQuery] string? sortBy,
-                                                [FromQuery] bool isAscending = true,
-                                                [FromQuery] int pageNumber = 1,
-                                                [FromQuery] int pageSize = 10)
+                                         [FromQuery] string? filterQuery,
+                                         [FromQuery] string? sortBy,
+                                         [FromQuery] bool isAscending = true,
+                                         [FromQuery] int pageNumber = 1,
+                                         [FromQuery] int pageSize = 10)
         {
-            _logger.LogInformation("Fetching all products. Page: {PageNumber}, PageSize: {PageSize}, FilterOn: {FilterOn}, FilterQuery: {FilterQuery}, SortBy: {SortBy}, Ascending: {IsAscending}",
-                                    pageNumber, pageSize, filterOn, filterQuery, sortBy, isAscending);
+            _logger.LogInformation(
+                "Fetching all products. Page: {PageNumber}, PageSize: {PageSize}, FilterOn: {FilterOn}, FilterQuery: {FilterQuery}, SortBy: {SortBy}, Ascending: {IsAscending}",
+                pageNumber, pageSize, filterOn, filterQuery, sortBy, isAscending
+            );
 
             var products = await _productRepository.GetAllProduct(filterOn, filterQuery, sortBy, isAscending, pageNumber, pageSize);
 
@@ -41,12 +43,28 @@ namespace Vortex_API.Controllers
                 return NotFound(new { message = "Không tìm thấy sản phẩm nào phù hợp." });
             }
 
+            //  Gắn full URL cho ảnh sản phẩm
+            foreach (var product in products)
+            {
+                if (product.Images != null && product.Images.Any())
+                {
+                    foreach (var img in product.Images)
+                    {
+                        if (!string.IsNullOrEmpty(img.FilePath) && !img.FilePath.StartsWith("http"))
+                        {
+                            img.FilePath = $"{Request.Scheme}://{Request.Host}{img.FilePath}";
+                        }
+                    }
+                }
+            }
+
             _logger.LogInformation("{Count} products retrieved successfully.", products.Count());
             return Ok(products);
         }
 
+
         [HttpGet("get-product-by-id/{id}")]
-        //[Authorize(Roles = "User,Admin")]
+        // [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetById(int id)
         {
             _logger.LogInformation("Fetching product by ID: {Id}", id);
@@ -56,12 +74,25 @@ namespace Vortex_API.Controllers
             if (product == null)
             {
                 _logger.LogWarning("Product with ID {Id} not found.", id);
-                return NotFound();
+                return NotFound(new { message = $"Không tìm thấy sản phẩm với ID = {id}" });
+            }
+
+            //  Gắn full URL cho ảnh sản phẩm (giống GetAll)
+            if (product.Images != null && product.Images.Any())
+            {
+                foreach (var img in product.Images)
+                {
+                    if (!string.IsNullOrEmpty(img.FilePath) && !img.FilePath.StartsWith("http"))
+                    {
+                        img.FilePath = $"{Request.Scheme}://{Request.Host}{img.FilePath}";
+                    }
+                }
             }
 
             _logger.LogInformation("Product with ID {Id} retrieved successfully.", id);
             return Ok(product);
         }
+
 
         [HttpPost("add-product")]
         [Authorize(Roles = "Admin")]
@@ -76,10 +107,25 @@ namespace Vortex_API.Controllers
             }
 
             var newProduct = await _productRepository.CreateProduct(dto);
+
+            //  build URL tuyệt đối cho từng ảnh
+            if (newProduct.Images != null && newProduct.Images.Any())
+            {
+                foreach (var img in newProduct.Images)
+                {
+                    // Nếu FilePath chưa phải URL tuyệt đối
+                    if (!img.FilePath.StartsWith("http"))
+                    {
+                        img.FilePath = $"{Request.Scheme}://{Request.Host}{img.FilePath}";
+                    }
+                }
+            }
+
             _logger.LogInformation("Product created successfully with ID: {Id}", newProduct.Id);
 
             return CreatedAtAction(nameof(GetById), new { id = newProduct.Id }, newProduct);
         }
+
 
         [HttpPut("update-product-by-id/{id}")]
         [Authorize(Roles = "Admin")]

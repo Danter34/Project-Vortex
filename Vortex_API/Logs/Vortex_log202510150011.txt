@@ -1,5 +1,0 @@
-2025-10-15 00:11:01.258 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
-SELECT [p].[Id], [p].[Amount], [p].[CreatedAt], [p].[MomoOrderId], [p].[OrderId], [p].[PayUrl], [p].[PaymentMethod], [p].[Status], [o].[Id], [o].[CreatedAt], [o].[Name], [o].[Phone], [o].[ShippingAddress], [o].[Status], [o].[TotalAmount], [o].[UserId]
-FROM [Payments] AS [p]
-INNER JOIN [Orders] AS [o] ON [p].[OrderId] = [o].[Id]
-WHERE [p].[Status] IN (N'Pending', N'Failed')

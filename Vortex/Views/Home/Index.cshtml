@@ -1,0 +1,165 @@
+﻿@{
+    var banners = ViewBag.Banners as List<Vortex.Models.BannerViewModel>;
+    var hotProducts = ViewBag.HotProducts as List<Vortex.Models.ProductViewModel>;
+    var newsList = ViewBag.News as List<Vortex.Models.NewsViewModel>;
+}
+
+<style>
+    /* --- NEWS SECTION --- */
+    .news-section {
+        margin-top: 4rem; /* Cách xa phần trên */
+        margin-bottom: 4rem;
+    }
+
+    .news-card {
+        background-color: var(--bg-card);
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+
+    .news-img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .news-body {
+        padding: 1rem 1.25rem;
+        flex: 1; 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .news-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-light);
+        margin-bottom: 0.5rem;
+    }
+
+    .news-text {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.4;
+        margin-bottom: 1rem;
+    }
+
+    .btn-read-more {
+        align-self: flex-start;
+        background: linear-gradient(45deg, var(--primary-neon), var(--secondary-neon));
+        color: var(--bg-dark);
+        font-weight: 600;
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+    }
+
+        .btn-read-more:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px var(--primary-neon);
+            color: white;
+        }
+</style>
+<main class="content-wrapper flex-grow-1">
+    <div class="container main-container p-4">
+
+        <!-- Hero Slider -->
+        <section class="hero-slider mb-5">
+            <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    @for (int i = 0; i < banners.Count; i++)
+                    {
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="@i"
+                                class="@(i == 0 ? "active" : "")" aria-label="Slide @(i + 1)"></button>
+                    }
+                </div>
+
+                <div class="carousel-inner">
+                    @for (int i = 0; i < banners.Count; i++)
+                    {
+                        var banner = banners[i];
+                        <div class="carousel-item @(i == 0 ? "active" : "")">
+                            <img src="@($"https://localhost:7161{banner.ImageUrl}")" class="d-block w-100" alt="@banner.Title">
+                            <div class="carousel-caption d-md-block">
+                                <h5>@banner.Title</h5>
+                                <p>@banner.Description</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="product-section">
+            <h2 class="section-title">SẢN PHẨM NỔI BẬT</h2>
+            <div class="row g-4">
+                @foreach (var product in hotProducts)
+                {
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="product-card">
+                            <a asp-controller="Home" asp-action="Detail" asp-route-id="@product.Id">
+                                <img src="@product.Images.FirstOrDefault()?.FilePath"
+                                     class="product-img"
+                                     alt="@product.Title">
+                            </a>
+                            <div class="product-info">
+                                <a asp-controller="Home" asp-action="Detail" asp-route-id="@product.Id" class="text-decoration-none text-dark">
+                                    <h5 class="product-name">@product.Title</h5>
+                                </a>
+                                <p class="product-price">@product.Price.ToString("N0")₫</p>
+                                <form asp-controller="Cart" asp-action="AddToCart" method="post" class="d-inline">
+                                    <input type="hidden" name="id" value="@product.Id" />
+                                    <button type="submit" class="btn btn-add-to-cart">
+                                        <i class="fas fa-cart-plus"></i> Thêm vào giỏ
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </section>
+
+        <!-- News Section -->
+        <section class="news-section mt-5">
+            <h2 class="section-title">TIN TỨC GAMING</h2>
+            <div class="row g-4">
+                @foreach (var news in newsList)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="news-card">
+                            <img src="@($"https://localhost:7161{news.ImageUrl}")" class="news-img" alt="@news.Title" style="height:250px;width:450px;">
+                            <div class="news-body">
+                                <h5 class="news-title">@news.Title</h5>
+                                <p class="news-text">@news.Description</p>
+                                <a href="@news.Link" class="btn btn-read-more" target="_blank">Đọc thêm <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+
+    </div>
+</main>

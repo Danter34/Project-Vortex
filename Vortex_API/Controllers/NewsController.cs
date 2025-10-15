@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Vortex_API.Model.Domain;
 using Vortex_API.Model.DTO;
 using Vortex_API.Repositories.Interface;
 
@@ -45,6 +46,7 @@ namespace Vortex_API.Controllers
                 return BadRequest(ModelState);
 
             var created = await _newsRepository.CreateNews(dto);
+            created.ImageUrl = $"{Request.Scheme}://{Request.Host}{created.ImageUrl}";
             return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }
 

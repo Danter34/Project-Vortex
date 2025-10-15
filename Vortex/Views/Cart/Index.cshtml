@@ -1,0 +1,111 @@
+﻿@model Vortex.Models.CartViewModel
+@{
+    ViewData["Title"] = "Giỏ hàng";
+}
+
+<main class="container main-container p-4" style="max-width: 1200px;">
+    <div class="container my-5">
+        <h1 class="page-title text-center mb-5">GIỎ HÀNG CỦA BẠN</h1>
+
+        @if (TempData["CartOk"] != null)
+        {
+            <div class="alert alert-success">@TempData["CartOk"]</div>
+        }
+        @if (TempData["CartError"] != null)
+        {
+            <div class="alert alert-danger">@TempData["CartError"]</div>
+        }
+
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="card-base">
+                    @if (Model.Items.Count == 0)
+                    {
+                        <div class="p-4 text-center text-muted">Giỏ hàng trống.</div>
+                    }
+                    else
+                    {
+                        <div class="table-responsive">
+                            <table class="table align-middle cart-table">
+                                <thead>
+                                    <tr>
+                                        <th>Sản Phẩm</th>
+                                        <th>Giá</th>
+                                        <th>Số Lượng</th>
+                                        <th>Tạm Tính</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Items)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="@item.ProductImage"
+                                                         class="img-fluid rounded me-3"
+                                                         style="width:80px;height:80px;object-fit:cover"
+                                                         alt="@item.ProductTitle" />
+                                                    <div>
+                                                        <h6 class="mb-0">@item.ProductTitle</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>@item.Price.ToString("N0")₫</td>
+                                            <td style="max-width:140px;">
+                                                <form asp-controller="Cart" asp-action="UpdateQuantity" method="post" class="d-flex gap-2 align-items-center">
+                                                    @Html.AntiForgeryToken()
+                                                    <input type="hidden" name="productId" value="@item.ProductId" />
+                                                    <input type="number" name="quantity" class="form-control quantity-input-sm"
+                                                           value="@item.Quantity" min="1" />
+                                                </form>
+                                            </td>
+                                            <td>@item.Subtotal.ToString("N0")₫</td>
+                                            <td>
+                                                <form asp-controller="Cart" asp-action="Remove" method="post">
+                                                    @Html.AntiForgeryToken()
+                                                    <input type="hidden" name="productId" value="@item.ProductId" />
+                                                    <button class="btn btn-sm btn-outline-danger">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="d-flex justify-content-end mt-3">
+                            <form asp-controller="Cart" asp-action="ClearCart" method="post">
+                                @Html.AntiForgeryToken()
+                                <button class="btn btn-neon">Xóa toàn bộ giỏ hàng</button>
+                            </form>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card-base p-4">
+                    <h4 class="mb-4">TỔNG CỘNG</h4>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Tạm tính</span>
+                        <span>@Model.Subtotal.ToString("N0")₫</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Phí vận chuyển</span>
+                        <span>@(Model.ShippingFee == 0 ? "Miễn phí" : Model.ShippingFee.ToString("N0") + "₫")</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between fw-bold fs-5">
+                        <span>Tổng tiền</span>
+                        <span>@Model.GrandTotal.ToString("N0")₫</span>
+                    </div>
+                    <a asp-controller="Checkout" asp-action="Index"
+                       class="btn btn-add-to-cart btn-lg w-100 mt-4">TIẾN HÀNH THANH TOÁN</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
