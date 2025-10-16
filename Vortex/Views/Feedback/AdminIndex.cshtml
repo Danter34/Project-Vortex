@@ -1,0 +1,49 @@
+﻿@model List<Vortex.Models.FeedbackResponseViewModel>
+
+<h3>Quản lý phản hồi</h3>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>User Message</th>
+            <th>Admin Reply</th>
+            <th>Trạng thái</th>
+            <th>Ngày tạo</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var f in Model)
+        {
+            <tr>
+                <td>@f.Id</td>
+                <td>@f.Message</td>
+                <td>
+                    <form method="post" asp-action="Reply">
+                        <input type="hidden" name="id" value="@f.Id" />
+                        <input type="text" name="reply" class="form-control" value="@f.AdminReply" placeholder="Nhập trả lời..." />
+                        <button type="submit" class="btn btn-success btn-sm mt-1">Trả lời</button>
+                    </form>
+                </td>
+                <td>@f.Status</td>
+                <td>@f.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>
+                    <form method="post" asp-action="Delete">
+                        <input type="hidden" name="id" value="@f.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

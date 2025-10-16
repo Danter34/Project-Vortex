@@ -21,7 +21,7 @@
                 <td>
                     @if (!string.IsNullOrEmpty(item.ImageUrl))
                     {
-                        <img src="@item.ImageUrl" width="100" />
+                        <img src="@($"https://localhost:7161{item.ImageUrl}")" width="100" />
                     }
                 </td>
                 <td>@item.Title</td>
