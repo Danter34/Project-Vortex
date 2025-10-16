@@ -26,7 +26,7 @@ namespace Vortex_API.Controllers
         [FromQuery] string? sortBy,
         [FromQuery] bool isAscending = true,
         [FromQuery] int pageNumber = 1,
-        [FromQuery] int pageSize = 10)
+        [FromQuery] int pageSize = 30)
         {
             var categories = await _categoryRepo.GetAllCategory(
             filterOn,

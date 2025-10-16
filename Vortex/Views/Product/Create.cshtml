@@ -1,0 +1,105 @@
+﻿@model Vortex.Models.ProductCreateModel
+@{
+    var categories = ViewBag.Categories as List<CategoryViewModel>;
+}
+
+<div class="container mt-4">
+    <h3 class="text-white mb-4">🛒 Thêm sản phẩm mới</h3>
+
+    <form asp-action="Create" method="post" enctype="multipart/form-data" class="bg-dark text-white p-4 rounded shadow">
+        <div class="mb-3">
+            <label for="Title" class="form-label">Tên sản phẩm</label>
+            <input asp-for="Title" class="form-control bg-dark text-white border-secondary" />
+        </div>
+
+        <div class="mb-3">
+            <label for="Price" class="form-label">Giá</label>
+            <input asp-for="Price" type="number" class="form-control bg-dark text-white border-secondary" />
+        </div>
+
+        <div class="mb-3">
+            <label for="StockQuantity" class="form-label">Tồn kho</label>
+            <input asp-for="StockQuantity" type="number" class="form-control bg-dark text-white border-secondary" />
+        </div>
+
+        <div class="mb-3">
+            <label for="CategoryId" class="form-label text-white">Danh mục</label>
+            <select asp-for="CategoryId"
+                    class="form-select bg-dark text-white border-secondary"
+                    style="max-height: 250px; overflow-y: auto;"
+                    size="8">
+                <option value="">-- Chọn danh mục --</option>
+
+                @foreach (var category in categories)
+                {
+                    if (Model != null && Model.CategoryId == category.Id)
+                    {
+                        <option value="@category.Id" selected>@category.Name</option>
+                    }
+                    else
+                    {
+                        <option value="@category.Id">@category.Name</option>
+                    }
+                }
+            </select>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="Description" class="form-label">Mô tả</label>
+            <textarea asp-for="Description" class="form-control bg-dark text-white border-secondary" rows="3"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label text-white">Hình ảnh</label>
+            <div id="imageFields">
+                <div class="input-group mb-2">
+                    <input name="Images" type="file" class="form-control bg-dark text-white border-secondary" />
+                </div>
+            </div>
+            <button type="button" class="btn btn-outline-success" id="addImageField">
+                <i class="fas fa-plus"></i> Thêm ảnh
+            </button>
+        </div>
+
+
+        <div class="form-check form-switch mb-3">
+            <input asp-for="IsHot" class="form-check-input" type="checkbox" />
+            <label class="form-check-label">Sản phẩm nổi bật (Hot)</label>
+        </div>
+
+        <div class="form-check form-switch mb-4">
+            <input asp-for="IsNew" class="form-check-input" type="checkbox" />
+            <label class="form-check-label">Sản phẩm mới</label>
+        </div>
+
+        <button type="submit" class="btn btn-success px-4">💾 Lưu</button>
+        <a asp-action="Index" class="btn btn-secondary ms-2">⬅ Quay lại</a>
+    </form>
+</div>
+@section Scripts {
+    <script>
+        const addImageBtn = document.getElementById("addImageField");
+        const imageFieldsContainer = document.getElementById("imageFields");
+
+        addImageBtn.addEventListener("click", () => {
+            const newField = document.createElement("div");
+            newField.classList.add("input-group", "mb-2");
+
+            newField.innerHTML = `
+                        <input name="Images" type="file" class="form-control bg-dark text-white border-secondary" />
+                        <button type="button" class="btn btn-outline-danger remove-image-btn">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    `;
+
+            imageFieldsContainer.appendChild(newField);
+
+            // Xóa field khi bấm nút thùng rác
+            newField.querySelector(".remove-image-btn").addEventListener("click", () => {
+                newField.remove();
+            });
+        });
+    </script>
+}
+

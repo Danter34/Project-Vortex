@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Text.Json;
 using Vortex.Models;
-using Vortex_API.Model.Domain;
 
 namespace Vortex.Controllers
 {

@@ -1,0 +1,49 @@
+﻿@model Vortex.Models.MyOrderViewModel
+
+<h3>Chi tiết đơn hàng #@Model.OrderId</h3>
+
+<p>Ngày tạo: @Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</p>
+<p>Trạng thái: <strong>@Model.Status</strong></p>
+<p>Khách hàng: <strong>@Model.Name</strong></p>
+<p>Địa chỉ: <strong>@Model.ShippingAddress</strong></p>
+<p>Số điện thoại: <strong>@Model.Phone</strong></p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Tạm tính</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>
+                    <img src="https://localhost:7161/@item.ProductImage" width="50" height="50" />
+                    @item.ProductTitle
+                </td>
+                <td>@item.</td>
+                <td>@item.Price.ToString("N0")đ</td>
+                <td>@item.Quantity</td>
+                <td>@item.Subtotal.ToString("N0")đ</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>Tổng tiền: <strong>@Model.TotalAmount.ToString("N0")đ</strong></p>
+
+<form asp-action="UpdateStatus" method="post" class="d-flex gap-2">
+    <input type="hidden" name="orderId" value="@Model.OrderId" />
+    <select name="newStatus" class="form-select w-auto">
+        <option value="Pending" selected="@Model.Status==" Pending"">Pending</option>
+        <option value="Confirmed" selected="@Model.Status==" Confirmed"">Confirmed</option>
+        <option value="Shipped" selected="@Model.Status==" Shipped"">Shipped</option>
+        <option value="Delivered" selected="@Model.Status==" Delivered"">Delivered</option>
+        <option value="Canceled" selected="@Model.Status==" Canceled"">Canceled</option>
+    </select>
+    <button type="submit" class="btn btn-success">Cập nhật trạng thái</button>
+</form>

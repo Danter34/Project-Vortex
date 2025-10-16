@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace Vortex_API.Model.Domain
+namespace Vortex.Models
 {
     public class CategoryViewModel
     {

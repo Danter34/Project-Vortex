@@ -33,8 +33,20 @@
       "PackagePath": "staticwebassets\\uploads\\products\\124ab783-7105-49f9-a0e8-340ea9dc7167.jpg"
     },
     {
+      "Id": "D:\\Project-Vortex\\Vortex_API\\wwwroot\\uploads\\products\\5aec6e35-c878-46b5-896d-664473154e38.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\5aec6e35-c878-46b5-896d-664473154e38.jpg"
+    },
+    {
+      "Id": "D:\\Project-Vortex\\Vortex_API\\wwwroot\\uploads\\products\\682eab5c-758a-465a-873d-e5cc2b89e5d8.webp",
+      "PackagePath": "staticwebassets\\uploads\\products\\682eab5c-758a-465a-873d-e5cc2b89e5d8.webp"
+    },
+    {
       "Id": "D:\\Project-Vortex\\Vortex_API\\wwwroot\\uploads\\products\\b18b7a07-9137-426b-9ab3-b037f9d1c9e5.jpg",
       "PackagePath": "staticwebassets\\uploads\\products\\b18b7a07-9137-426b-9ab3-b037f9d1c9e5.jpg"
+    },
+    {
+      "Id": "D:\\Project-Vortex\\Vortex_API\\wwwroot\\uploads\\products\\fe4e58ea-29f6-4dc9-9cfe-ec0895cadd41.jpg",
+      "PackagePath": "staticwebassets\\uploads\\products\\fe4e58ea-29f6-4dc9-9cfe-ec0895cadd41.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Vortex_API.Microsoft.AspNetCore.StaticWebAssets.props",

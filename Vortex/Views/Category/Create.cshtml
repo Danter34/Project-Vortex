@@ -1,0 +1,17 @@
+﻿@model Vortex.Models.CategoryViewModel
+
+<h3>@(Model.Id > 0 ? "Sửa danh mục" : "Thêm danh mục")</h3>
+
+<form asp-action="@((Model.Id > 0) ? "Edit" : "Create")" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="ParentId" class="form-label"></label>
+        <input asp-for="ParentId" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-success">Lưu</button>
+</form>

@@ -100,12 +100,42 @@ namespace Vortex_API.Repositories.Service
             return result;
         }
 
-        public async Task<Order?> GetOrderDetail(int orderId, string userId)
+        public async Task<OrderDTOView?> GetOrderDetail(int orderId, string userId)
         {
-            return await _context.Orders
+            var order = await _context.Orders
                 .Include(o => o.Items)
-                .ThenInclude(i => i.Product)
-                .FirstOrDefaultAsync(o => o.Id == orderId && o.UserId == userId);
+                    .ThenInclude(i => i.Product)
+                        .ThenInclude(p => p.Images)
+                .Where(o => o.Id == orderId && o.UserId == userId)
+                .FirstOrDefaultAsync();
+
+            if (order == null) return null;
+
+            var result = new OrderDTOView
+            {
+                Id = order.Id,
+                CreatedAt = order.CreatedAt,
+                Status = order.Status,
+                Items = order.Items.Select(i => new OrderItemDTO
+                {
+                    ProductId = i.ProductId,
+                    ProductTitle = i.Product?.Title ?? "Unknown",
+                    ProductImage = i.Product?.Images?.FirstOrDefault()?.FilePath ?? "/images/default.png",
+                    Price = i.UnitPrice,
+                    Quantity = i.Quantity
+                }).ToList(),
+                // Thêm thông tin user
+                UserInfo = new List<OrderDTO>
+        {
+            new OrderDTO
+            {
+                Name = order.Name,
+                ShippingAddress = order.ShippingAddress,
+                Phone = order.Phone
+            }
+        }
+            };
+            return result;
         }
 
         public async Task<Order?> UpdateOrderStatus(int orderId, string newStatus)

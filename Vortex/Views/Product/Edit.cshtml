@@ -1,0 +1,61 @@
+﻿@model Vortex.Models.ProductEditModel
+@{
+    var categories = ViewBag.Categories as List<Vortex.Models.CategoryViewModel>;
+    ViewData["Title"] = "Chỉnh sửa sản phẩm";
+}
+
+<div class="container my-5">
+    <h3 class="mb-4 text-center text-light">Chỉnh sửa sản phẩm</h3>
+
+    <form asp-action="Edit" method="post" class="bg-dark p-4 rounded">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label asp-for="Title" class="form-label text-white"></label>
+            <input asp-for="Title" class="form-control bg-secondary text-white" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Price" class="form-label text-white"></label>
+            <input asp-for="Price" class="form-control bg-secondary text-white" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="StockQuantity" class="form-label text-white"></label>
+            <input asp-for="StockQuantity" class="form-control bg-secondary text-white" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label text-white"></label>
+            <textarea asp-for="Description" class="form-control bg-secondary text-white"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CategoryId" class="form-label text-white">Danh mục</label>
+            <select asp-for="CategoryId" class="form-select bg-secondary text-white">
+                <option value="">-- Chọn danh mục --</option>
+                @foreach (var cat in categories)
+                {
+                    <option value="@cat.Id" selected="@(cat.Id == Model.CategoryId ? "selected" : null)">
+                        @cat.Name
+                    </option>
+                }
+            </select>
+        </div>
+
+        <div class="form-check form-switch mb-3">
+            <input asp-for="IsHot" class="form-check-input" type="checkbox" />
+            <label class="form-check-label text-white">Sản phẩm nổi bật (Hot)</label>
+        </div>
+
+        <div class="form-check form-switch mb-4">
+            <input asp-for="IsNew" class="form-check-input" type="checkbox" />
+            <label class="form-check-label text-white">Sản phẩm mới</label>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-success px-4">Lưu thay đổi</button>
+            <a asp-action="Index" class="btn btn-secondary px-4">Hủy</a>
+        </div>
+    </form>
+</div>

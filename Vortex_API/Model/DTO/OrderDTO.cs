@@ -25,6 +25,7 @@
         public string Status { get; set; } = string.Empty;
         public List<OrderItemDTO> Items { get; set; } = new();
         public decimal TotalAmount => Items.Sum(i => i.Subtotal);
+        public List<OrderDTO> UserInfo { get; set; } = new();
     }
 
 }

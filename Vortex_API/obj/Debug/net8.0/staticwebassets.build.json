@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zwJLDCVonzYoVyu4Us4HBK3p6+pkxQffnVzLACyTl1Y=",
+  "Hash": "GtdX93IUrPffA1g5u3Pfkg6GxA7/UxuMOUSaFKs+KAg=",
   "Source": "Vortex_API",
   "BasePath": "_content/Vortex_API",
   "Mode": "Default",
@@ -169,6 +169,44 @@
       "OriginalItemSpec": "wwwroot\\uploads\\products\\124ab783-7105-49f9-a0e8-340ea9dc7167.jpg"
     },
     {
+      "Identity": "D:\\Project-Vortex\\Vortex_API\\wwwroot\\uploads\\products\\5aec6e35-c878-46b5-896d-664473154e38.jpg",
+      "SourceId": "Vortex_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project-Vortex\\Vortex_API\\wwwroot\\",
+      "BasePath": "_content/Vortex_API",
+      "RelativePath": "uploads/products/5aec6e35-c878-46b5-896d-664473154e38.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\products\\5aec6e35-c878-46b5-896d-664473154e38.jpg"
+    },
+    {
+      "Identity": "D:\\Project-Vortex\\Vortex_API\\wwwroot\\uploads\\products\\682eab5c-758a-465a-873d-e5cc2b89e5d8.webp",
+      "SourceId": "Vortex_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project-Vortex\\Vortex_API\\wwwroot\\",
+      "BasePath": "_content/Vortex_API",
+      "RelativePath": "uploads/products/682eab5c-758a-465a-873d-e5cc2b89e5d8.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\products\\682eab5c-758a-465a-873d-e5cc2b89e5d8.webp"
+    },
+    {
       "Identity": "D:\\Project-Vortex\\Vortex_API\\wwwroot\\uploads\\products\\b18b7a07-9137-426b-9ab3-b037f9d1c9e5.jpg",
       "SourceId": "Vortex_API",
       "SourceType": "Discovered",
@@ -186,6 +224,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\products\\b18b7a07-9137-426b-9ab3-b037f9d1c9e5.jpg"
+    },
+    {
+      "Identity": "D:\\Project-Vortex\\Vortex_API\\wwwroot\\uploads\\products\\fe4e58ea-29f6-4dc9-9cfe-ec0895cadd41.jpg",
+      "SourceId": "Vortex_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project-Vortex\\Vortex_API\\wwwroot\\",
+      "BasePath": "_content/Vortex_API",
+      "RelativePath": "uploads/products/fe4e58ea-29f6-4dc9-9cfe-ec0895cadd41.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\products\\fe4e58ea-29f6-4dc9-9cfe-ec0895cadd41.jpg"
     }
   ]
 }

@@ -1,0 +1,50 @@
+﻿@model List<Vortex.Models.UserViewModel>
+
+<h3>Quản lý người dùng</h3>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Tên đăng nhập</th>
+            <th>Email</th>
+            <th>Họ tên</th>
+            <th>Role</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.FullName</td>
+                <td>
+                    <form asp-action="UpdateRole" method="post" class="d-flex gap-2">
+                        <input type="hidden" name="UserId" value="@user.Id" />
+                        <select name="Role" class="form-select w-auto">
+                            <option value="User" selected="@user.Roles.Contains("User")">User</option>
+                            <option value="Admin" selected="@user.Roles.Contains("Admin")">Admin</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary btn-sm">Cập nhật</button>
+                    </form>
+                </td>
+                <td>
+                    <form asp-action="DeleteUser" method="post">
+                        <input type="hidden" name="userId" value="@user.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Xác nhận xóa?')">Xóa</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

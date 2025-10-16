@@ -1,0 +1,48 @@
+﻿@model List<Vortex.Models.RevenueViewModel>
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+<h3>Báo cáo doanh thu</h3>
+
+<form method="get" class="row g-3 mb-3">
+    <div class="col-auto">
+        <input type="date" name="fromDate" value="@ViewBag.FromDate?.ToString("yyyy-MM-dd")" class="form-control" />
+    </div>
+    <div class="col-auto">
+        <input type="date" name="toDate" value="@ViewBag.ToDate?.ToString("yyyy-MM-dd")" class="form-control" />
+    </div>
+    <div class="col-auto">
+        <select asp-items="ViewBag.GroupByList" name="groupBy" class="form-select"></select>
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Lọc</button>
+    </div>
+</form>
+
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>Ngày</th>
+            <th>Doanh thu</th>
+            <th>Số đơn</th>
+            <th>Số sản phẩm</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.Date.ToString(ViewBag.GroupBy == "day" ? "dd/MM/yyyy" : ViewBag.GroupBy == "month" ? "MM/yyyy" : "yyyy")</td>
+                <td>@r.TotalRevenue.ToString("N0") đ</td>
+                <td>@r.TotalOrders</td>
+                <td>@r.TotalProductsSold</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form method="post" asp-action="ExportPdf">
+    <input type="hidden" name="groupBy" value="@ViewBag.GroupBy" />
+    <input type="hidden" name="fromDate" value="@ViewBag.FromDate?.ToString("yyyy-MM-dd")" />
+    <input type="hidden" name="toDate" value="@ViewBag.ToDate?.ToString("yyyy-MM-dd")" />
+    <button type="submit" class="btn btn-danger">Xuất PDF</button>
+</form>
