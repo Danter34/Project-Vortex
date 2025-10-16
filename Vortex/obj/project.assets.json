@@ -61,11 +61,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project-Vortex\\Vortex_API\\Vortex\\Vortex.csproj",
+      "projectUniqueName": "D:\\Project-Vortex\\Vortex\\Vortex.csproj",
       "projectName": "Vortex",
-      "projectPath": "D:\\Project-Vortex\\Vortex_API\\Vortex\\Vortex.csproj",
+      "projectPath": "D:\\Project-Vortex\\Vortex\\Vortex.csproj",
       "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-      "outputPath": "D:\\Project-Vortex\\Vortex_API\\Vortex\\obj\\",
+      "outputPath": "D:\\Project-Vortex\\Vortex\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

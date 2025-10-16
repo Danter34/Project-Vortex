@@ -1,0 +1,123 @@
+2025-10-16 17:10:35.566 +07:00 [INF] User profile is available. Using 'C:\Users\pc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-10-16 17:10:36.188 +07:00 [WRN] No store type was specified for the decimal property 'Balance' on entity type 'ApplicationUser'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-10-16 17:10:36.191 +07:00 [WRN] No store type was specified for the decimal property 'TotalAmount' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-10-16 17:10:36.195 +07:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Payment'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-10-16 17:10:36.750 +07:00 [INF] Executed DbCommand (34ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-10-16 17:10:36.819 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-10-16 17:10:36.838 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Balance], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-10-16 17:10:36.979 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Amount], [p].[CreatedAt], [p].[MomoOrderId], [p].[OrderId], [p].[PayUrl], [p].[PaymentMethod], [p].[Status], [o].[Id], [o].[CreatedAt], [o].[Name], [o].[Phone], [o].[ShippingAddress], [o].[Status], [o].[TotalAmount], [o].[UserId]
+FROM [Payments] AS [p]
+INNER JOIN [Orders] AS [o] ON [p].[OrderId] = [o].[Id]
+WHERE [p].[Status] IN (N'Pending', N'Failed')
+2025-10-16 17:10:37.112 +07:00 [INF] Now listening on: https://localhost:7161
+2025-10-16 17:10:37.113 +07:00 [INF] Now listening on: http://localhost:5044
+2025-10-16 17:10:37.115 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-16 17:10:37.116 +07:00 [INF] Hosting environment: Development
+2025-10-16 17:10:37.117 +07:00 [INF] Content root path: D:\Project-Vortex\Vortex_API
+2025-10-16 17:10:37.445 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Banner/Get-all-banner - null null
+2025-10-16 17:10:37.549 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.BannerController.GetAll (Vortex_API)'
+2025-10-16 17:10:37.575 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161/swagger/index.html - null null
+2025-10-16 17:10:37.579 +07:00 [INF] Route matched with {action = "GetAll", controller = "Banner"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Vortex_API.Controllers.BannerController (Vortex_API).
+2025-10-16 17:10:37.612 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[Description], [b].[ImageUrl], [b].[Title]
+FROM [Banners] AS [b]
+ORDER BY [b].[CreatedAt] DESC
+2025-10-16 17:10:37.636 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.Domain.Banner, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-16 17:10:37.688 +07:00 [INF] Executed action Vortex_API.Controllers.BannerController.GetAll (Vortex_API) in 104.9644ms
+2025-10-16 17:10:37.691 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.BannerController.GetAll (Vortex_API)'
+2025-10-16 17:10:37.698 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Banner/Get-all-banner - 200 null application/json; charset=utf-8 261.0845ms
+2025-10-16 17:10:37.719 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Product/get-all-product?filterOn=IsHot&filterQuery=true - null null
+2025-10-16 17:10:37.724 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.ProductController.GetAll (Vortex_API)'
+2025-10-16 17:10:37.724 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161/swagger/index.html - 200 null text/html;charset=utf-8 150.7018ms
+2025-10-16 17:10:37.731 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161/_framework/aspnetcore-browser-refresh.js - null null
+2025-10-16 17:10:37.731 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161/_vs/browserLink - null null
+2025-10-16 17:10:37.737 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 6.4017ms
+2025-10-16 17:10:37.739 +07:00 [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(System.String, System.String, System.String, Boolean, Int32, Int32) on controller Vortex_API.Controllers.ProductController (Vortex_API).
+2025-10-16 17:10:37.761 +07:00 [INF] Fetching all products. Page: 1, PageSize: 10, FilterOn: IsHot, FilterQuery: true, SortBy: null, Ascending: true
+2025-10-16 17:10:37.771 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.6742ms
+2025-10-16 17:10:37.780 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-16 17:10:37.781 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-16 17:10:37.793 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161/swagger/v1/swagger.json - null null
+2025-10-16 17:10:37.831 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__isHot_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AverageRating], [t].[CategoryId], [t].[CreatedAt], [t].[Description], [t].[IsHot], [t].[IsNew], [t].[Price], [t].[StockQuantity], [t].[Title], [c].[Id], [c].[Name], [c].[ParentId], [i].[Id], [i].[FileDescription], [i].[FileExtension], [i].[FileName], [i].[FilePath], [i].[FileSizeInBytes], [i].[ProductId]
+FROM (
+    SELECT [p].[Id], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title]
+    FROM [Products] AS [p]
+    WHERE [p].[IsHot] = @__isHot_0
+    ORDER BY (SELECT 1)
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Categories] AS [c] ON [t].[CategoryId] = [c].[Id]
+LEFT JOIN [Images] AS [i] ON [t].[Id] = [i].[ProductId]
+ORDER BY [t].[Id], [c].[Id]
+2025-10-16 17:10:37.870 +07:00 [INF] 2 products retrieved successfully.
+2025-10-16 17:10:37.871 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.Domain.Product, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-16 17:10:37.894 +07:00 [INF] Executed action Vortex_API.Controllers.ProductController.GetAll (Vortex_API) in 148.9233ms
+2025-10-16 17:10:37.895 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.ProductController.GetAll (Vortex_API)'
+2025-10-16 17:10:37.896 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Product/get-all-product?filterOn=IsHot&filterQuery=true - 200 null application/json; charset=utf-8 177.8757ms
+2025-10-16 17:10:37.901 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 108.0454ms
+2025-10-16 17:10:37.917 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Product?filterOn=IsNew&filterQuery=true - null null
+2025-10-16 17:10:37.922 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Product?filterOn=IsNew&filterQuery=true - 404 0 null 4.4089ms
+2025-10-16 17:10:37.925 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7161/api/Product, Response status code: 404
+2025-10-16 17:10:37.929 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/News/get-all-news - null null
+2025-10-16 17:10:37.931 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.NewsController.GetAll (Vortex_API)'
+2025-10-16 17:10:37.934 +07:00 [INF] Route matched with {action = "GetAll", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Vortex_API.Controllers.NewsController (Vortex_API).
+2025-10-16 17:10:37.952 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[CreatedAt], [n].[Description], [n].[ImageUrl], [n].[Link], [n].[Title]
+FROM [News] AS [n]
+ORDER BY [n].[CreatedAt] DESC
+2025-10-16 17:10:37.962 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.Domain.News, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-16 17:10:37.965 +07:00 [INF] Executed action Vortex_API.Controllers.NewsController.GetAll (Vortex_API) in 29.1989ms
+2025-10-16 17:10:37.966 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.NewsController.GetAll (Vortex_API)'
+2025-10-16 17:10:37.967 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/News/get-all-news - 200 null application/json; charset=utf-8 38.0832ms
+2025-10-16 17:10:38.076 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Cart/get-cart - null null
+2025-10-16 17:10:38.126 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.CartController.GetCart (Vortex_API)'
+2025-10-16 17:10:38.129 +07:00 [INF] Route matched with {action = "GetCart", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCart() on controller Vortex_API.Controllers.CartController (Vortex_API).
+2025-10-16 17:10:38.157 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[UserId], [t0].[Id], [t0].[CartId], [t0].[ProductId], [t0].[Quantity], [t0].[Id0], [t0].[AverageRating], [t0].[CategoryId], [t0].[CreatedAt], [t0].[Description], [t0].[IsHot], [t0].[IsNew], [t0].[Price], [t0].[StockQuantity], [t0].[Title]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [c0].[Id], [c0].[CartId], [c0].[ProductId], [c0].[Quantity], [p].[Id] AS [Id0], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title]
+    FROM [CartItems] AS [c0]
+    INNER JOIN [Products] AS [p] ON [c0].[ProductId] = [p].[Id]
+) AS [t0] ON [t].[Id] = [t0].[CartId]
+ORDER BY [t].[Id], [t0].[Id]
+2025-10-16 17:10:38.163 +07:00 [INF] Executing OkObjectResult, writing value of type 'Vortex_API.Model.Domain.Cart'.
+2025-10-16 17:10:38.166 +07:00 [INF] Executed action Vortex_API.Controllers.CartController.GetCart (Vortex_API) in 35.0658ms
+2025-10-16 17:10:38.167 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.CartController.GetCart (Vortex_API)'
+2025-10-16 17:10:38.168 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Cart/get-cart - 200 null application/json; charset=utf-8 91.9116ms
+2025-10-16 17:10:38.211 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161/uploads/banners/fe6cf13c-35f2-434d-a247-f6d6fac6bf80.jpg - null null
+2025-10-16 17:10:38.211 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161/uploads/banners/853f1aa9-b23a-41fe-bff9-a47357943b42.jpg - null null
+2025-10-16 17:10:38.220 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161/uploads/banners/ba9b5159-da74-4796-bafc-b09286b758d4.jpg - null null
+2025-10-16 17:10:38.224 +07:00 [INF] The file /uploads/banners/ba9b5159-da74-4796-bafc-b09286b758d4.jpg was not modified
+2025-10-16 17:10:38.224 +07:00 [INF] The file /uploads/banners/853f1aa9-b23a-41fe-bff9-a47357943b42.jpg was not modified
+2025-10-16 17:10:38.224 +07:00 [INF] The file /uploads/banners/fe6cf13c-35f2-434d-a247-f6d6fac6bf80.jpg was not modified
+2025-10-16 17:10:38.225 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161/uploads/banners/ba9b5159-da74-4796-bafc-b09286b758d4.jpg - 304 null image/jpeg 5.6484ms
+2025-10-16 17:10:38.225 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161/uploads/banners/853f1aa9-b23a-41fe-bff9-a47357943b42.jpg - 304 null image/jpeg 14.4585ms
+2025-10-16 17:10:38.226 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161/uploads/banners/fe6cf13c-35f2-434d-a247-f6d6fac6bf80.jpg - 304 null image/jpeg 15.07ms
+2025-10-16 17:10:38.230 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161/uploads/products/124ab783-7105-49f9-a0e8-340ea9dc7167.jpg - null null
+2025-10-16 17:10:38.233 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161/uploads/products/11ec8468-c6be-4243-b1ce-2d782a6b2758.jpg - null null
+2025-10-16 17:10:38.237 +07:00 [INF] The file /uploads/products/124ab783-7105-49f9-a0e8-340ea9dc7167.jpg was not modified
+2025-10-16 17:10:38.239 +07:00 [INF] The file /uploads/products/11ec8468-c6be-4243-b1ce-2d782a6b2758.jpg was not modified
+2025-10-16 17:10:38.239 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161/uploads/products/124ab783-7105-49f9-a0e8-340ea9dc7167.jpg - 304 null image/jpeg 9.3599ms
+2025-10-16 17:10:38.240 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161/uploads/products/11ec8468-c6be-4243-b1ce-2d782a6b2758.jpg - 304 null image/jpeg 6.9808ms
+2025-10-16 17:10:38.243 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161/uploads/news/53d7d0bd-96f6-4cda-8dbe-8e710f251879.jpg - null null
+2025-10-16 17:10:38.244 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161/uploads/news/afa51b4f-beb3-4b5a-b98b-644e81c1d527.jpg - null null
+2025-10-16 17:10:38.247 +07:00 [INF] The file /uploads/news/53d7d0bd-96f6-4cda-8dbe-8e710f251879.jpg was not modified
+2025-10-16 17:10:38.249 +07:00 [INF] The file /uploads/news/afa51b4f-beb3-4b5a-b98b-644e81c1d527.jpg was not modified
+2025-10-16 17:10:38.249 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161/uploads/news/53d7d0bd-96f6-4cda-8dbe-8e710f251879.jpg - 304 null image/jpeg 6.487ms
+2025-10-16 17:10:38.250 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161/uploads/news/afa51b4f-beb3-4b5a-b98b-644e81c1d527.jpg - 304 null image/jpeg 6.8424ms

@@ -1,0 +1,157 @@
+﻿@model Vortex.Models.ProfileViewModel
+
+<main class="container main-container p-4" style="max-width: 1200px;">
+    <div class="container my-5">
+        <h1 class="page-title text-center mb-5">HỒ SƠ</h1>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card-base p-3">
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                         aria-orientation="vertical">
+                        <button class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill"
+                                data-bs-target="#v-pills-profile" type="button" role="tab"
+                                aria-controls="v-pills-profile" aria-selected="true">
+                            <i class="fas fa-user-circle me-2"></i>Hồ sơ của tôi
+                        </button>
+                        <button class="nav-link" id="v-pills-password-tab" data-bs-toggle="pill"
+                                data-bs-target="#v-pills-password" type="button" role="tab"
+                                aria-controls="v-pills-password" aria-selected="false">
+                            <i class="fas fa-key me-2"></i>Đổi mật khẩu
+                        </button>
+                        <button class="nav-link" id="v-pills-orders-tab" type="button"
+                                onclick="location.href='@Url.Action("MyOrdersRedirect", "Profile")'">
+                            <i class="fas fa-history me-2"></i>Lịch sử đơn hàng
+                        </button>
+                        <a class="nav-link text-danger mt-3" href="/Identity/Account/Logout">
+                            <i class="fas fa-sign-out-alt me-2"></i>Đăng xuất
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="card-base p-4">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <!-- Profile Tab -->
+                        <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel"
+                             aria-labelledby="v-pills-profile-tab" tabindex="0">
+                            <h4>Thông tin cá nhân</h4>
+                            <hr>
+                            <div class="text-center mb-4">
+                                <div class="rounded-circle profile-avatar d-flex align-items-center justify-content-center"
+                                     style="width:150px;height:150px;background:#e94560;color:white;font-size:50px;">
+                                    @Model.FullName.FirstOrDefault()
+                                </div>
+                            </div>
+                            <form>
+                                <div class="mb-3 row">
+                                    <label for="profileName" class="col-sm-3 col-form-label text-white">Tên hiển thị</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control bg-dark text-white" id="profileName"
+                                               value="@Model.FullName" readonly>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="profileEmail" class="col-sm-3 col-form-label text-white">Email</label>
+                                    <div class="col-sm-9">
+                                        <input type="email" readonly class="form-control bg-dark text-white"
+                                               id="profileEmail" value="@Model.Email">
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                        <!-- Change Password Tab -->
+                        <!-- Change Password Tab -->
+                        <div class="tab-pane fade" id="v-pills-password" role="tabpanel"
+                             aria-labelledby="v-pills-password-tab" tabindex="0">
+                            <h4>Đổi mật khẩu</h4>
+                            <hr>
+                            <form id="changePasswordForm" style="max-width:500px;">
+                                <div class="mb-3 position-relative">
+                                    <label for="currentPassword" class="form-label">Mật khẩu hiện tại</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="currentPassword" required>
+                                        <button type="button" class="btn btn-outline-secondary toggle-password" data-target="currentPassword">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="mb-3 position-relative">
+                                    <label for="newPassword" class="form-label">Mật khẩu mới</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="newPassword" required>
+                                        <button type="button" class="btn btn-outline-secondary toggle-password" data-target="newPassword">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="mb-3 position-relative">
+                                    <label for="confirmNewPassword" class="form-label">Xác nhận mật khẩu mới</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="confirmNewPassword" required>
+                                        <button type="button" class="btn btn-outline-secondary toggle-password" data-target="confirmNewPassword">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-auth">Cập nhật mật khẩu</button>
+                                <div id="changePasswordMsg" class="mt-3"></div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+@section Scripts {
+    <script>
+        document.getElementById("changePasswordForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const dto = {
+                currentPassword: document.getElementById("currentPassword").value,
+                newPassword: document.getElementById("newPassword").value,
+                confirmNewPassword: document.getElementById("confirmNewPassword").value
+            };
+
+            const response = await fetch('@Url.Action("ChangePassword", "Profile")', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dto)
+            });
+
+            const msgDiv = document.getElementById("changePasswordMsg");
+
+            if (response.ok) {
+                msgDiv.innerHTML = '<div class="alert alert-success">Cập nhật mật khẩu thành công!</div>';
+                document.getElementById("changePasswordForm").reset();
+            } else {
+                const error = await response.text();
+                msgDiv.innerHTML = `<div class="alert alert-danger">${error}</div>`;
+            }
+        });
+        // Toggle hiện / ẩn mật khẩu
+        document.querySelectorAll(".toggle-password").forEach(btn => {
+            btn.addEventListener("click", function () {
+                const targetId = this.getAttribute("data-target");
+                const input = document.getElementById(targetId);
+                const icon = this.querySelector("i");
+
+                if (input.type === "password") {
+                    input.type = "text";
+                    icon.classList.remove("fa-eye");
+                    icon.classList.add("fa-eye-slash");
+                } else {
+                    input.type = "password";
+                    icon.classList.remove("fa-eye-slash");
+                    icon.classList.add("fa-eye");
+                }
+            });
+        });
+    </script>
+}

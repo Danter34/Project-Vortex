@@ -7,5 +7,6 @@ namespace Vortex_API.Repositories.Interface
         Task<string?> LoginAsync(LoginDTO dto);
         Task<IdentityResult> RegisterAsync(RegisterDTO dto);
         Task<bool> ChangePasswordAsync(string userId, ChangePasswordDTO dto);
+        Task<ProfileDTO?> GetProfile(string userId);
     }
 }

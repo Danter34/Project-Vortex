@@ -43,16 +43,29 @@
     }
 
     .status-pending {
-        background: rgba(255, 20, 147, 0.2);
-        color: #ff1493;
-        border: 1px solid #ff1493;
+        background: rgba(255, 255, 0, 0.2); /* vàng nhạt */
+        color: #FFD700; /* vàng */
+        border: 1px solid #FFD700;
+    }
+
+    .status-shipping {
+        background: rgba(255, 165, 0, 0.2); /* cam nhạt */
+        color: #FFA500; /* cam */
+        border: 1px solid #FFA500;
     }
 
     .status-shipped {
-        background: rgba(50, 205, 50, 0.2);
-        color: #32cd32;
-        border: 1px solid #32cd32;
+        background: rgba(50, 205, 50, 0.2); /* xanh lá nhạt */
+        color: #32CD32; /* xanh lá */
+        border: 1px solid #32CD32;
     }
+
+    .status-cancelled {
+        background: rgba(220, 53, 69, 0.2); /* đỏ nhạt */
+        color: #DC3545; /* đỏ */
+        border: 1px solid #DC3545;
+    }
+
 
     .order-body {
         padding: 20px;
@@ -171,7 +184,12 @@
         <div class="order-card">
             <div class="order-header">
                 <strong style="color: #00ffff;">Mã đơn hàng:</strong> @order.OrderId
-                <span class="order-status @(order.Status == "Pending" ? "status-pending" : "status-shipped")">@order.Status</span>
+                <span class="order-status @(order.Status == "Pending" ? "status-pending" :
+                               order.Status == "Shipping" ? "status-shipping" :
+                               order.Status == "shipped" ? "status-shipped" :
+                               order.Status == "Cancelled" ? "status-cancelled" : "")">
+                    @order.Status
+                </span>
             </div>
             <div class="order-body">
                 @foreach (var item in order.Items)
@@ -199,4 +217,12 @@
             </div>
         </div>
     }
+    <div class="pagination-container text-center mt-4">
+        @if (ViewBag.PageNumber > 1)
+        {
+            <a class="btn btn-outline-info me-2" asp-action="MyOrders" asp-route-pageNumber="@(ViewBag.PageNumber - 1)">Previous</a>
+        }
+        <span class="me-2">Trang @ViewBag.PageNumber</span>
+        <a class="btn btn-outline-info" asp-action="MyOrders" asp-route-pageNumber="@(ViewBag.PageNumber + 1)">Next</a>
+    </div>
 </div>

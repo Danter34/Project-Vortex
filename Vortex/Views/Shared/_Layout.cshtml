@@ -52,8 +52,8 @@
                                     <i class="fas fa-user-astronaut"></i> @User.Identity.Name
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
-                                    <li><a class="dropdown-item" href="@Url.Action("Profile", "Account")">Hồ sơ của tôi</a></li>
-                                    <li><a class="dropdown-item" href="@Url.Action("Orders", "Account")">Theo dõi đơn hàng</a></li>
+                                    <li><a class="dropdown-item" href="@Url.Action("Index", "Profile")">Hồ sơ của tôi</a></li>
+                                    <li><a class="dropdown-item" href="@Url.Action("MyOrders", "Checkout")">Theo dõi đơn hàng</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
                                         <form method="post" asp-controller="Auth" asp-action="Logout">
@@ -174,10 +174,10 @@
                             @if (HttpContextAccessor.HttpContext.User.Identity != null && HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
                             {
                                 <li class="sidebar-item-child">
-                                    <a class="sidebar-link" href="@Url.Action("Profile", "Account")">Hồ sơ của tôi</a>
+                                    <a class="sidebar-link" href="@Url.Action("Index", "Profile")">Hồ sơ của tôi</a>
                                 </li>
                                 <li class="sidebar-item-child">
-                                    <a class="sidebar-link" href="@Url.Action("Orders", "Account")">Theo dõi đơn hàng</a>
+                                    <a class="sidebar-link" href="@Url.Action("MyOrders", "Checkout")">Theo dõi đơn hàng</a>
                                 </li>
                                 <li class="sidebar-item-child">
                                     <form method="post" asp-controller="Account" asp-action="Logout" class="d-inline">

@@ -70,7 +70,7 @@ namespace Vortex_API.Repositories.Service
             return order;
         }
 
-        public async Task<IEnumerable<OrderDTOView>> GetOrdersByUser(string userId)
+        public async Task<IEnumerable<OrderDTOView>> GetOrdersByUser(string userId, int page = 1, int pageSize = 5)
         {
             var orders = await _context.Orders
                 .Include(o => o.Items)
@@ -78,9 +78,10 @@ namespace Vortex_API.Repositories.Service
                         .ThenInclude(p => p.Images)
                 .Where(o => o.UserId == userId)
                 .OrderByDescending(o => o.CreatedAt)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .ToListAsync();
 
-            // Mapping sang DTO
             var result = orders.Select(o => new OrderDTOView
             {
                 Id = o.Id,
@@ -130,14 +131,35 @@ namespace Vortex_API.Repositories.Service
             return order;
         }
 
-        public async Task<IEnumerable<Order>> GetAllOrders()
+        public async Task<IEnumerable<OrderDTOView>> GetAllOrders(int page = 1, int pageSize = 10)
         {
-            return await _context.Orders
+            var orders = await _context.Orders
                 .Include(o => o.Items)
-                .ThenInclude(i => i.Product)
+                    .ThenInclude(i => i.Product)
+                        .ThenInclude(p => p.Images)
                 .Include(o => o.User)
                 .OrderByDescending(o => o.CreatedAt)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .ToListAsync();
+
+            var result = orders.Select(o => new OrderDTOView
+            {
+                Id = o.Id,
+                CreatedAt = o.CreatedAt,
+                Status = o.Status,
+               
+                Items = o.Items.Select(i => new OrderItemDTO
+                {
+                    ProductId = i.ProductId,
+                    ProductTitle = i.Product?.Title ?? "Unknown",
+                    ProductImage = i.Product?.Images?.FirstOrDefault()?.FilePath ?? "/images/default.png",
+                    Price = i.UnitPrice,
+                    Quantity = i.Quantity
+                }).ToList()
+            }).ToList();
+
+            return result;
         }
         public async Task<Order?> CancelOrder(int orderId, string userId)
         {

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using Vortex_API.Model.DTO;
 using Vortex_API.Repositories.Interface;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 namespace Vortex_API.Controllers
 {
     [Route("api/[controller]")]
@@ -63,6 +64,17 @@ namespace Vortex_API.Controllers
                 return BadRequest("Change password failed. Current password may be incorrect or new passwords do not match.");
 
             return Ok(new { message = "Password changed successfully" });
+        }
+        [HttpGet("profile")]
+        public async Task<IActionResult> GetProfile()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId)) return Unauthorized();
+
+            var profile = await _authRepository.GetProfile(userId);
+            if (profile == null) return NotFound();
+
+            return Ok(profile);
         }
     }
 }

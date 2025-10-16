@@ -5060,11 +5060,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Vortex_API.csproj",
+      "projectUniqueName": "D:\\Project-Vortex\\Vortex_API\\Vortex_API.csproj",
       "projectName": "Vortex_API",
-      "projectPath": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\Vortex_API.csproj",
+      "projectPath": "D:\\Project-Vortex\\Vortex_API\\Vortex_API.csproj",
       "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-      "outputPath": "D:\\Project-Vortex\\Vortex_API\\Vortex_API\\obj\\",
+      "outputPath": "D:\\Project-Vortex\\Vortex_API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -143,23 +143,28 @@ namespace Vortex.Controllers
             return View();
         }
         [HttpGet]
-        public async Task<IActionResult> MyOrders()
+        public async Task<IActionResult> MyOrders(int pageNumber = 1, int pageSize = 5)
         {
             var client = _httpClientFactory.CreateClient("APIClient");
             client.BaseAddress = new Uri("https://localhost:7161/api/");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            var response = await client.GetAsync("Order/my-orders");
+            // Gọi API với phân trang
+            var response = await client.GetAsync($"Order/my-orders?page={pageNumber}&pageSize={pageSize}");
             if (!response.IsSuccessStatusCode)
                 return View(new List<MyOrderViewModel>());
 
             var json = await response.Content.ReadAsStringAsync();
             var orders = System.Text.Json.JsonSerializer.Deserialize<List<MyOrderViewModel>>(json,
-                new System.Text.Json.JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new List<MyOrderViewModel>();
+                new System.Text.Json.JsonSerializerOptions { PropertyNameCaseInsensitive = true })
+                ?? new List<MyOrderViewModel>();
 
             // Lọc trạng thái Pending, Shipping, Shipped
-            orders = orders.Where(o => o.Status == "Pending" || o.Status == "Shipping" || o.Status == "Shipped")
-                           .ToList();
+            orders = orders.Where(o => o.Status == "Pending" || o.Status == "shipping" || o.Status == "shipped" || o.Status == "Cancelled").ToList();
+
+            // Truyền thông tin phân trang cho ViewBag
+            ViewBag.PageNumber = pageNumber;
+            ViewBag.PageSize = pageSize;
 
             return View(orders);
         }

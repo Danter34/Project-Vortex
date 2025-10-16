@@ -24,10 +24,10 @@ namespace Vortex_API.Controllers
 
         [Authorize(Roles = "Admin")]
         [HttpGet("get-all-order")]
-        public async Task<IActionResult> GetAllOrders()
+        public async Task<IActionResult> GetAllOrders(int page = 1, int pageSize = 10)
         {
-            _logger.LogInformation("Admin is fetching all orders.");
-            var orders = await _orderRepository.GetAllOrders();
+            _logger.LogInformation("Admin is fetching all orders, page {Page}, pageSize {PageSize}.", page, pageSize);
+            var orders = await _orderRepository.GetAllOrders(page, pageSize);
             _logger.LogInformation("{Count} orders retrieved.", orders.Count());
             return Ok(orders);
         }
@@ -55,12 +55,12 @@ namespace Vortex_API.Controllers
 
         [Authorize]
         [HttpGet("my-orders")]
-        public async Task<IActionResult> GetMyOrders()
+        public async Task<IActionResult> GetMyOrders(int page = 1, int pageSize = 5)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            _logger.LogInformation("Fetching orders for user {UserId}.", userId);
+            _logger.LogInformation("Fetching orders for user {UserId}, page {Page}, pageSize {PageSize}.", userId, page, pageSize);
 
-            var orders = await _orderRepository.GetOrdersByUser(userId);
+            var orders = await _orderRepository.GetOrdersByUser(userId, page, pageSize);
 
             _logger.LogInformation("{Count} orders retrieved for user {UserId}.", orders.Count(), userId);
             return Ok(orders);

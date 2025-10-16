@@ -52,5 +52,17 @@ namespace Vortex_API.Repositories.Service
             var result = await _userManager.ChangePasswordAsync(user, dto.CurrentPassword, dto.NewPassword);
             return result.Succeeded;
         }
+        public async Task<ProfileDTO?> GetProfile(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return null;
+
+            return new ProfileDTO
+            {
+                Id = user.Id,
+                FullName = user.FullName ?? "",
+                Email = user.Email
+            };
+        }
     }
 }
