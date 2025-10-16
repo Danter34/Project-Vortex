@@ -93,7 +93,7 @@ namespace Vortex.Controllers
             }
 
             // Đảm bảo cookie đồng bộ với số lượng trong giỏ API
-            SetCartCountCookie(cart.Items.Sum(i => i.Quantity));
+            SetCartCountCookie(cart.Items.Count);
 
             return View(cartViewModel);
         }

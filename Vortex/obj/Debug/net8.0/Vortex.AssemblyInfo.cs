@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Vortex")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9884126d855ed3eb91c3214fa26f896c82bc19a5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db2ddce2712b34ab363019d7871ac43d595491bd")]
 [assembly: System.Reflection.AssemblyProductAttribute("Vortex")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Vortex")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

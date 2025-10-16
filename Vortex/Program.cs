@@ -17,13 +17,16 @@ builder.Services.AddSession(options =>
 });
 
 // Cookie authentication cho MVC
-builder.Services.AddAuthentication("Cookies")
-    .AddCookie("Cookies", options =>
+builder.Services.AddAuthentication()
+    .AddCookie(options =>
     {
-        options.LoginPath = "/Auth/Login";
+        options.LoginPath = "/Auth/Login"; // đường dẫn login
         options.LogoutPath = "/Auth/Logout";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(15); // session tự hết sau 15 phút
+        options.SlidingExpiration = true; // nếu user hoạt động thì refresh timeout
+        options.Cookie.HttpOnly = true;
+        options.Cookie.IsEssential = true;
     });
-
 // MVC
 builder.Services.AddControllersWithViews();
 

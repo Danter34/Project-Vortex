@@ -5,7 +5,7 @@ namespace Vortex_API.Repositories.Interface
 {
     public interface IReviewRepository
     {
-        Task<IEnumerable<Review>> GetReviewsByProduct(int productId);
+        Task<IEnumerable<ReviewDTO>> GetReviewsByProduct(int productId);
         Task<Review?> AddReview(string userId, ReviewDTO dto);
     }
 }

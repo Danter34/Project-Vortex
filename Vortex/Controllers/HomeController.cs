@@ -56,11 +56,28 @@ namespace Vortex.Controllers
         public async Task<IActionResult> Filter(
     int? categoryId,
     string? search,
-    string? sortBy,
-    bool isAscending = true,
+    string? sortOption,
     int pageNumber = 1,
     int pageSize = 8)
         {
+            bool isAscending = true;
+            string? sortBy = null;
+
+            switch (sortOption)
+            {
+                case "priceAsc":
+                    sortBy = "price";
+                    isAscending = true;
+                    break;
+                case "priceDesc":
+                    sortBy = "price";
+                    isAscending = false;
+                    break;
+                default:
+                    sortBy = null; // mặc định
+                    break;
+            }
+
             string endpoint = $"Product/get-all-product?pageNumber={pageNumber}&pageSize={pageSize}";
 
             if (!string.IsNullOrEmpty(search))
@@ -72,10 +89,8 @@ namespace Vortex.Controllers
             if (!string.IsNullOrEmpty(sortBy))
                 endpoint += $"&sortBy={sortBy}&isAscending={isAscending}";
 
-            // Gọi API lấy danh sách sản phẩm
             var products = await GetAsync<List<ProductViewModel>>(endpoint);
 
-            // Lấy tên category từ API nếu có categoryId
             string? categoryName = null;
             if (categoryId.HasValue)
             {
@@ -83,11 +98,9 @@ namespace Vortex.Controllers
                 categoryName = category?.Name;
             }
 
-            // Gán ViewBag để view hiển thị
             ViewBag.CurrentCategory = categoryName;
             ViewBag.CurrentSearch = search;
-            ViewBag.CurrentSort = sortBy;
-            ViewBag.IsAscending = isAscending;
+            ViewBag.CurrentSortOption = sortOption;
             ViewBag.PageNumber = pageNumber;
 
             return View(products ?? new List<ProductViewModel>());

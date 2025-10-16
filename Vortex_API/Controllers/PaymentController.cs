@@ -35,21 +35,34 @@ namespace Vortex_API.Controllers
         [HttpGet("momo-return")]
         public async Task<IActionResult> MomoReturn([FromQuery] string orderId, [FromQuery] string resultCode)
         {
-            _logger.LogInformation("MoMo return called for OrderId: {OrderId}, ResultCode: {ResultCode}", orderId, resultCode);
-
-            var success = await _paymentRepository.HandleMomoReturn(orderId, resultCode);
-
-            if (success)
+            try
             {
-                _logger.LogInformation("Payment successful for OrderId: {OrderId}", orderId);
-                return Ok("Payment successful!");
+                var success = await _paymentRepository.HandleMomoReturn(orderId, resultCode);
+
+                // Nếu đang chạy local (localhost:7080 hoặc 7161) thì redirect sang MVC view
+                var isLocal = Request.Host.Host.Contains("localhost");
+
+                if (isLocal)
+                {
+                    if (success)
+                        return Redirect($"https://localhost:7080/Checkout/Success?orderId={orderId}");
+                    else
+                        return Redirect($"https://localhost:7080/Checkout/Failed?orderId={orderId}");
+                }
+
+                // Nếu không phải local, trả về JSON
+                return success ? Ok("Payment successful!") : BadRequest("Payment failed!");
             }
-            else
+            catch (Exception ex)
             {
-                _logger.LogWarning("Payment failed for OrderId: {OrderId}", orderId);
-                return BadRequest("Payment failed!");
+                // Trường hợp lỗi trừ kho / hết hàng
+                _logger.LogError(ex, "Error handling MoMo return.");
+                if (Request.Host.Host.Contains("localhost"))
+                    return Redirect($"https://localhost:7080/Checkout/Failed?orderId={orderId}");
+                return BadRequest(new { message = ex.Message });
             }
         }
+
 
         [HttpPost("momo-notify")]
         public async Task<IActionResult> MomoNotify([FromForm] string orderId, [FromForm] string resultCode)

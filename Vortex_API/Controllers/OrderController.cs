@@ -104,5 +104,25 @@ namespace Vortex_API.Controllers
                 order = updatedOrder
             });
         }
+        [Authorize]
+        [HttpPost("cancel/{orderId}")]
+        public async Task<IActionResult> CancelOrder(int orderId)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            try
+            {
+                var cancelledOrder = await _orderRepository.CancelOrder(orderId, userId);
+                if (cancelledOrder == null)
+                    return NotFound(new { message = "Đơn hàng không tồn tại." });
+
+                return Ok(new { message = "Đơn hàng đã hủy thành công.", order = cancelledOrder });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error cancelling order {OrderId} for user {UserId}", orderId, userId);
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 }

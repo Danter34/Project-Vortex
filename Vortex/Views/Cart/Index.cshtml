@@ -21,7 +21,7 @@
                 <div class="card-base">
                     @if (Model.Items.Count == 0)
                     {
-                        <div class="p-4 text-center text-muted">Giỏ hàng trống.</div>
+                        <div class="p-4 text-center text-white">Giỏ hàng trống.</div>
                     }
                     else
                     {
@@ -47,7 +47,7 @@
                                                          style="width:80px;height:80px;object-fit:cover"
                                                          alt="@item.ProductTitle" />
                                                     <div>
-                                                        <h6 class="mb-0">@item.ProductTitle</h6>
+                                                        <h6 class="mb-0" style="color: black">@item.ProductTitle</h6>
                                                     </div>
                                                 </div>
                                             </td>
@@ -56,8 +56,7 @@
                                                 <form asp-controller="Cart" asp-action="UpdateQuantity" method="post" class="d-flex gap-2 align-items-center">
                                                     @Html.AntiForgeryToken()
                                                     <input type="hidden" name="productId" value="@item.ProductId" />
-                                                    <input type="number" name="quantity" class="form-control quantity-input-sm"
-                                                           value="@item.Quantity" min="1" />
+                                                    <input type="text" readonly class="form-control-plaintext text-center" value="@item.Quantity" />
                                                 </form>
                                             </td>
                                             <td>@item.Subtotal.ToString("N0")₫</td>

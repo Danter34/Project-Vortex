@@ -70,14 +70,33 @@ namespace Vortex_API.Repositories.Service
             return order;
         }
 
-        public async Task<IEnumerable<Order>> GetOrdersByUser(string userId)
+        public async Task<IEnumerable<OrderDTOView>> GetOrdersByUser(string userId)
         {
-            return await _context.Orders
+            var orders = await _context.Orders
                 .Include(o => o.Items)
-                .ThenInclude(i => i.Product)
+                    .ThenInclude(i => i.Product)
+                        .ThenInclude(p => p.Images)
                 .Where(o => o.UserId == userId)
                 .OrderByDescending(o => o.CreatedAt)
                 .ToListAsync();
+
+            // Mapping sang DTO
+            var result = orders.Select(o => new OrderDTOView
+            {
+                Id = o.Id,
+                CreatedAt = o.CreatedAt,
+                Status = o.Status,
+                Items = o.Items.Select(i => new OrderItemDTO
+                {
+                    ProductId = i.ProductId,
+                    ProductTitle = i.Product?.Title ?? "Unknown",
+                    ProductImage = i.Product?.Images?.FirstOrDefault()?.FilePath ?? "/images/default.png",
+                    Price = i.UnitPrice,
+                    Quantity = i.Quantity
+                }).ToList()
+            }).ToList();
+
+            return result;
         }
 
         public async Task<Order?> GetOrderDetail(int orderId, string userId)
@@ -119,6 +138,29 @@ namespace Vortex_API.Repositories.Service
                 .Include(o => o.User)
                 .OrderByDescending(o => o.CreatedAt)
                 .ToListAsync();
+        }
+        public async Task<Order?> CancelOrder(int orderId, string userId)
+        {
+            var order = await _context.Orders
+                .Include(o => o.Items)
+                .ThenInclude(i => i.Product)
+                .FirstOrDefaultAsync(o => o.Id == orderId && o.UserId == userId);
+
+            if (order == null) return null;
+
+            if (order.Status != "Pending")
+                throw new Exception("Chỉ có thể hủy đơn hàng đang Pending.");
+
+            // Trả lại kho
+            foreach (var item in order.Items)
+            {
+                if (item.Product != null)
+                    item.Product.StockQuantity += item.Quantity;
+            }
+
+            order.Status = "Cancelled";
+            await _context.SaveChangesAsync();
+            return order;
         }
     }
 }

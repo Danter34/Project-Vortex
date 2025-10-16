@@ -22,13 +22,37 @@
             <input type="hidden" name="search" value="@ViewBag.CurrentSearch" />
             <input type="hidden" name="categoryId" value="@ViewBag.CurrentCategoryId" />
             <span class="me-2">Sắp xếp:</span>
-            <select class="form-select form-select-sm" name="sortBy" onchange="this.form.submit()" style="width: auto;">
-                <option value="">Mặc định</option>
-                <option value="price" selected="@(ViewBag.CurrentSort == "price" ? "selected" : null)">Giá</option>
-                <option value="title" selected="@(ViewBag.CurrentSort == "title" ? "selected" : null)">Tên</option>
+            <select class="form-select form-select-sm" name="sortOption" onchange="this.form.submit()" style="width: auto;">
+                @if ((ViewBag.CurrentSortOption as string) == "default")
+                {
+                    <option value="default" selected>Mặc định</option>
+                }
+                else
+                {
+                    <option value="default">Mặc định</option>
+                }
+
+                @if ((ViewBag.CurrentSortOption as string) == "priceAsc")
+                {
+                    <option value="priceAsc" selected>Giá: thấp → cao</option>
+                }
+                else
+                {
+                    <option value="priceAsc">Giá: thấp → cao</option>
+                }
+
+                @if ((ViewBag.CurrentSortOption as string) == "priceDesc")
+                {
+                    <option value="priceDesc" selected>Giá: cao → thấp</option>
+                }
+                else
+                {
+                    <option value="priceDesc">Giá: cao → thấp</option>
+                }
             </select>
         </form>
     </div>
+
 
     <div class="row g-4 ">
         @if (Model != null && Model.Any())

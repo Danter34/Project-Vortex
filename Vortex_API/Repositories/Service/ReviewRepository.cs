@@ -15,12 +15,19 @@ namespace Vortex_API.Repositories.Service
             _context = context;
         }
 
-        public async Task<IEnumerable<Review>> GetReviewsByProduct(int productId)
+        public async Task<IEnumerable<ReviewDTO>> GetReviewsByProduct(int productId)
         {
             return await _context.Reviews
-                .Include(r => r.User)
+                .Include(r => r.User) // navigation property tới ApplicationUser
                 .Where(r => r.ProductId == productId)
                 .OrderByDescending(r => r.CreatedAt)
+                .Select(r => new ReviewDTO
+                {
+                    ProductId = r.ProductId,
+                    Rating = r.Rating,
+                    Comment = r.Comment,
+                    FullName = r.User.FullName
+                })
                 .ToListAsync();
         }
 

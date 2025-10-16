@@ -33,7 +33,7 @@ namespace Vortex.Handler
                 {
                     PropertyNameCaseInsensitive = true
                 });
-                cartCount = cart?.Items?.Sum(i => i.Quantity) ?? 0;
+                cartCount = cart?.Items?.Count ?? 0;
             }
 
             return View(cartCount); // trả về số lượng
