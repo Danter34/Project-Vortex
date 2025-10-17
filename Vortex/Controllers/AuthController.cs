@@ -18,6 +18,34 @@ namespace Vortex.Controllers
             _httpClient = httpClientFactory.CreateClient("APIClient");
             _httpClient.BaseAddress = new Uri("https://localhost:7161/api/Auth/");
         }
+        [HttpGet]
+        public IActionResult Register() => View();
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var json = JsonSerializer.Serialize(model);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PostAsync("register", content);
+            var responseContent = await response.Content.ReadAsStringAsync();
+
+            var authResponse = JsonSerializer.Deserialize<AuthResponse>(responseContent, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+
+            if (!response.IsSuccessStatusCode || authResponse == null)
+            {
+                ViewBag.RegisterError = authResponse?.Message ?? "Đăng ký thất bại!";
+                return View(model);
+            }
+
+            return RedirectToAction("Login", "Auth");
+        }
 
         [HttpGet]
         public IActionResult Login() => View();
