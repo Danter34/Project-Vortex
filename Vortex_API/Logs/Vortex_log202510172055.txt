@@ -1,0 +1,310 @@
+2025-10-17 20:55:06.757 +07:00 [INF] Request starting HTTP/1.1 POST https://localhost:7161/api/Auth/login - application/json; charset=utf-8 65
+2025-10-17 20:55:06.766 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.AuthController.Login (Vortex_API)'
+2025-10-17 20:55:06.771 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Vortex_API.Model.DTO.LoginDTO) on controller Vortex_API.Controllers.AuthController (Vortex_API).
+2025-10-17 20:55:06.789 +07:00 [INF] Login attempt for email: 1@gmail.com
+2025-10-17 20:55:06.807 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Balance], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-10-17 20:55:06.899 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-10-17 20:55:06.921 +07:00 [INF] User logged in successfully: 1@gmail.com
+2025-10-17 20:55:06.922 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-17 20:55:06.929 +07:00 [INF] Executed action Vortex_API.Controllers.AuthController.Login (Vortex_API) in 157.2235ms
+2025-10-17 20:55:06.931 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.AuthController.Login (Vortex_API)'
+2025-10-17 20:55:06.932 +07:00 [INF] Request finished HTTP/1.1 POST https://localhost:7161/api/Auth/login - 200 null application/json; charset=utf-8 175.2199ms
+2025-10-17 20:55:06.985 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Banner/Get-all-banner - null null
+2025-10-17 20:55:06.988 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.BannerController.GetAll (Vortex_API)'
+2025-10-17 20:55:06.989 +07:00 [INF] Route matched with {action = "GetAll", controller = "Banner"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Vortex_API.Controllers.BannerController (Vortex_API).
+2025-10-17 20:55:07.000 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[Description], [b].[ImageUrl], [b].[Title]
+FROM [Banners] AS [b]
+ORDER BY [b].[CreatedAt] DESC
+2025-10-17 20:55:07.002 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.Domain.Banner, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-17 20:55:07.003 +07:00 [INF] Executed action Vortex_API.Controllers.BannerController.GetAll (Vortex_API) in 13.2332ms
+2025-10-17 20:55:07.004 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.BannerController.GetAll (Vortex_API)'
+2025-10-17 20:55:07.005 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Banner/Get-all-banner - 200 null application/json; charset=utf-8 19.8492ms
+2025-10-17 20:55:07.010 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Product/get-all-product?filterOn=IsHot&filterQuery=true - null null
+2025-10-17 20:55:07.013 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.ProductController.GetAll (Vortex_API)'
+2025-10-17 20:55:07.014 +07:00 [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(System.String, System.String, System.String, Boolean, Int32, Int32) on controller Vortex_API.Controllers.ProductController (Vortex_API).
+2025-10-17 20:55:07.016 +07:00 [INF] Fetching all products. Page: 1, PageSize: 10, FilterOn: IsHot, FilterQuery: true, SortBy: null, Ascending: true
+2025-10-17 20:55:07.028 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__isHot_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AverageRating], [t].[CategoryId], [t].[CreatedAt], [t].[Description], [t].[IsHot], [t].[IsNew], [t].[Price], [t].[StockQuantity], [t].[Title], [c].[Id], [c].[Name], [c].[ParentId], [i].[Id], [i].[FileDescription], [i].[FileExtension], [i].[FileName], [i].[FilePath], [i].[FileSizeInBytes], [i].[ProductId]
+FROM (
+    SELECT [p].[Id], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title]
+    FROM [Products] AS [p]
+    WHERE [p].[IsHot] = @__isHot_0
+    ORDER BY (SELECT 1)
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Categories] AS [c] ON [t].[CategoryId] = [c].[Id]
+LEFT JOIN [Images] AS [i] ON [t].[Id] = [i].[ProductId]
+ORDER BY [t].[Id], [c].[Id]
+2025-10-17 20:55:07.031 +07:00 [INF] 3 products retrieved successfully.
+2025-10-17 20:55:07.032 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.Domain.Product, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-17 20:55:07.033 +07:00 [INF] Executed action Vortex_API.Controllers.ProductController.GetAll (Vortex_API) in 17.8583ms
+2025-10-17 20:55:07.034 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.ProductController.GetAll (Vortex_API)'
+2025-10-17 20:55:07.035 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Product/get-all-product?filterOn=IsHot&filterQuery=true - 200 null application/json; charset=utf-8 25.6991ms
+2025-10-17 20:55:07.040 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Product?filterOn=IsNew&filterQuery=true - null null
+2025-10-17 20:55:07.042 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Product?filterOn=IsNew&filterQuery=true - 404 0 null 2.1872ms
+2025-10-17 20:55:07.044 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7161/api/Product, Response status code: 404
+2025-10-17 20:55:07.049 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/News/get-all-news - null null
+2025-10-17 20:55:07.052 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.NewsController.GetAll (Vortex_API)'
+2025-10-17 20:55:07.053 +07:00 [INF] Route matched with {action = "GetAll", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Vortex_API.Controllers.NewsController (Vortex_API).
+2025-10-17 20:55:07.065 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[CreatedAt], [n].[Description], [n].[ImageUrl], [n].[Link], [n].[Title]
+FROM [News] AS [n]
+ORDER BY [n].[CreatedAt] DESC
+2025-10-17 20:55:07.067 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.Domain.News, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-17 20:55:07.068 +07:00 [INF] Executed action Vortex_API.Controllers.NewsController.GetAll (Vortex_API) in 13.8526ms
+2025-10-17 20:55:07.070 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.NewsController.GetAll (Vortex_API)'
+2025-10-17 20:55:07.071 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/News/get-all-news - 200 null application/json; charset=utf-8 21.507ms
+2025-10-17 20:55:07.079 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Cart/get-cart - null null
+2025-10-17 20:55:07.121 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.CartController.GetCart (Vortex_API)'
+2025-10-17 20:55:07.124 +07:00 [INF] Route matched with {action = "GetCart", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCart() on controller Vortex_API.Controllers.CartController (Vortex_API).
+2025-10-17 20:55:07.154 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[UserId], [t0].[Id], [t0].[CartId], [t0].[ProductId], [t0].[Quantity], [t0].[Id0], [t0].[AverageRating], [t0].[CategoryId], [t0].[CreatedAt], [t0].[Description], [t0].[IsHot], [t0].[IsNew], [t0].[Price], [t0].[StockQuantity], [t0].[Title]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [c0].[Id], [c0].[CartId], [c0].[ProductId], [c0].[Quantity], [p].[Id] AS [Id0], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title]
+    FROM [CartItems] AS [c0]
+    INNER JOIN [Products] AS [p] ON [c0].[ProductId] = [p].[Id]
+) AS [t0] ON [t].[Id] = [t0].[CartId]
+ORDER BY [t].[Id], [t0].[Id]
+2025-10-17 20:55:07.161 +07:00 [INF] Executing OkObjectResult, writing value of type 'Vortex_API.Model.Domain.Cart'.
+2025-10-17 20:55:07.163 +07:00 [INF] Executed action Vortex_API.Controllers.CartController.GetCart (Vortex_API) in 38.1857ms
+2025-10-17 20:55:07.164 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.CartController.GetCart (Vortex_API)'
+2025-10-17 20:55:07.165 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Cart/get-cart - 200 null application/json; charset=utf-8 85.7514ms
+2025-10-17 20:55:09.942 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Product/get-all-product - null null
+2025-10-17 20:55:09.944 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.ProductController.GetAll (Vortex_API)'
+2025-10-17 20:55:09.945 +07:00 [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(System.String, System.String, System.String, Boolean, Int32, Int32) on controller Vortex_API.Controllers.ProductController (Vortex_API).
+2025-10-17 20:55:09.948 +07:00 [INF] Fetching all products. Page: 1, PageSize: 10, FilterOn: null, FilterQuery: null, SortBy: null, Ascending: true
+2025-10-17 20:55:09.950 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-17 20:55:09.951 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-17 20:55:09.966 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AverageRating], [t].[CategoryId], [t].[CreatedAt], [t].[Description], [t].[IsHot], [t].[IsNew], [t].[Price], [t].[StockQuantity], [t].[Title], [c].[Id], [c].[Name], [c].[ParentId], [i].[Id], [i].[FileDescription], [i].[FileExtension], [i].[FileName], [i].[FilePath], [i].[FileSizeInBytes], [i].[ProductId]
+FROM (
+    SELECT [p].[Id], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title]
+    FROM [Products] AS [p]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [Categories] AS [c] ON [t].[CategoryId] = [c].[Id]
+LEFT JOIN [Images] AS [i] ON [t].[Id] = [i].[ProductId]
+ORDER BY [t].[Id], [c].[Id]
+2025-10-17 20:55:09.969 +07:00 [INF] 3 products retrieved successfully.
+2025-10-17 20:55:09.971 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.Domain.Product, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-17 20:55:09.972 +07:00 [INF] Executed action Vortex_API.Controllers.ProductController.GetAll (Vortex_API) in 25.8116ms
+2025-10-17 20:55:09.973 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.ProductController.GetAll (Vortex_API)'
+2025-10-17 20:55:09.974 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Product/get-all-product - 200 null application/json; charset=utf-8 32.1154ms
+2025-10-17 20:55:10.042 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Order/get-all-order - null null
+2025-10-17 20:55:10.046 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.OrderController.GetAllOrders (Vortex_API)'
+2025-10-17 20:55:10.049 +07:00 [INF] Route matched with {action = "GetAllOrders", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders(Int32, Int32) on controller Vortex_API.Controllers.OrderController (Vortex_API).
+2025-10-17 20:55:10.051 +07:00 [INF] Admin is fetching all orders, page 1, pageSize 10.
+2025-10-17 20:55:10.068 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-10-17 20:55:10.084 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Name], [t].[Phone], [t].[ShippingAddress], [t].[Status], [t].[TotalAmount], [t].[UserId], [a].[Id], [t0].[Id], [t0].[OrderId], [t0].[ProductId], [t0].[Quantity], [t0].[UnitPrice], [t0].[Id0], [t0].[AverageRating], [t0].[CategoryId], [t0].[CreatedAt], [t0].[Description], [t0].[IsHot], [t0].[IsNew], [t0].[Price], [t0].[StockQuantity], [t0].[Title], [t0].[Id1], [t0].[FileDescription], [t0].[FileExtension], [t0].[FileName], [t0].[FilePath], [t0].[FileSizeInBytes], [t0].[ProductId0], [a].[AccessFailedCount], [a].[Balance], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM (
+    SELECT [o].[Id], [o].[CreatedAt], [o].[Name], [o].[Phone], [o].[ShippingAddress], [o].[Status], [o].[TotalAmount], [o].[UserId]
+    FROM [Orders] AS [o]
+    ORDER BY [o].[CreatedAt] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [AspNetUsers] AS [a] ON [t].[UserId] = [a].[Id]
+LEFT JOIN (
+    SELECT [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[UnitPrice], [p].[Id] AS [Id0], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title], [i].[Id] AS [Id1], [i].[FileDescription], [i].[FileExtension], [i].[FileName], [i].[FilePath], [i].[FileSizeInBytes], [i].[ProductId] AS [ProductId0]
+    FROM [OrderItems] AS [o0]
+    INNER JOIN [Products] AS [p] ON [o0].[ProductId] = [p].[Id]
+    LEFT JOIN [Images] AS [i] ON [p].[Id] = [i].[ProductId]
+) AS [t0] ON [t].[Id] = [t0].[OrderId]
+ORDER BY [t].[CreatedAt] DESC, [t].[Id], [a].[Id], [t0].[Id], [t0].[Id0]
+2025-10-17 20:55:10.098 +07:00 [INF] 10 orders retrieved.
+2025-10-17 20:55:10.098 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.DTO.OrderDTOView, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-17 20:55:10.104 +07:00 [INF] Executed action Vortex_API.Controllers.OrderController.GetAllOrders (Vortex_API) in 54.2791ms
+2025-10-17 20:55:10.105 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.OrderController.GetAllOrders (Vortex_API)'
+2025-10-17 20:55:10.106 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Order/get-all-order - 200 null application/json; charset=utf-8 64.2896ms
+2025-10-17 20:55:10.111 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/UserManagement - null null
+2025-10-17 20:55:10.113 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.UserManagementController.GetAllUsers (Vortex_API)'
+2025-10-17 20:55:10.117 +07:00 [INF] Route matched with {action = "GetAllUsers", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllUsers(System.String, System.String, System.String, Boolean, Int32, Int32) on controller Vortex_API.Controllers.UserManagementController (Vortex_API).
+2025-10-17 20:55:10.123 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-17 20:55:10.123 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-17 20:55:10.136 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[Balance], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2025-10-17 20:55:10.147 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-10-17 20:55:10.158 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-10-17 20:55:10.160 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.DTO.UserDto, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-17 20:55:10.163 +07:00 [INF] Executed action Vortex_API.Controllers.UserManagementController.GetAllUsers (Vortex_API) in 44.805ms
+2025-10-17 20:55:10.164 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.UserManagementController.GetAllUsers (Vortex_API)'
+2025-10-17 20:55:10.165 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/UserManagement - 200 null application/json; charset=utf-8 53.7929ms
+2025-10-17 20:55:10.186 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Feedback/all - null null
+2025-10-17 20:55:10.188 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.FeedbackController.GetAllFeedbacks (Vortex_API)'
+2025-10-17 20:55:10.191 +07:00 [INF] Route matched with {action = "GetAllFeedbacks", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllFeedbacks() on controller Vortex_API.Controllers.FeedbackController (Vortex_API).
+2025-10-17 20:55:10.209 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [f].[Id], [f].[Message], [f].[AdminReply], [f].[CreatedAt], [f].[Status]
+FROM [Feedbacks] AS [f]
+ORDER BY [f].[CreatedAt] DESC
+2025-10-17 20:55:10.212 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.DTO.FeedbackResponseDTO, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-17 20:55:10.214 +07:00 [INF] Executed action Vortex_API.Controllers.FeedbackController.GetAllFeedbacks (Vortex_API) in 22.3901ms
+2025-10-17 20:55:10.215 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.FeedbackController.GetAllFeedbacks (Vortex_API)'
+2025-10-17 20:55:10.216 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Feedback/all - 200 null application/json; charset=utf-8 30.0811ms
+2025-10-17 20:55:11.946 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Product/get-all-product?pageNumber=1&pageSize=10 - null null
+2025-10-17 20:55:11.949 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.ProductController.GetAll (Vortex_API)'
+2025-10-17 20:55:11.949 +07:00 [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(System.String, System.String, System.String, Boolean, Int32, Int32) on controller Vortex_API.Controllers.ProductController (Vortex_API).
+2025-10-17 20:55:11.951 +07:00 [INF] Fetching all products. Page: 1, PageSize: 10, FilterOn: null, FilterQuery: null, SortBy: null, Ascending: true
+2025-10-17 20:55:11.962 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AverageRating], [t].[CategoryId], [t].[CreatedAt], [t].[Description], [t].[IsHot], [t].[IsNew], [t].[Price], [t].[StockQuantity], [t].[Title], [c].[Id], [c].[Name], [c].[ParentId], [i].[Id], [i].[FileDescription], [i].[FileExtension], [i].[FileName], [i].[FilePath], [i].[FileSizeInBytes], [i].[ProductId]
+FROM (
+    SELECT [p].[Id], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title]
+    FROM [Products] AS [p]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [Categories] AS [c] ON [t].[CategoryId] = [c].[Id]
+LEFT JOIN [Images] AS [i] ON [t].[Id] = [i].[ProductId]
+ORDER BY [t].[Id], [c].[Id]
+2025-10-17 20:55:11.964 +07:00 [INF] 3 products retrieved successfully.
+2025-10-17 20:55:11.965 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.Domain.Product, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-17 20:55:11.966 +07:00 [INF] Executed action Vortex_API.Controllers.ProductController.GetAll (Vortex_API) in 15.8457ms
+2025-10-17 20:55:11.967 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.ProductController.GetAll (Vortex_API)'
+2025-10-17 20:55:11.968 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Product/get-all-product?pageNumber=1&pageSize=10 - 200 null application/json; charset=utf-8 21.5935ms
+2025-10-17 20:55:13.328 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Product/get-product-by-id/1 - null null
+2025-10-17 20:55:13.330 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.ProductController.GetById (Vortex_API)'
+2025-10-17 20:55:13.334 +07:00 [INF] Route matched with {action = "GetById", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Vortex_API.Controllers.ProductController (Vortex_API).
+2025-10-17 20:55:13.336 +07:00 [INF] Fetching product by ID: 1
+2025-10-17 20:55:13.355 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AverageRating], [t].[CategoryId], [t].[CreatedAt], [t].[Description], [t].[IsHot], [t].[IsNew], [t].[Price], [t].[StockQuantity], [t].[Title], [t].[Id0], [t].[Name], [t].[ParentId], [i].[Id], [i].[FileDescription], [i].[FileExtension], [i].[FileName], [i].[FilePath], [i].[FileSizeInBytes], [i].[ProductId]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title], [c].[Id] AS [Id0], [c].[Name], [c].[ParentId]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Images] AS [i] ON [t].[Id] = [i].[ProductId]
+ORDER BY [t].[Id], [t].[Id0]
+2025-10-17 20:55:13.358 +07:00 [INF] Product with ID 1 retrieved successfully.
+2025-10-17 20:55:13.359 +07:00 [INF] Executing OkObjectResult, writing value of type 'Vortex_API.Model.Domain.Product'.
+2025-10-17 20:55:13.360 +07:00 [INF] Executed action Vortex_API.Controllers.ProductController.GetById (Vortex_API) in 25.1428ms
+2025-10-17 20:55:13.361 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.ProductController.GetById (Vortex_API)'
+2025-10-17 20:55:13.362 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Product/get-product-by-id/1 - 200 null application/json; charset=utf-8 33.8112ms
+2025-10-17 20:55:13.367 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Category/get-all-category - null null
+2025-10-17 20:55:13.369 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.CategoryController.GetAll (Vortex_API)'
+2025-10-17 20:55:13.372 +07:00 [INF] Route matched with {action = "GetAll", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(System.String, System.String, System.String, Boolean, Int32, Int32) on controller Vortex_API.Controllers.CategoryController (Vortex_API).
+2025-10-17 20:55:13.378 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-17 20:55:13.378 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-10-17 20:55:13.387 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-10-17 20:55:13.403 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Name], [t].[ParentId], [c0].[Id], [c0].[Name], [c0].[ParentId], [p].[Id], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title]
+FROM (
+    SELECT [c].[Id], [c].[Name], [c].[ParentId]
+    FROM [Categories] AS [c]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [Categories] AS [c0] ON [t].[Id] = [c0].[ParentId]
+LEFT JOIN [Products] AS [p] ON [t].[Id] = [p].[CategoryId]
+ORDER BY [t].[Id], [c0].[Id]
+2025-10-17 20:55:13.409 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.Domain.Category, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-17 20:55:13.412 +07:00 [INF] Executed action Vortex_API.Controllers.CategoryController.GetAll (Vortex_API) in 38.1292ms
+2025-10-17 20:55:13.413 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.CategoryController.GetAll (Vortex_API)'
+2025-10-17 20:55:13.414 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Category/get-all-category - 200 null application/json; charset=utf-8 46.8337ms
+2025-10-17 20:55:15.808 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Order/get-all-order?page=1&pageSize=10 - null null
+2025-10-17 20:55:15.811 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.OrderController.GetAllOrders (Vortex_API)'
+2025-10-17 20:55:15.812 +07:00 [INF] Route matched with {action = "GetAllOrders", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders(Int32, Int32) on controller Vortex_API.Controllers.OrderController (Vortex_API).
+2025-10-17 20:55:15.815 +07:00 [INF] Admin is fetching all orders, page 1, pageSize 10.
+2025-10-17 20:55:15.825 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Name], [t].[Phone], [t].[ShippingAddress], [t].[Status], [t].[TotalAmount], [t].[UserId], [a].[Id], [t0].[Id], [t0].[OrderId], [t0].[ProductId], [t0].[Quantity], [t0].[UnitPrice], [t0].[Id0], [t0].[AverageRating], [t0].[CategoryId], [t0].[CreatedAt], [t0].[Description], [t0].[IsHot], [t0].[IsNew], [t0].[Price], [t0].[StockQuantity], [t0].[Title], [t0].[Id1], [t0].[FileDescription], [t0].[FileExtension], [t0].[FileName], [t0].[FilePath], [t0].[FileSizeInBytes], [t0].[ProductId0], [a].[AccessFailedCount], [a].[Balance], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM (
+    SELECT [o].[Id], [o].[CreatedAt], [o].[Name], [o].[Phone], [o].[ShippingAddress], [o].[Status], [o].[TotalAmount], [o].[UserId]
+    FROM [Orders] AS [o]
+    ORDER BY [o].[CreatedAt] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [AspNetUsers] AS [a] ON [t].[UserId] = [a].[Id]
+LEFT JOIN (
+    SELECT [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[UnitPrice], [p].[Id] AS [Id0], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title], [i].[Id] AS [Id1], [i].[FileDescription], [i].[FileExtension], [i].[FileName], [i].[FilePath], [i].[FileSizeInBytes], [i].[ProductId] AS [ProductId0]
+    FROM [OrderItems] AS [o0]
+    INNER JOIN [Products] AS [p] ON [o0].[ProductId] = [p].[Id]
+    LEFT JOIN [Images] AS [i] ON [p].[Id] = [i].[ProductId]
+) AS [t0] ON [t].[Id] = [t0].[OrderId]
+ORDER BY [t].[CreatedAt] DESC, [t].[Id], [a].[Id], [t0].[Id], [t0].[Id0]
+2025-10-17 20:55:15.829 +07:00 [INF] 10 orders retrieved.
+2025-10-17 20:55:15.830 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.DTO.OrderDTOView, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-17 20:55:15.830 +07:00 [INF] Executed action Vortex_API.Controllers.OrderController.GetAllOrders (Vortex_API) in 17.0019ms
+2025-10-17 20:55:15.831 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.OrderController.GetAllOrders (Vortex_API)'
+2025-10-17 20:55:15.832 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Order/get-all-order?page=1&pageSize=10 - 200 null application/json; charset=utf-8 23.8195ms
+2025-10-17 20:55:17.076 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Product/get-all-product?pageNumber=1&pageSize=10 - null null
+2025-10-17 20:55:17.078 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.ProductController.GetAll (Vortex_API)'
+2025-10-17 20:55:17.079 +07:00 [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(System.String, System.String, System.String, Boolean, Int32, Int32) on controller Vortex_API.Controllers.ProductController (Vortex_API).
+2025-10-17 20:55:17.080 +07:00 [INF] Fetching all products. Page: 1, PageSize: 10, FilterOn: null, FilterQuery: null, SortBy: null, Ascending: true
+2025-10-17 20:55:17.092 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AverageRating], [t].[CategoryId], [t].[CreatedAt], [t].[Description], [t].[IsHot], [t].[IsNew], [t].[Price], [t].[StockQuantity], [t].[Title], [c].[Id], [c].[Name], [c].[ParentId], [i].[Id], [i].[FileDescription], [i].[FileExtension], [i].[FileName], [i].[FilePath], [i].[FileSizeInBytes], [i].[ProductId]
+FROM (
+    SELECT [p].[Id], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title]
+    FROM [Products] AS [p]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [Categories] AS [c] ON [t].[CategoryId] = [c].[Id]
+LEFT JOIN [Images] AS [i] ON [t].[Id] = [i].[ProductId]
+ORDER BY [t].[Id], [c].[Id]
+2025-10-17 20:55:17.094 +07:00 [INF] 3 products retrieved successfully.
+2025-10-17 20:55:17.094 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.Domain.Product, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-17 20:55:17.095 +07:00 [INF] Executed action Vortex_API.Controllers.ProductController.GetAll (Vortex_API) in 15.4196ms
+2025-10-17 20:55:17.096 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.ProductController.GetAll (Vortex_API)'
+2025-10-17 20:55:17.097 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Product/get-all-product?pageNumber=1&pageSize=10 - 200 null application/json; charset=utf-8 21.4313ms
+2025-10-17 20:55:18.419 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Category/get-all-category?pageNumber=1&pageSize=20 - null null
+2025-10-17 20:55:18.423 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.CategoryController.GetAll (Vortex_API)'
+2025-10-17 20:55:18.423 +07:00 [INF] Route matched with {action = "GetAll", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(System.String, System.String, System.String, Boolean, Int32, Int32) on controller Vortex_API.Controllers.CategoryController (Vortex_API).
+2025-10-17 20:55:18.434 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Name], [t].[ParentId], [c0].[Id], [c0].[Name], [c0].[ParentId], [p].[Id], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title]
+FROM (
+    SELECT [c].[Id], [c].[Name], [c].[ParentId]
+    FROM [Categories] AS [c]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [Categories] AS [c0] ON [t].[Id] = [c0].[ParentId]
+LEFT JOIN [Products] AS [p] ON [t].[Id] = [p].[CategoryId]
+ORDER BY [t].[Id], [c0].[Id]
+2025-10-17 20:55:18.437 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.Domain.Category, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-17 20:55:18.438 +07:00 [INF] Executed action Vortex_API.Controllers.CategoryController.GetAll (Vortex_API) in 13.4816ms
+2025-10-17 20:55:18.439 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.CategoryController.GetAll (Vortex_API)'
+2025-10-17 20:55:18.440 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Category/get-all-category?pageNumber=1&pageSize=20 - 200 null application/json; charset=utf-8 20.5374ms
+2025-10-17 20:55:19.197 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Product/get-all-product?pageNumber=1&pageSize=10 - null null
+2025-10-17 20:55:19.199 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.ProductController.GetAll (Vortex_API)'
+2025-10-17 20:55:19.199 +07:00 [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(System.String, System.String, System.String, Boolean, Int32, Int32) on controller Vortex_API.Controllers.ProductController (Vortex_API).
+2025-10-17 20:55:19.201 +07:00 [INF] Fetching all products. Page: 1, PageSize: 10, FilterOn: null, FilterQuery: null, SortBy: null, Ascending: true
+2025-10-17 20:55:19.212 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AverageRating], [t].[CategoryId], [t].[CreatedAt], [t].[Description], [t].[IsHot], [t].[IsNew], [t].[Price], [t].[StockQuantity], [t].[Title], [c].[Id], [c].[Name], [c].[ParentId], [i].[Id], [i].[FileDescription], [i].[FileExtension], [i].[FileName], [i].[FilePath], [i].[FileSizeInBytes], [i].[ProductId]
+FROM (
+    SELECT [p].[Id], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title]
+    FROM [Products] AS [p]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [Categories] AS [c] ON [t].[CategoryId] = [c].[Id]
+LEFT JOIN [Images] AS [i] ON [t].[Id] = [i].[ProductId]
+ORDER BY [t].[Id], [c].[Id]
+2025-10-17 20:55:19.214 +07:00 [INF] 3 products retrieved successfully.
+2025-10-17 20:55:19.214 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.Domain.Product, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-17 20:55:19.215 +07:00 [INF] Executed action Vortex_API.Controllers.ProductController.GetAll (Vortex_API) in 14.7966ms
+2025-10-17 20:55:19.216 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.ProductController.GetAll (Vortex_API)'
+2025-10-17 20:55:19.217 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Product/get-all-product?pageNumber=1&pageSize=10 - 200 null application/json; charset=utf-8 20.4968ms

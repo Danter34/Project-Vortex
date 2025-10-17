@@ -15,20 +15,44 @@ namespace Vortex.Controllers
             _httpClient = httpClientFactory.CreateClient("APIClient");
         }
 
-        // ====== GET ALL USERS ======
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? search, int page = 1, int pageSize = 10)
         {
-            var response = await _httpClient.GetAsync($"{_baseUrl}all");
-            if (!response.IsSuccessStatusCode) return View(new List<UserViewModel>());
+            // Tạo URL truy vấn API
+            string url = $"{_baseUrl}?filterOn=fullname&filterQuery={search}&pageNumber={page}&pageSize={pageSize}";
+
+            var response = await _httpClient.GetAsync(url);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                TempData["Error"] = "Không thể tải danh sách người dùng.";
+                return View(new List<UserViewModel>());
+            }
 
             var json = await response.Content.ReadAsStringAsync();
-            var users = JsonSerializer.Deserialize<List<UserViewModel>>(json,
-                new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new List<UserViewModel>();
+
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+            var users = JsonSerializer.Deserialize<List<UserViewModel>>(json, options) ?? new List<UserViewModel>();
+
+            // Nếu không có dữ liệu thì báo
+            if (users == null || users.Count == 0)
+            {
+                return View(new List<UserViewModel>());
+            }
+
+            // Phân trang cơ bản (nếu muốn hiển thị nút next/prev)
+            ViewBag.CurrentPage = page;
+            ViewBag.HasPreviousPage = page > 1;
+            ViewBag.HasNextPage = users.Count == pageSize;
+            ViewBag.Search = search;
 
             return View(users);
         }
 
-        // ====== UPDATE ROLE ======
+
         [HttpPost]
         public async Task<IActionResult> UpdateRole(UpdateUserRoleViewModel model)
         {
@@ -47,7 +71,7 @@ namespace Vortex.Controllers
             return RedirectToAction("Index");
         }
 
-        // ====== DELETE USER ======
+
         [HttpPost]
         public async Task<IActionResult> DeleteUser(string userId)
         {

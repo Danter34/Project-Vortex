@@ -1,5 +1,7 @@
 ﻿@model Vortex.Models.NewsViewModel
-
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
 <h3>Tạo tin tức mới</h3>
 
 <form asp-action="Create" method="post" enctype="multipart/form-data">

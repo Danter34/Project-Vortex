@@ -17,7 +17,7 @@ namespace Vortex.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        // GET: Checkout page
+
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient("APIClient");
@@ -62,7 +62,7 @@ namespace Vortex.Controllers
             return View(checkoutModel);
         }
 
-        // POST: Thực hiện thanh toán
+
         [HttpPost]
         public async Task<IActionResult> Pay(CheckoutViewModel model)
         {

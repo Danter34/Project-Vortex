@@ -3,12 +3,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Globalization;
 using System.Text.Json;
 using Vortex.Models;
-using iText.Kernel.Pdf;
-using iText.Layout;
+using iText.Layout.Properties;
 using iText.Layout.Element;
+using iText.Layout;
+using iText.Kernel.Pdf;
 using iText.Kernel.Font;
 using iText.IO.Font;
-using System.IO;
+using iText.Kernel.Colors;
+
 
 namespace Vortex.Controllers
 {
@@ -75,28 +77,57 @@ namespace Vortex.Controllers
                 item.Date = item.Date.ToLocalTime();
             }
 
+            // Tính tổng
+            var totalRevenue = data.Sum(x => x.TotalRevenue);
+            var totalOrders = data.Sum(x => x.TotalOrders);
+            var totalProducts = data.Sum(x => x.TotalProductsSold);
+
             using var ms = new MemoryStream();
             using (var writer = new PdfWriter(ms))
             {
                 var pdf = new PdfDocument(writer);
                 var document = new Document(pdf);
 
-                // Load font Unicode (Roboto)
+                // Font Unicode
                 var fontPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "fonts", "Roboto-Regular.ttf");
                 var font = PdfFontFactory.CreateFont(fontPath, PdfEncodings.IDENTITY_H);
 
+                var boldFontPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "fonts", "Roboto-Bold.ttf");
+                var boldFont = PdfFontFactory.CreateFont(boldFontPath, PdfEncodings.IDENTITY_H);
+
+                // Tiêu đề
+                var title = new Paragraph("BÁO CÁO DOANH THU VORTEX PLAY")
+                    .SetFont(boldFont)
+                    .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                    .SetFontSize(20)
+                    .SetFontColor(ColorConstants.BLUE);
+
+                var dateRange = new Paragraph($"Từ {fromDate?.ToString("dd/MM/yyyy") ?? "N/A"} đến {toDate?.ToString("dd/MM/yyyy") ?? "N/A"}")
+                    .SetFont(font)
+                    .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                    .SetFontSize(12)
+                    .SetFontColor(ColorConstants.GRAY);
+
+                document.Add(title);
+                document.Add(dateRange);
+                document.Add(new Paragraph(" "));
+
+                // Tạo bảng
+                var table = new Table(new float[] { 3, 3, 2, 2 });
+                table.SetWidth(UnitValue.CreatePercentValue(100));
+
                 // Header
-                document.Add(new Paragraph("Báo cáo doanh thu").SetFont(font).SetFontSize(20));
-                document.Add(new Paragraph($"Từ {fromDate?.ToString("dd/MM/yyyy") ?? "N/A"} đến {toDate?.ToString("dd/MM/yyyy") ?? "N/A"}").SetFont(font));
-                document.Add(new Paragraph(" ")); // khoảng trắng
+                string[] headers = { "Ngày", "Doanh thu", "Số đơn", "Số sản phẩm" };
+                foreach (var h in headers)
+                {
+                    table.AddHeaderCell(new Cell()
+                        .Add(new Paragraph(h).SetFont(boldFont).SetFontColor(ColorConstants.WHITE))
+                        .SetBackgroundColor(ColorConstants.DARK_GRAY)
+                        .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                        .SetPadding(5));
+                }
 
-                // Table
-                var table = new Table(4);
-                table.AddHeaderCell(new Cell().Add(new Paragraph("Ngày").SetFont(font)));
-                table.AddHeaderCell(new Cell().Add(new Paragraph("Doanh thu").SetFont(font)));
-                table.AddHeaderCell(new Cell().Add(new Paragraph("Số đơn").SetFont(font)));
-                table.AddHeaderCell(new Cell().Add(new Paragraph("Số sản phẩm").SetFont(font)));
-
+                // Format ngày theo nhóm
                 string dateFormat = groupBy switch
                 {
                     "day" => "dd/MM/yyyy",
@@ -105,19 +136,41 @@ namespace Vortex.Controllers
                     _ => "dd/MM/yyyy"
                 };
 
+                // Dữ liệu
                 foreach (var item in data)
                 {
-                    table.AddCell(new Cell().Add(new Paragraph(item.Date.ToString(dateFormat)).SetFont(font)));
-                    table.AddCell(new Cell().Add(new Paragraph(item.TotalRevenue.ToString("N0", CultureInfo.InvariantCulture)).SetFont(font)));
-                    table.AddCell(new Cell().Add(new Paragraph(item.TotalOrders.ToString()).SetFont(font)));
-                    table.AddCell(new Cell().Add(new Paragraph(item.TotalProductsSold.ToString()).SetFont(font)));
+                    table.AddCell(new Cell().Add(new Paragraph(item.Date.ToString(dateFormat)).SetFont(font))
+                        .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER));
+                    table.AddCell(new Cell().Add(new Paragraph(item.TotalRevenue.ToString("N0", CultureInfo.InvariantCulture) + " đ").SetFont(font))
+                        .SetTextAlignment(iText.Layout.Properties.TextAlignment.RIGHT));
+                    table.AddCell(new Cell().Add(new Paragraph(item.TotalOrders.ToString()).SetFont(font))
+                        .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER));
+                    table.AddCell(new Cell().Add(new Paragraph(item.TotalProductsSold.ToString()).SetFont(font))
+                        .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER));
                 }
 
                 document.Add(table);
-                document.Close();
+
+                document.Add(new Paragraph(" "));
+
+                // Tổng kết
+                var totalSection = new Table(new float[] { 4, 4, 4 });
+                totalSection.SetWidth(UnitValue.CreatePercentValue(100));
+
+                totalSection.AddCell(new Cell().Add(new Paragraph($"Tổng doanh thu: {totalRevenue.ToString("N0")} đ").SetFont(boldFont))
+                    .SetBackgroundColor(ColorConstants.LIGHT_GRAY).SetPadding(5));
+                totalSection.AddCell(new Cell().Add(new Paragraph($"Tổng đơn: {totalOrders}").SetFont(boldFont))
+                    .SetBackgroundColor(ColorConstants.LIGHT_GRAY).SetPadding(5));
+                totalSection.AddCell(new Cell().Add(new Paragraph($"Tổng sản phẩm: {totalProducts}").SetFont(boldFont))
+                    .SetBackgroundColor(ColorConstants.LIGHT_GRAY).SetPadding(5));
+
+                document.Add(totalSection);
+
+        
             }
 
             return File(ms.ToArray(), "application/pdf", "RevenueReport.pdf");
         }
+
     }
 }

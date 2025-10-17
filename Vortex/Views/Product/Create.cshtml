@@ -1,10 +1,11 @@
 ﻿@model Vortex.Models.ProductCreateModel
 @{
     var categories = ViewBag.Categories as List<CategoryViewModel>;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <div class="container mt-4">
-    <h3 class="text-white mb-4">🛒 Thêm sản phẩm mới</h3>
+    <h3 class="text-white mb-4">Thêm sản phẩm mới</h3>
 
     <form asp-action="Create" method="post" enctype="multipart/form-data" class="bg-dark text-white p-4 rounded shadow">
         <div class="mb-3">
@@ -73,8 +74,8 @@
             <label class="form-check-label">Sản phẩm mới</label>
         </div>
 
-        <button type="submit" class="btn btn-success px-4">💾 Lưu</button>
-        <a asp-action="Index" class="btn btn-secondary ms-2">⬅ Quay lại</a>
+        <button type="submit" class="btn btn-success px-4">Lưu</button>
+        <a asp-action="Index" class="btn btn-secondary ms-2">Quay lại</a>
     </form>
 </div>
 @section Scripts {

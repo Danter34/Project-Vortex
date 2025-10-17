@@ -1,6 +1,12 @@
 ﻿@using System.Security.Claims
 @inject IHttpContextAccessor HttpContextAccessor
 @{
+    var user = HttpContextAccessor.HttpContext.User;
+    var isAuthenticated = user.Identity?.IsAuthenticated ?? false;
+    var roles = isAuthenticated
+        ? user.Claims.Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value).ToArray()
+        : new string[0];
+
     var cartCount = 0;
     if (Context.Request.Cookies.TryGetValue("CartCount", out var value))
     {
@@ -46,10 +52,10 @@
                     </div>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
-                            @if (User.Identity != null && User.Identity.IsAuthenticated)
+                            @if (isAuthenticated)
                             {
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                    <i class="fas fa-user-astronaut"></i> @User.Identity.Name
+                                    <i class="fas fa-user-astronaut"></i> @user.Identity.Name
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li><a class="dropdown-item" href="@Url.Action("Index", "Profile")">Hồ sơ của tôi</a></li>
@@ -171,7 +177,7 @@
                             <i class="fas fa-user-astronaut"></i> Tài Khoản
                         </a>
                         <ul id="user-profile-mobile" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            @if (HttpContextAccessor.HttpContext.User.Identity != null && HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
+                            @if (isAuthenticated)
                             {
                                 <li class="sidebar-item-child">
                                     <a class="sidebar-link" href="@Url.Action("Index", "Profile")">Hồ sơ của tôi</a>
@@ -203,10 +209,18 @@
                         </a>
                     </li>
                 <li class="sidebar-item">
-                    <a href="contact.html" class="sidebar-link">
+                    <a asp-Controller="Feedback" asp-action="Index" class="sidebar-link">
                     <i class="fas fa-envelope"></i> Liên Hệ
                     </a>
                 </li>
+                    @if (roles.Contains("Admin"))
+                    {
+                        <li class="sidebar-item">
+                            <a asp-controller="Dashboard" asp-action="Index" class="sidebar-link">
+                                <i class="fas fa-user-shield"></i> Quản lý Admin
+                            </a>
+                        </li>
+                    }
             </ul>
         </nav>
       </aside>

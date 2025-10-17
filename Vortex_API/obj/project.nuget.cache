@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Y5itOZgM8bdcvp+R4xXfWIDtpYzJBazQNSkzO+bb3dYXojTqHdlj0BbmB/7T3HmwO6fZqP8Nk7DuK4zvYz4qCA==",
+  "dgSpecHash": "M92SMbPRjSHS+XBGU/urXScYZGY5cTN/GVJk/89yMWqKP6fpV3OCnDrgxbaP9WhsooBSzK3Je2X/LekRf0bTeg==",
   "success": true,
   "projectFilePath": "D:\\Project-Vortex\\Vortex_API\\Vortex_API.csproj",
   "expectedPackageFiles": [
@@ -12,8 +12,6 @@
     "C:\\Users\\pc\\.nuget\\packages\\itext\\9.3.0\\itext.9.3.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\itext.bouncy-castle-adapter\\9.3.0\\itext.bouncy-castle-adapter.9.3.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\itext.commons\\9.3.0\\itext.commons.9.3.0.nupkg.sha512",
-    "C:\\Users\\pc\\.nuget\\packages\\itext7\\9.3.0\\itext7.9.3.0.nupkg.sha512",
-    "C:\\Users\\pc\\.nuget\\packages\\itext7.bouncy-castle-adapter\\9.3.0\\itext7.bouncy-castle-adapter.9.3.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.15\\microsoft.aspnetcore.authentication.jwtbearer.8.0.15.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.15\\microsoft.aspnetcore.cryptography.internal.8.0.15.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\8.0.15\\microsoft.aspnetcore.cryptography.keyderivation.8.0.15.nupkg.sha512",

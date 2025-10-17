@@ -1,48 +1,116 @@
 ﻿@model List<Vortex.Models.RevenueViewModel>
 @using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var totalRevenue = Model.Sum(x => x.TotalRevenue);
+    var totalOrders = Model.Sum(x => x.TotalOrders);
+    var totalProducts = Model.Sum(x => x.TotalProductsSold);
+}
+<div class="container-fluid mt-4">
 
-<h3>Báo cáo doanh thu</h3>
+    <h2 class="fw-bold mb-4 text-primary"><i class="bi bi-graph-up"></i> Báo cáo doanh thu</h2>
 
-<form method="get" class="row g-3 mb-3">
-    <div class="col-auto">
-        <input type="date" name="fromDate" value="@ViewBag.FromDate?.ToString("yyyy-MM-dd")" class="form-control" />
+    <!-- Bộ lọc -->
+    <div class="card shadow-sm mb-4 border-0">
+        <div class="card-body">
+            <form method="get" class="row gy-2 gx-3 align-items-center">
+                <div class="col-auto">
+                    <label class="form-label fw-semibold text-secondary">Từ ngày</label>
+                    <input type="date" name="fromDate" value="@ViewBag.FromDate?.ToString("yyyy-MM-dd")" class="form-control" />
+                </div>
+                <div class="col-auto">
+                    <label class="form-label fw-semibold text-secondary">Đến ngày</label>
+                    <input type="date" name="toDate" value="@ViewBag.ToDate?.ToString("yyyy-MM-dd")" class="form-control" />
+                </div>
+                <div class="col-auto">
+                    <label class="form-label fw-semibold text-secondary">Nhóm theo</label>
+                    <select asp-items="ViewBag.GroupByList" name="groupBy" class="form-select"></select>
+                </div>
+                <div class="col-auto d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary fw-semibold shadow-sm px-4">
+                        <i class="bi bi-funnel"></i> Lọc
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="col-auto">
-        <input type="date" name="toDate" value="@ViewBag.ToDate?.ToString("yyyy-MM-dd")" class="form-control" />
-    </div>
-    <div class="col-auto">
-        <select asp-items="ViewBag.GroupByList" name="groupBy" class="form-select"></select>
-    </div>
-    <div class="col-auto">
-        <button type="submit" class="btn btn-primary">Lọc</button>
-    </div>
-</form>
 
-<table class="table table-bordered mt-3">
-    <thead>
-        <tr>
-            <th>Ngày</th>
-            <th>Doanh thu</th>
-            <th>Số đơn</th>
-            <th>Số sản phẩm</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var r in Model)
-        {
-            <tr>
-                <td>@r.Date.ToString(ViewBag.GroupBy == "day" ? "dd/MM/yyyy" : ViewBag.GroupBy == "month" ? "MM/yyyy" : "yyyy")</td>
-                <td>@r.TotalRevenue.ToString("N0") đ</td>
-                <td>@r.TotalOrders</td>
-                <td>@r.TotalProductsSold</td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <!-- Thống kê tổng quan -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card bg-primary text-white shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="fw-semibold">Tổng doanh thu</h5>
+                    <h3 class="fw-bold">@totalRevenue.ToString("N0") đ</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-success text-white shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="fw-semibold">Tổng số đơn</h5>
+                    <h3 class="fw-bold">@totalOrders</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-warning text-dark shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="fw-semibold">Tổng sản phẩm bán</h5>
+                    <h3 class="fw-bold">@totalProducts</h3>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<form method="post" asp-action="ExportPdf">
-    <input type="hidden" name="groupBy" value="@ViewBag.GroupBy" />
-    <input type="hidden" name="fromDate" value="@ViewBag.FromDate?.ToString("yyyy-MM-dd")" />
-    <input type="hidden" name="toDate" value="@ViewBag.ToDate?.ToString("yyyy-MM-dd")" />
-    <button type="submit" class="btn btn-danger">Xuất PDF</button>
-</form>
+    <!-- Bảng doanh thu -->
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <h5 class="fw-semibold mb-3"><i class="bi bi-table"></i> Chi tiết doanh thu</h5>
+            <div class="table-responsive">
+                <table class="table align-middle text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Ngày</th>
+                            <th>Doanh thu</th>
+                            <th>Số đơn</th>
+                            <th>Số sản phẩm</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Any())
+                        {
+                            foreach (var r in Model)
+                            {
+                                <tr>
+                                    <td>@r.Date.ToString(ViewBag.GroupBy == "day" ? "dd/MM/yyyy" : ViewBag.GroupBy == "month" ? "MM/yyyy" : "yyyy")</td>
+                                    <td class="fw-semibold text-success">@r.TotalRevenue.ToString("N0") đ</td>
+                                    <td>@r.TotalOrders</td>
+                                    <td>@r.TotalProductsSold</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="4" class="text-muted fst-italic">Không có dữ liệu trong khoảng thời gian này.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Xuất PDF -->
+    <div class="text-end mt-3">
+        <form method="post" asp-action="ExportPdf" class="d-inline">
+            <input type="hidden" name="groupBy" value="@ViewBag.GroupBy" />
+            <input type="hidden" name="fromDate" value="@ViewBag.FromDate?.ToString("yyyy-MM-dd")" />
+            <input type="hidden" name="toDate" value="@ViewBag.ToDate?.ToString("yyyy-MM-dd")" />
+            <button type="submit" class="btn btn-danger fw-semibold shadow-sm px-4">
+                <i class="bi bi-file-earmark-pdf"></i> Xuất PDF
+            </button>
+        </form>
+    </div>
+</div>

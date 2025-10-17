@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Vortex_API.Model.Domain;
 using Vortex_API.Model.DTO;
 using Vortex_API.Repositories.Interface;
@@ -15,12 +16,75 @@ namespace Vortex_API.Repositories.Service
             _roleManager = roleManager;
         }
 
-        public async Task<List<UserDto>> GetAllUsersAsync()
+        public async Task<IEnumerable<UserDto>> GetAllUsersAsync(
+    string? filterOn = null,
+    string? filterQuery = null,
+    string? sortBy = null,
+    bool isAscending = true,
+    int pageNumber = 1,
+    int pageSize = 10)
         {
-            var users = _userManager.Users.ToList();
+            var users = _userManager.Users.AsQueryable();
+
+            // --- Lọc (filter) ---
+            if (!string.IsNullOrWhiteSpace(filterOn) && !string.IsNullOrWhiteSpace(filterQuery))
+            {
+                switch (filterOn.ToLower())
+                {
+                    case "username":
+                        users = users.Where(u => u.UserName.Contains(filterQuery));
+                        break;
+
+                    case "email":
+                        users = users.Where(u => u.Email.Contains(filterQuery));
+                        break;
+
+                    case "fullname":
+                        users = users.Where(u => u.FullName.Contains(filterQuery));
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            // --- Sắp xếp (sort) ---
+            if (!string.IsNullOrWhiteSpace(sortBy))
+            {
+                switch (sortBy.ToLower())
+                {
+                    case "username":
+                        users = isAscending
+                            ? users.OrderBy(u => u.UserName)
+                            : users.OrderByDescending(u => u.UserName);
+                        break;
+
+                    case "email":
+                        users = isAscending
+                            ? users.OrderBy(u => u.Email)
+                            : users.OrderByDescending(u => u.Email);
+                        break;
+
+                    case "fullname":
+                        users = isAscending
+                            ? users.OrderBy(u => u.FullName)
+                            : users.OrderByDescending(u => u.FullName);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            // --- Phân trang ---
+            var skipResults = (pageNumber - 1) * pageSize;
+            users = users.Skip(skipResults).Take(pageSize);
+
+            // --- Lấy dữ liệu ra kèm roles ---
+            var userList = await users.ToListAsync();
             var result = new List<UserDto>();
 
-            foreach (var user in users)
+            foreach (var user in userList)
             {
                 var roles = await _userManager.GetRolesAsync(user);
                 result.Add(new UserDto
@@ -35,6 +99,7 @@ namespace Vortex_API.Repositories.Service
 
             return result;
         }
+
 
         public async Task<bool> UpdateUserRoleAsync(UpdateUserRoleDto dto)
         {

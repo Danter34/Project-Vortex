@@ -1,23 +1,26 @@
 ﻿@model Vortex.Models.BannerViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
 
-<h3>Thêm Banner</h3>
+<h3 class="mb-4 text-white">Thêm Banner</h3>
 
-<form asp-action="Create" method="post" enctype="multipart/form-data">
+<form asp-action="Create" method="post" enctype="multipart/form-data" class="bg-dark p-4 rounded">
     <div class="mb-3">
-        <label for="Title" class="form-label">Tiêu đề</label>
+        <label asp-for="Title" class="form-label text-white">Tiêu đề</label>
         <input asp-for="Title" class="form-control" />
         <span asp-validation-for="Title" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
-        <label for="Description" class="form-label">Mô tả</label>
-        <textarea asp-for="Description" class="form-control"></textarea>
+        <label asp-for="Description" class="form-label text-white">Mô tả</label>
+        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
     </div>
 
     <div class="mb-3">
-        <label for="ImageFile" class="form-label">Hình ảnh</label>
+        <label asp-for="ImageFile" class="form-label text-white">Hình ảnh</label>
         <input asp-for="ImageFile" type="file" class="form-control" onchange="previewImage(event)" />
-        <img id="preview" src="#" alt="Preview" style="display:none; max-width:200px; margin-top:10px;" />
+        <img id="preview" src="#" alt="Preview" class="img-thumbnail mt-2" style="display:none; max-width:200px;" />
     </div>
 
     <button type="submit" class="btn btn-success">Thêm Banner</button>

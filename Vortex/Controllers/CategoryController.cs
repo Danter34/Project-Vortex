@@ -15,7 +15,7 @@ namespace Vortex.Controllers
             _httpClient = httpClientFactory.CreateClient("APIClient");
         }
 
-        // GET: Danh sách
+
         public async Task<IActionResult> Index(int page = 1)
         {
             var response = await _httpClient.GetAsync($"{_baseUrl}get-all-category?pageNumber={page}&pageSize=20");
@@ -30,13 +30,13 @@ namespace Vortex.Controllers
             return View(categories);
         }
 
-        // GET: Create
+
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Create
+
         [HttpPost]
         public async Task<IActionResult> Create(CategoryViewModel model)
         {
@@ -52,7 +52,7 @@ namespace Vortex.Controllers
             return View(model);
         }
 
-        // GET: Edit
+
         public async Task<IActionResult> Edit(int id)
         {
             var response = await _httpClient.GetAsync($"{_baseUrl}get-category-by-id/{id}");
@@ -68,7 +68,7 @@ namespace Vortex.Controllers
             return View(category);
         }
 
-        // POST: Edit
+
         [HttpPost]
         public async Task<IActionResult> Edit(CategoryViewModel model)
         {
@@ -84,7 +84,7 @@ namespace Vortex.Controllers
             return View(model);
         }
 
-        // POST: Delete
+
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {

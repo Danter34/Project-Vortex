@@ -1,50 +1,149 @@
 ﻿@model List<Vortex.Models.UserViewModel>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
 
-<h3>Quản lý người dùng</h3>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h3 class="text-white fw-bold">Quản lý người dùng</h3>
+    <form method="get" class="d-flex gap-2">
+        <input type="text" name="search" class="form-control form-control-sm"
+               placeholder="Tìm Kiếm" value="@ViewBag.Search"
+               style="max-width: 220px;" />
+        <button type="submit" class="btn btn-sm btn-primary">
+            <i class="bi bi-search"></i> Tìm
+        </button>
+    </form>
+</div>
 
 @if (TempData["Success"] != null)
 {
-    <div class="alert alert-success">@TempData["Success"]</div>
+    <div class="alert alert-success" style="color:white">@TempData["Success"]</div>
 }
 @if (TempData["Error"] != null)
 {
-    <div class="alert alert-danger">@TempData["Error"]</div>
+    <div class="alert alert-danger" style="color:white">@TempData["Error"]</div>
 }
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Tên đăng nhập</th>
-            <th>Email</th>
-            <th>Họ tên</th>
-            <th>Role</th>
-            <th>Hành động</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in Model)
-        {
-            <tr>
-                <td>@user.UserName</td>
-                <td>@user.Email</td>
-                <td>@user.FullName</td>
-                <td>
-                    <form asp-action="UpdateRole" method="post" class="d-flex gap-2">
-                        <input type="hidden" name="UserId" value="@user.Id" />
-                        <select name="Role" class="form-select w-auto">
-                            <option value="User" selected="@user.Roles.Contains("User")">User</option>
-                            <option value="Admin" selected="@user.Roles.Contains("Admin")">Admin</option>
-                        </select>
-                        <button type="submit" class="btn btn-primary btn-sm">Cập nhật</button>
-                    </form>
-                </td>
-                <td>
-                    <form asp-action="DeleteUser" method="post">
-                        <input type="hidden" name="userId" value="@user.Id" />
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Xác nhận xóa?')">Xóa</button>
-                    </form>
-                </td>
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-warning text-center mt-3">
+        Không có người dùng nào được tìm thấy.
+    </div>
+}
+else
+{
+    <table class="table table-bordered align-middle text-white" style="background: rgba(0,0,0,0.4);">
+        <thead style="background: linear-gradient(90deg, #00ffff20, #0066ff40); color:#00bfff; text-shadow:0 0 4px #00ffff;">
+            <tr class="text-center">
+                <th>Tên đăng nhập</th>
+                <th>Email</th>
+                <th>Họ tên</th>
+                <th>Vai trò</th>
+                <th>Hành động</th>
             </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td>@user.FullName</td>
+                    <td>
+                        <form asp-action="UpdateRole" method="post"
+                              class="d-flex justify-content-center align-items-center gap-2">
+                            <input type="hidden" name="UserId" value="@user.Id" />
+
+                            <select name="Role" class="form-select form-select-sm w-auto custom-select-admin">
+                                <option value="User" selected="@(user.Roles != null && user.Roles.Contains("User"))">User</option>
+                                <option value="Admin" selected="@(user.Roles != null && user.Roles.Contains("Admin"))">Admin</option>
+                            </select>
+
+                            <button type="submit" class="btn btn-sm btn-primary shadow-sm fw-semibold custom-btn-admin">
+                                <i class="bi bi-arrow-repeat"></i> Cập nhật
+                            </button>
+                        </form>
+
+                    </td>
+                    <td class="text-center">
+                        <form asp-action="DeleteUser" method="post"
+                              onsubmit="return confirm('Xác nhận xóa người dùng này?')">
+                            <input type="hidden" name="userId" value="@user.Id" />
+                            <button type="submit" class="btn btn-sm btn-danger shadow-sm">
+                                <i class="bi bi-trash"></i> Xóa
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-center align-items-center mt-3 gap-2">
+        @if (ViewBag.HasPreviousPage)
+        {
+            <a href="@Url.Action("Index", new { page = ViewBag.CurrentPage - 1, search = ViewBag.Search })"
+               class="btn btn-outline-info btn-sm">Trước</a>
         }
-    </tbody>
-</table>
+        <span class="text-white">Trang @ViewBag.CurrentPage</span>
+        @if (ViewBag.HasNextPage)
+        {
+            <a href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1, search = ViewBag.Search })"
+               class="btn btn-outline-info btn-sm">Sau</a>
+        }
+    </div>
+}
+
+<style>
+    table.table tr:hover {
+        background: rgba(0, 191, 255, 0.15);
+        transition: 0.3s ease;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #339cff;
+            box-shadow: 0 0 8px #00bfff;
+        }
+
+    .btn-danger:hover {
+        box-shadow: 0 0 8px #ff0044;
+    }
+
+    .custom-select-admin {
+        background-color: #1e1e2f;
+        color: #fff;
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 4px 8px;
+        transition: all 0.2s ease-in-out;
+    }
+
+        .custom-select-admin:hover {
+            border-color: #00b4ff;
+            box-shadow: 0 0 6px #00b4ff;
+        }
+
+        .custom-select-admin:focus {
+            outline: none;
+            box-shadow: 0 0 8px #00b4ff;
+        }
+
+    .custom-btn-admin {
+        background-color: #007bff;
+        border: none;
+        border-radius: 8px;
+        color: #fff;
+        transition: all 0.2s ease-in-out;
+    }
+
+        .custom-btn-admin:hover {
+            background-color: #0069d9;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+            color: #fff;
+        }
+</style>

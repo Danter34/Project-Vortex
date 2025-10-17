@@ -1,29 +1,109 @@
 ﻿@model IEnumerable<Vortex.Models.MyOrderViewModel>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
 
-<h3>Quản lý đơn hàng</h3>
+<h3 class="mb-4 text-light">Quản lý đơn hàng</h3>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Order ID</th>
-            <th>Ngày tạo</th>
-            <th>Trạng thái</th>
-            <th>Tổng tiền</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var order in Model)
-        {
+@if (!Model.Any())
+{
+    <div class="alert alert-warning text-center">Không có đơn hàng nào.</div>
+}
+else
+{
+    <table class="table table-bordered  align-middle shadow-sm">
+        <thead class="table-dark text-center">
             <tr>
-                <td>@order.OrderId</td>
-                <td>@order.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
-                <td>@order.Status</td>
-                <td>@order.TotalAmount.ToString("N0")đ</td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@order.OrderId" class="btn btn-sm btn-primary">Chi tiết</a>
-                </td>
+                <th>Order ID</th>
+                <th>Ngày tạo</th>
+                <th>Trạng thái</th>
+                <th>Tổng tiền</th>
+                <th>Thao tác</th>
             </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                string rowStyle = order.Status?.ToLower() switch
+                {
+                    "pending" => "background-color: #fff3cd; color: #856404;",       // vàng
+                    "shipped" => "background-color: #d4edda; color: #155724;",       // xanh lá
+                    "paymentfailed" => "background-color: #f8d7da; color: #721c24;", // đỏ nhạt
+                    "cancel" => "background-color: #dc3545; color: white;",          // đỏ đậm
+                    "paid" => "background-color: #cce5ff; color: #004085;",          // xanh da trời
+                    _ => ""
+                };
+
+                <tr style="@rowStyle" class="order-row">
+                    <td class="text-center fw-bold">@order.OrderId</td>
+                    <td>@order.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td class="text-center fw-bold">@order.Status</td>
+                    <td class="text-end">@order.TotalAmount.ToString("N0") đ</td>
+                    <td class="text-center">
+                        <a asp-action="Details" asp-route-id="@order.OrderId" class="btn btn-sm btn-primary">
+                            Chi tiết
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+        <div>
+            @if (ViewBag.HasPreviousPage)
+            {
+                <a asp-action="Index" asp-route-page="@(ViewBag.CurrentPage - 1)" class="btn btn-outline-secondary btn-sm">« Trang trước</a>
+            }
+        </div>
+
+        <div class="text-light fw-bold">Trang @ViewBag.CurrentPage</div>
+
+        <div>
+            @if (ViewBag.HasNextPage)
+            {
+                <a asp-action="Index" asp-route-page="@(ViewBag.CurrentPage + 1)" class="btn btn-outline-secondary btn-sm">Trang sau »</a>
+            }
+        </div>
+    </div>
+}
+
+<style>
+    .table {
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #1e1e2f;
+        color: #ddd;
+    }
+
+    .table-hover tbody tr.order-row:hover {
+        filter: brightness(1.15);
+        transition: 0.2s ease;
+        cursor: pointer;
+    }
+
+    .table thead th {
+        background-color: #2b2b40 !important;
+        color: #fff;
+        font-weight: 600;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #0069d9;
         }
-    </tbody>
-</table>
+
+    .btn-outline-secondary {
+        border-color: #888;
+        color: #ddd;
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: #444;
+            color: #fff;
+        }
+</style>

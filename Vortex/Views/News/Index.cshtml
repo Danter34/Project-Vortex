@@ -1,38 +1,49 @@
 ﻿@model List<Vortex.Models.NewsViewModel>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
 
-<h3>Danh sách tin tức</h3>
+<h3 class="mb-4 text-white">Danh sách tin tức</h3>
 
-<a asp-action="Create" class="btn btn-primary mb-2">Thêm tin tức</a>
+<a asp-action="Create" class="btn btn-primary mb-3">Thêm tin tức</a>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Hình ảnh</th>
-            <th>Tiêu đề</th>
-            <th>Mô tả</th>
-            <th>Link</th>
-            <th>Hành động</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="table-responsive">
+    <table class="table table-bordered text-white">
+        <!-- Bỏ table-hover -->
+        <thead>
             <tr>
-                <td>
-                    @if (!string.IsNullOrEmpty(item.ImageUrl))
-                    {
-                        <img src="@($"https://localhost:7161{item.ImageUrl}")" width="100" />
-                    }
-                </td>
-                <td>@item.Title</td>
-                <td>@item.Description</td>
-                <td><a href="@item.Link" target="_blank">Xem</a></td>
-                <td>
-                    <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline">
-                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Xóa tin tức này?')">Xóa</button>
-                    </form>
-                </td>
+                <th style="width:120px;">Hình ảnh</th>
+                <th>Tiêu đề</th>
+                <th>Mô tả</th>
+                <th>Link</th>
+                <th style="width:120px;">Hành động</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.ImageUrl))
+                        {
+                            <img src="@($"https://localhost:7161{item.ImageUrl}")"
+                                 alt="@item.Title"
+                                 class="img-thumbnail"
+                                 style="max-width:100px;" />
+                        }
+                    </td>
+                    <td>@item.Title</td>
+                    <td>@item.Description</td>
+                    <td><a href="@item.Link" target="_blank">Xem</a></td>
+                    <td>
+                        <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Xóa tin tức này?')">
+                                Xóa
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

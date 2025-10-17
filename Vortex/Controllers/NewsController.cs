@@ -15,7 +15,7 @@ namespace Vortex.Controllers
             _httpClient = httpClientFactory.CreateClient("APIClient");
         }
 
-        // GET: /News
+
         public async Task<IActionResult> Index()
         {
             var response = await _httpClient.GetAsync($"{_baseUrl}get-all-news");
@@ -28,10 +28,9 @@ namespace Vortex.Controllers
             return View(newsList);
         }
 
-        // GET: /News/Create
+
         public IActionResult Create() => View();
 
-        // POST: /News/Create
         [HttpPost]
         public async Task<IActionResult> Create(NewsViewModel model)
         {

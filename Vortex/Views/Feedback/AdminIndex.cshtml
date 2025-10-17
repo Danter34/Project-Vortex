@@ -1,5 +1,7 @@
 ﻿@model List<Vortex.Models.FeedbackResponseViewModel>
-
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
 <h3>Quản lý phản hồi</h3>
 
 @if (TempData["Error"] != null)
@@ -32,10 +34,21 @@
                     <form method="post" asp-action="Reply">
                         <input type="hidden" name="id" value="@f.Id" />
                         <input type="text" name="reply" class="form-control" value="@f.AdminReply" placeholder="Nhập trả lời..." />
-                        <button type="submit" class="btn btn-success btn-sm mt-1">Trả lời</button>
+                        <button type="submit" class="btn btn-primary btn-sm mt-1 fw-semibold shadow-sm">
+                            <i class="bi bi-send"></i> Trả lời
+                        </button>
                     </form>
                 </td>
-                <td>@f.Status</td>
+                <td>
+                    @if (f.Status == "Pending")
+                    {
+                        <span class="badge bg-warning text-dark fw-bold px-3 py-2">Pending</span>
+                    }
+                    else
+                    {
+                        <span>@f.Status</span>
+                    }
+                </td>
                 <td>@f.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
                 <td>
                     <form method="post" asp-action="Delete">

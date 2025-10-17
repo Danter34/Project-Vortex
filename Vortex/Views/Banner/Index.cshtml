@@ -1,41 +1,45 @@
 ﻿@model List<Vortex.Models.BannerViewModel>
-
-<h3>Quản lý Banner</h3>
-
-@if (TempData["Success"] != null)
-{
-    <div class="alert alert-success">@TempData["Success"]</div>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-@if (TempData["Error"] != null)
-{
-    <div class="alert alert-danger">@TempData["Error"]</div>
-}
+
+<h3 class="mb-4 text-white">Quản lý Banner</h3>
 
 <a href="@Url.Action("Create")" class="btn btn-primary mb-3">Thêm Banner</a>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Hình ảnh</th>
-            <th>Tiêu đề</th>
-            <th>Mô tả</th>
-            <th>Hành động</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var banner in Model)
-        {
+<div class="table-responsive">
+    <table class="table table-bordered text-white">
+        <thead>
             <tr>
-                <td><img src="@($"https://localhost:7161{banner.ImageUrl}")" width="100" /></td>
-                <td>@banner.Title</td>
-                <td>@banner.Description</td>
-                <td>
-                    <form asp-action="Delete" method="post" class="d-inline">
-                        <input type="hidden" name="id" value="@banner.Id" />
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Xác nhận xóa?')">Xóa</button>
-                    </form>
-                </td>
+                <th style="width:120px;">Hình ảnh</th>
+                <th>Tiêu đề</th>
+                <th>Mô tả</th>
+                <th style="width:120px;">Hành động</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var banner in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@($"https://localhost:7161{banner.ImageUrl}")"
+                             alt="@banner.Title"
+                             class="img-thumbnail"
+                             style="max-width:100px;" />
+                    </td>
+                    <td>@banner.Title</td>
+                    <td>@banner.Description</td>
+                    <td>
+                        <form asp-action="Delete" method="post" class="d-inline">
+                            <input type="hidden" name="id" value="@banner.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Xác nhận xóa?')">
+                                Xóa
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

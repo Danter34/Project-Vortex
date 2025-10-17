@@ -19,19 +19,37 @@ namespace Vortex.Controllers
         {
             _httpClient = httpClientFactory.CreateClient("APIClient");
         }
-        public async Task<IActionResult> Index(int pageNumber = 1)
+        public async Task<IActionResult> Index(string searchQuery = "", int pageNumber = 1)
         {
-            var response = await _httpClient.GetAsync($"{_baseUrl}get-all-product?pageNumber={pageNumber}&pageSize=10");
-            if (!response.IsSuccessStatusCode) return View(new List<ProductViewModel>());
+            // Ghép URL query
+            var url = $"{_baseUrl}get-all-product?pageNumber={pageNumber}&pageSize=10";
+
+            if (!string.IsNullOrWhiteSpace(searchQuery))
+            {
+                url += $"&filterOn=title&filterQuery={searchQuery}";
+            }
+
+            var response = await _httpClient.GetAsync(url);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                ViewBag.PageNumber = pageNumber;
+                ViewBag.SearchQuery = searchQuery;
+                return View(new List<ProductViewModel>());
+            }
 
             var json = await response.Content.ReadAsStringAsync();
             var data = JsonConvert.DeserializeObject<List<ProductViewModel>>(json);
 
             ViewBag.PageNumber = pageNumber;
+            ViewBag.SearchQuery = searchQuery;
+            ViewBag.HasNextPage = data.Count == 10; // Nếu ít hơn 10 sp => hết trang
+            ViewBag.HasPreviousPage = pageNumber > 1;
+
             return View(data);
         }
 
-        // ========== CREATE ==========
+
         [HttpGet]
         public async Task<IActionResult> Create()
         {

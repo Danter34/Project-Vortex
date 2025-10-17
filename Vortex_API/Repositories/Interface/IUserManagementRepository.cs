@@ -4,7 +4,12 @@ namespace Vortex_API.Repositories.Interface
 {
     public interface IUserManagementRepository
     {
-        Task<List<UserDto>> GetAllUsersAsync();
+        Task<IEnumerable<UserDto>> GetAllUsersAsync(string? filterOn = null,
+    string? filterQuery = null,
+    string? sortBy = null,
+    bool isAscending = true,
+    int pageNumber = 1,
+    int pageSize = 10);
         Task<bool> UpdateUserRoleAsync(UpdateUserRoleDto dto);
         Task<bool> DeleteUserAsync(string userId);
     }

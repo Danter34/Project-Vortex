@@ -1,4 +1,5 @@
-﻿using Vortex.Handler;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Vortex.Handler;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,17 +18,17 @@ builder.Services.AddSession(options =>
 });
 
 // Cookie authentication cho MVC
-builder.Services.AddAuthentication()
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/Auth/Login"; // đường dẫn login
-        options.LogoutPath = "/Auth/Logout";
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(15); // session tự hết sau 15 phút
-        options.SlidingExpiration = true; // nếu user hoạt động thì refresh timeout
+        options.LoginPath = "/Auth/Login"; // trang login
+        options.LogoutPath = "/Auth/Logout"; // trang logout
+        options.ExpireTimeSpan = TimeSpan.FromDays(30); // giữ login 30 ngày
+        options.SlidingExpiration = true; // tự động gia hạn khi hoạt động
         options.Cookie.HttpOnly = true;
         options.Cookie.IsEssential = true;
+        options.Cookie.Name = "VortexAuthCookie"; // tên cookie
     });
-// MVC
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

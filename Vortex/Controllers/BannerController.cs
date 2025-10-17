@@ -57,7 +57,7 @@ namespace Vortex.Controllers
 
        
 
-        // ====== DELETE BANNER ======
+
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {

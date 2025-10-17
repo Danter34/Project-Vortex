@@ -16,19 +16,19 @@ namespace Vortex.Controllers
             _httpClient = httpClientFactory.CreateClient("APIClient");
         }
 
-        public async Task<IActionResult> Index(int page = 1)
+        public async Task<IActionResult> Index(int page = 1, int pageSize = 10)
         {
-            var response = await _httpClient.GetAsync($"{_baseUrl}get-all-order?page={page}&pageSize=10");
-            if (!response.IsSuccessStatusCode) return View(new List<MyOrderViewModel>());
+            var response = await _httpClient.GetAsync($"{_baseUrl}get-all-order?page={page}&pageSize={pageSize}");
+            if (!response.IsSuccessStatusCode)
+                return View(new List<MyOrderViewModel>());
 
             var json = await response.Content.ReadAsStringAsync();
-
-            // Deserialize với case-insensitive để map id → OrderId
             var orders = JsonSerializer.Deserialize<List<MyOrderViewModel>>(json,
-                new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                }) ?? new List<MyOrderViewModel>();
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new List<MyOrderViewModel>();
+
+            ViewBag.CurrentPage = page;
+            ViewBag.HasPreviousPage = page > 1;
+            ViewBag.HasNextPage = orders.Count == pageSize; // Nếu đủ pageSize thì còn trang sau
 
             return View(orders);
         }

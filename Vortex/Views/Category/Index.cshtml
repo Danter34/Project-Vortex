@@ -1,7 +1,9 @@
 ﻿@model List<Vortex.Models.CategoryViewModel>
-
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
 <h3>Danh mục sản phẩm</h3>
-<a asp-action="Create" class="btn btn-success mb-2">Thêm danh mục mới</a>
+<a asp-action="Create" class="btn btn-primary mb-3">Thêm danh mục mới</a>
 
 <table class="table table-bordered">
     <thead>

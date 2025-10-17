@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
 using System.Text;
+using System.Text.Json;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
+using System.IdentityModel.Tokens.Jwt;
 using Vortex.Models;
 
 namespace Vortex.Controllers
@@ -24,7 +25,8 @@ namespace Vortex.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            if (!ModelState.IsValid) return View(model);
+            if (!ModelState.IsValid)
+                return View(model);
 
             var json = JsonSerializer.Serialize(model);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -46,39 +48,54 @@ namespace Vortex.Controllers
             // Lưu JWT vào session
             HttpContext.Session.SetString("JWToken", authResponse.Token);
 
-            // Cookie authentication cho MVC (session-only)
+            // Giải mã token để lấy role
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadJwtToken(authResponse.Token);
+            var roles = jwtToken.Claims
+                .Where(c => c.Type == "role" || c.Type.EndsWith("/role"))
+                .Select(c => c.Value)
+                .ToList();
+
+            // Lưu role vào session
+            HttpContext.Session.SetString("UserRoles", string.Join(",", roles));
+
+            // Cookie authentication với persistent cookie
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, model.Email),
                 new Claim("JWT", authResponse.Token)
             };
+            foreach (var role in roles)
+                claims.Add(new Claim(ClaimTypes.Role, role));
+
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var principal = new ClaimsPrincipal(identity);
+
+            var authProperties = new AuthenticationProperties
+            {
+                IsPersistent = true, // giữ login khi đóng trình duyệt
+                AllowRefresh = true,
+                ExpiresUtc = DateTimeOffset.UtcNow.AddDays(30) // cookie tồn tại 30 ngày
+            };
 
             await HttpContext.SignInAsync(
                 CookieAuthenticationDefaults.AuthenticationScheme,
                 principal,
-                new AuthenticationProperties
-                {
-                    IsPersistent = true 
-                });
+                authProperties);
 
             return RedirectToAction("Index", "Home");
         }
 
-
-        [HttpPost]
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
             HttpContext.Session.Remove("JWToken");
-
+            HttpContext.Session.Remove("UserRoles");
             Response.Cookies.Delete("CartCount");
 
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
             return RedirectToAction("Index", "Home");
         }
-
     }
 }

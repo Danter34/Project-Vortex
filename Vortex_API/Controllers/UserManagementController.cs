@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using iText.Kernel.Geom;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Vortex_API.Model.DTO;
@@ -18,13 +19,18 @@ namespace Vortex_API.Controllers
             _userManagementRepository = userManagementRepository;
         }
 
-        [HttpGet("all")]
-        public async Task<IActionResult> GetAllUsers()
+        [HttpGet]
+        public async Task<IActionResult> GetAllUsers(
+     string? filterOn,
+     string? filterQuery,
+     string? sortBy,
+     bool isAscending = true,
+     int pageNumber = 1,
+     int pageSize = 10)
         {
-            var users = await _userManagementRepository.GetAllUsersAsync();
+            var users = await _userManagementRepository.GetAllUsersAsync(filterOn, filterQuery, sortBy, isAscending, pageNumber, pageSize);
             return Ok(users);
         }
-
         [HttpPut("update-role")]
         public async Task<IActionResult> UpdateUserRole([FromBody] UpdateUserRoleDto dto)
         {

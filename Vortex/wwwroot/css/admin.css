@@ -1,0 +1,247 @@
+﻿/* Enhanced Gaming Admin CSS - Dark theme with neon gaming vibes */
+body {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%); /* Dark gaming gradient */
+    color: #e0e0e0; /* Light text with subtle glow */
+    font-family: sans-serif; /* Standard font */
+}
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(0, 255, 255, 0.05) 0%, transparent 70%); /* Subtle cyan glow overlay */
+        pointer-events: none;
+        z-index: -1;
+    }
+
+.sidebar {
+    width: 250px;
+    background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%); /* Dark sidebar with subtle gradient */
+    padding-top: 20px;
+    flex-shrink: 0;
+    border-right: 1px solid #00ffff33; /* Cyan neon border */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1); /* Outer glow */
+}
+
+.sidebar-header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+.vertex-title {
+    color: #00ffff; /* Cyan title */
+    text-shadow: 0 0 10px #00ffff; /* Neon glow */
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.sidebar .nav-link {
+    color: #a0a0a0; /* Subdued link color */
+    padding: 12px 20px;
+    display: block;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+    .sidebar .nav-link::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .sidebar .nav-link:hover {
+        background: rgba(0, 255, 255, 0.1);
+        color: #00ffff;
+        border-left-color: #00ffff;
+        text-shadow: 0 0 5px #00ffff;
+        transform: translateX(5px); /* Subtle slide effect */
+    }
+
+        .sidebar .nav-link:hover::before {
+            opacity: 1;
+        }
+
+    .sidebar .nav-link i {
+        margin-right: 10px;
+        color: #00ffff;
+    }
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background: transparent; /* Transparent to show body gradient */
+}
+
+.navbar {
+    background: linear-gradient(90deg, #0f0f0f 0%, #1a1a1a 100%);
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2); /* Cyan glow shadow */
+    border-bottom: 1px solid #00ffff33;
+}
+
+    .navbar .navbar-nav .nav-link {
+        color: #a0a0a0;
+        transition: color 0.3s;
+    }
+
+        .navbar .navbar-nav .nav-link:hover {
+            color: #00ffff;
+        }
+
+    .navbar .text-gray-600 {
+        color: #a0a0a0 !important;
+    }
+
+    .navbar .img-profile {
+        border: 2px solid #00ffff;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+
+.dropdown-menu {
+    background: #1a1a1a;
+    border: 1px solid #00ffff33;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+}
+
+.dropdown-item {
+    color: #a0a0a0;
+    transition: color 0.3s;
+}
+
+    .dropdown-item:hover {
+        background: rgba(0, 255, 255, 0.1);
+        color: #00ffff;
+    }
+
+.table {
+    color: #e0e0e0;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+    .table thead th {
+        background: linear-gradient(90deg, #00ffff20, #ff00ff20); /* Cyan-magenta gradient for header */
+        color: #00ffff;
+        text-shadow: 0 0 5px #00ffff;
+        border-bottom: 2px solid #00ffff50;
+        font-weight: bold;
+    }
+
+    .table td, .table th {
+        border-top: 1px solid #00ffff20;
+        padding: 12px;
+    }
+
+    .table tbody tr:hover {
+        background: rgba(0, 255, 255, 0.05);
+    }
+
+    .table tbody tr:nth-child(even) {
+        background: rgba(255, 0, 255, 0.02); /* Subtle alternating rows */
+    }
+
+.btn {
+    margin-right: 5px;
+    border-radius: 20px; /* Pill-shaped buttons */
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+    border: none;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #00ffff, #0080ff); /* Cyan-blue gradient */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+    .btn-primary:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    }
+
+.btn-success {
+    background: linear-gradient(45deg, #00ff00, #80ff00); /* Green gradient */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+    .btn-success:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    }
+
+.btn-danger {
+    background: linear-gradient(45deg, #ff0000, #ff8000); /* Red-orange gradient */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+    .btn-danger:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    }
+
+.card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #00ffff33;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.card-header {
+    background: linear-gradient(90deg, #00ffff20, #ff00ff20);
+    color: #00ffff;
+    border-bottom: 1px solid #00ffff50;
+}
+
+.form-control {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #00ffff33;
+    color: #e0e0e0;
+    border-radius: 5px;
+}
+
+    .form-control:focus {
+        border-color: #00ffff;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    }
+
+.alert {
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+.alert-success {
+    background: rgba(0, 255, 0, 0.2);
+    border-left: 4px solid #00ff00;
+}
+
+.alert-danger {
+    background: rgba(255, 0, 0, 0.2);
+    border-left: 4px solid #ff0000;
+}
+.sidebar .nav-link.active {
+    background-color: rgba(0, 255, 255, 0.15);
+    color: #00ffff;
+    border-left-color: #00ffff;
+    font-weight: bold;
+}
+

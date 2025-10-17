@@ -1,0 +1,93 @@
+﻿
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Admin Atsumaru</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/admin.css" />
+</head>
+<body>
+    @{
+        var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+        var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+    }
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3 class="vertex-title">VORTEX ADMIN</h3>
+        </div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link @(currentController == "Dashboard" ? "active" : "")"
+                   asp-controller="Dashboard" asp-action="Index">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(currentController == "Banner" ? "active" : "")"
+                   asp-controller="Banner" asp-action="Index">
+                    <i class="fas fa-image"></i> Quản lý Banner
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(currentController == "News" ? "active" : "")"
+                   asp-controller="News" asp-action="Index">
+                    <i class="fas fa-newspaper"></i> Quản lý Tin Tức
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(currentController == "User" ? "active" : "")"
+                   asp-controller="User" asp-action="Index">
+                    <i class="fas fa-users"></i> Quản lý User
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(currentController == "Category" ? "active" : "")"
+                   asp-controller="Category" asp-action="Index">
+                    <i class="fas fa-list-alt"></i> Quản lý Danh mục
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(currentController == "Product" ? "active" : "")"
+                   asp-controller="Product" asp-action="Index">
+                    <i class="fas fa-box-open"></i> Quản lý Sản phẩm
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(currentController == "Order" ? "active" : "")"
+                   asp-controller="Order" asp-action="Index">
+                    <i class="fas fa-shopping-cart"></i> Quản lý Đơn hàng
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(currentController == "Feedback" ? "active" : "")"
+                   asp-controller="Feedback" asp-action="AdminIndex">
+                    <i class="fas fa-comments"></i> Quản lý Liên hệ
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(currentController == "Revenue" ? "active" : "")"
+                   asp-controller="Revenue" asp-action="Index">
+                    <i class="fas fa-chart-line"></i> Thống kê doanh thu
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-home"></i> Quay Lại Trang Chủ
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+ 
+        @RenderBody()
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

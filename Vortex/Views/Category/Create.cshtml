@@ -1,5 +1,7 @@
 ﻿@model Vortex.Models.CategoryViewModel
-
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
 <h3>@(Model.Id > 0 ? "Sửa danh mục" : "Thêm danh mục")</h3>
 
 <form asp-action="@((Model.Id > 0) ? "Edit" : "Create")" method="post">

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QBywFTM983qkFu/cDa638Sy2RF2nWUtnnJsGObvcpQg=",
+  "Hash": "1u537aMvWryEENYjewqtUI1d+4KNf/eA7qNUCcq0Zg0=",
   "Source": "Vortex",
   "BasePath": "_content/Vortex",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Project-Vortex\\Vortex\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Vortex.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\Project-Vortex\\Vortex\\wwwroot\\css\\admin.css",
+      "SourceId": "Vortex",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project-Vortex\\Vortex\\wwwroot\\",
+      "BasePath": "_content/Vortex",
+      "RelativePath": "css/admin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\admin.css"
     },
     {
       "Identity": "D:\\Project-Vortex\\Vortex\\wwwroot\\css\\site.css",
@@ -110,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Project-Vortex\\Vortex\\wwwroot\\fonts\\Roboto-Bold.ttf",
+      "SourceId": "Vortex",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project-Vortex\\Vortex\\wwwroot\\",
+      "BasePath": "_content/Vortex",
+      "RelativePath": "fonts/Roboto-Bold.ttf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\fonts\\Roboto-Bold.ttf"
     },
     {
       "Identity": "D:\\Project-Vortex\\Vortex\\wwwroot\\fonts\\Roboto-Regular.ttf",

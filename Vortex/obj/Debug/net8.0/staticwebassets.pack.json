@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Vortex.bundle.scp.css"
     },
     {
+      "Id": "D:\\Project-Vortex\\Vortex\\wwwroot\\css\\admin.css",
+      "PackagePath": "staticwebassets\\css\\admin.css"
+    },
+    {
       "Id": "D:\\Project-Vortex\\Vortex\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -15,6 +19,10 @@
     {
       "Id": "D:\\Project-Vortex\\Vortex\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Project-Vortex\\Vortex\\wwwroot\\fonts\\Roboto-Bold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto-Bold.ttf"
     },
     {
       "Id": "D:\\Project-Vortex\\Vortex\\wwwroot\\fonts\\Roboto-Regular.ttf",

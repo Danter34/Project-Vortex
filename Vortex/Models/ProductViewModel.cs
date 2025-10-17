@@ -11,6 +11,7 @@ namespace Vortex.Models
         public bool IsHot { get; set; }
         public bool IsNew { get; set; }
         public int CategoryId { get; set; }
+        public CategoryViewModel Category { get; set; }
         public string? CategoryName { get; set; }
         public List<ImageViewModel> Images { get; set; } = new();
         public double AverageRating { get; set; }
