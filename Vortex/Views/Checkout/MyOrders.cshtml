@@ -184,10 +184,10 @@
         <div class="order-card">
             <div class="order-header">
                 <strong style="color: #00ffff;">Mã đơn hàng:</strong> @order.OrderId
-                <span class="order-status @(order.Status == "Pending" ? "status-pending" :
-                               order.Status == "Shipping" ? "status-shipping" :
-                               order.Status == "shipped" ? "status-shipped" :
-                               order.Status == "Cancelled" ? "status-cancelled" : "")">
+                <span class="order-status @(order.Status == "Đang xử lý" ? "status-pending" :
+                               order.Status == "Đang giao hàng" ? "status-shipping" :
+                               order.Status == "Đã giao hàng" ? "status-shipped" :
+                               order.Status == "Đã hủy" ? "status-cancelled" : "")">
                     @order.Status
                 </span>
             </div>
@@ -207,7 +207,7 @@
                     <strong>Tổng cộng:</strong>
                     <strong class="order-total-amount">@order.TotalAmount.ToString("N0")₫</strong>
                 </div>
-                @if (order.Status == "Pending")
+                @if (order.Status == "Đang xử lý")
                 {
                     <form asp-action="CancelOrder" method="post" class="cancel-form">
                         <input type="hidden" name="orderId" value="@order.OrderId" />

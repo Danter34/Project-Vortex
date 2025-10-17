@@ -22,6 +22,6 @@ namespace Vortex_API.Model.Domain
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
 
-        public string Status { get; set; } = "Pending";
+        public string Status { get; set; } = "Chờ phản hồi";
     }
 }

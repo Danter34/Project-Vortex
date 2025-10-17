@@ -19,7 +19,7 @@
                 <div class="card-base p-4">
                     <h4>Gửi tin nhắn</h4>
 
-                    @if (Model == null || Model.Status != "Replied")
+                    @if (Model == null || Model.Status != "Đã phản hồi")
                     {
                         <form method="post" asp-action="SendFeedback" class="mt-3 contact-form">
                             <div class="form-floating mb-3">
@@ -43,13 +43,13 @@
                         <p><strong>Nội dung:</strong> @Model.Message</p>
                         <p>
                             <strong>Trạng thái:</strong>
-                            @if (Model.Status == "Pending")
+                            @if (Model.Status == "Chờ phản hồi")
                             {
-                                <span class="badge bg-warning text-dark">Pending</span>
+                                <span class="badge bg-warning text-dark">Chờ phản hồi</span>
                             }
-                            else if (Model.Status == "Replied")
+                            else if (Model.Status == "Đã phản hồi")
                             {
-                                <span class="badge bg-success">Replied</span>
+                                <span class="badge bg-success">Đã phản hồi</span>
                             }
                             else
                             {

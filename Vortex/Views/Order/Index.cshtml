@@ -26,11 +26,11 @@ else
             {
                 string rowStyle = order.Status?.ToLower() switch
                 {
-                    "pending" => "background-color: #fff3cd; color: #856404;",       // vàng
-                    "shipped" => "background-color: #d4edda; color: #155724;",       // xanh lá
-                    "paymentfailed" => "background-color: #f8d7da; color: #721c24;", // đỏ nhạt
-                    "cancel" => "background-color: #dc3545; color: white;",          // đỏ đậm
-                    "paid" => "background-color: #cce5ff; color: #004085;",          // xanh da trời
+                    "đang xử lý" => "background-color: #fff3cd; color: #856404;",       // vàng
+                    "đã giao hàng" => "background-color: #d4edda; color: #155724;",       // xanh lá
+                    "thanh toán thất bại" => "background-color: #f8d7da; color: #721c24;", // đỏ nhạt
+                    "đã hủy" => "background-color: #dc3545; color: white;",          // đỏ đậm
+                    "đang giao hàng" => "background-color: #cce5ff; color: #004085;",          // xanh da trời
                     _ => ""
                 };
 

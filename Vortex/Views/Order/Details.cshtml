@@ -41,11 +41,11 @@
     <input type="hidden" name="orderId" value="@Model.OrderId" />
 
     <select name="newStatus" class="form-select custom-select w-auto">
-        <option value="Pending" selected="@(Model.Status == "Pending")">Pending</option>
-        <option value="Confirmed" selected="@(Model.Status == "Confirmed")">Confirmed</option>
-        <option value="Shipped" selected="@(Model.Status == "Shipped")">Shipped</option>
-        <option value="Delivered" selected="@(Model.Status == "Delivered")">Delivered</option>
-        <option value="Canceled" selected="@(Model.Status == "Canceled")">Canceled</option>
+        <option value="Đang xử lý" selected="@(Model.Status == "Đang xử lý")">Đang xử lý</option>
+        <option value="Đã tiếp nhận" selected="@(Model.Status == "Đã tiếp nhận")">Đã tiếp nhận</option>
+        <option value="Đang giao hàng" selected="@(Model.Status == "Đang giao hàng")">Đang giao hàng</option>
+        <option value="Đã giao hàng" selected="@(Model.Status == "Đã giao hàng")">Đã giao hàng</option>
+        <option value="Đã hủy" selected="@(Model.Status == "Đã hủy")">Đã hủy</option>
     </select>
 
     <button type="submit" class="btn btn-primary fw-bold px-4">Cập nhật trạng thái</button>

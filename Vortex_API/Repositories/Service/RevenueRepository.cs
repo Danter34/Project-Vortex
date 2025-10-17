@@ -23,7 +23,7 @@ namespace Vortex_API.Repositories.Service
 
             var orders = await _dbContext.Orders
                 .Include(o => o.Items)
-                .Where(o => o.Status == "shipped" &&
+                .Where(o => o.Status == "Đã giao hàng" &&
                             o.CreatedAt >= fromDate &&
                             o.CreatedAt <= toDate)
                 .ToListAsync();
@@ -70,14 +70,14 @@ namespace Vortex_API.Repositories.Service
         public async Task<(decimal TotalRevenue, int TotalOrders, int TotalProductsSold)> GetTotalRevenue()
         {
             var totalRevenue = await _dbContext.Orders
-                .Where(o => o.Status == "shipped")
+                .Where(o => o.Status == "Đã giao hàng")
                 .SumAsync(o => o.TotalAmount);
 
             var totalOrders = await _dbContext.Orders
-                .CountAsync(o => o.Status == "shipped");
+                .CountAsync(o => o.Status == "Đã giao hàng");
 
             var totalProductsSold = await _dbContext.OrderItems
-                .Where(oi => oi.Order.Status == "shipped")
+                .Where(oi => oi.Order.Status == "Đã giao hàng")
                 .SumAsync(oi => oi.Quantity);
 
             return (totalRevenue, totalOrders, totalProductsSold);

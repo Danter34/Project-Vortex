@@ -34,7 +34,7 @@ namespace Vortex_API.Repositories.Service
                 UserId = userId,
                 CreatedAt = DateTime.UtcNow,
                 TotalAmount = total,
-                Status = isCOD ? "Pending" : "WaitingForPayment",
+                Status = isCOD ? "Đang xử lý" : "Chờ thanh toán",
                 ShippingAddress = dto.ShippingAddress,
                 Name = dto.Name,
                 Phone = dto.Phone,
@@ -147,7 +147,7 @@ namespace Vortex_API.Repositories.Service
 
             if (order == null) return null;
 
-            if (newStatus == "Canceled" && order.Status != "Canceled")
+            if (newStatus == "Đã hủy" && order.Status != "Đã hủy")
             {
                 foreach (var item in order.Items)
                 {
@@ -200,8 +200,8 @@ namespace Vortex_API.Repositories.Service
 
             if (order == null) return null;
 
-            if (order.Status != "Pending")
-                throw new Exception("Chỉ có thể hủy đơn hàng đang Pending.");
+            if (order.Status != "Đang xử lý")
+                throw new Exception("Chỉ có thể hủy đơn hàng đang ở trang thái đang xử lý.");
 
             // Trả lại kho
             foreach (var item in order.Items)
@@ -210,7 +210,7 @@ namespace Vortex_API.Repositories.Service
                     item.Product.StockQuantity += item.Quantity;
             }
 
-            order.Status = "Cancelled";
+            order.Status = "Đã hủy";
             await _context.SaveChangesAsync();
             return order;
         }

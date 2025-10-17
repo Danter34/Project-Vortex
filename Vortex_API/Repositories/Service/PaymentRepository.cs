@@ -74,7 +74,7 @@ namespace Vortex_API.Repositories.Service
                 MomoOrderId = momoOrderId, // lưu lại để truy xuất khi MoMo redirect
                 Amount = order.TotalAmount,
                 PaymentMethod = "MoMo",
-                Status = "Pending",
+                Status = "Đang xử lý",
                 PayUrl = momoResponse.payUrl
             };
 
@@ -101,12 +101,12 @@ namespace Vortex_API.Repositories.Service
 
             if (resultCode == "0") 
             {
-                payment.Status = "Paid";
+                payment.Status = "Đã thanh toán";
 
                 var order = payment.Order;
                 if (order != null)
                 {
-                    order.Status = "Pending";
+                    order.Status = "Đang xử lý";
 
                     foreach (var item in order.Items)
                     {
@@ -125,7 +125,7 @@ namespace Vortex_API.Repositories.Service
                 return true;
             }
 
-            payment.Status = "Failed";
+            payment.Status = "Thanh toán thất bại";
             await _context.SaveChangesAsync();
             return false;
         }
@@ -147,20 +147,20 @@ namespace Vortex_API.Repositories.Service
 
             var payments = await _context.Payments
                 .Include(p => p.Order)
-                .Where(p => p.Status == "Pending" || p.Status == "Failed")
+                .Where(p => p.Status == "Đang xử lý" || p.Status == "Thanh toán thất bại")
                 .ToListAsync();
 
             var expiredPayments = payments
-                .Where(p => p.Status == "Failed" ||
-                            (p.Status == "Pending" && (now - p.CreatedAt).TotalMinutes > 2))
+                .Where(p => p.Status == "Thanh toán thất bại" ||
+                            (p.Status == "Đang xử lý" && (now - p.CreatedAt).TotalMinutes > 2))
                 .ToList();
 
             foreach (var payment in expiredPayments)
             {
                 if (payment.Order != null)
                 {
-                    payment.Order.Status = "PaymentFailed";
-                    payment.Status = "Failed";
+                    payment.Order.Status = "Thanh toán thất bại";
+                    payment.Status = "Thanh toán thất bại";
                 }
             }
 

@@ -86,7 +86,7 @@ namespace Vortex_API.Repositories.Service
             if (feedback == null) return false;
 
             feedback.AdminReply = reply;
-            feedback.Status = "Replied";
+            feedback.Status = "Đã phản hồi";
             feedback.UpdatedAt = DateTime.UtcNow;
 
             await _context.SaveChangesAsync();

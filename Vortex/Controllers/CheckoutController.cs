@@ -160,7 +160,7 @@ namespace Vortex.Controllers
                 ?? new List<MyOrderViewModel>();
 
             // Lọc trạng thái Pending, Shipping, Shipped
-            orders = orders.Where(o => o.Status == "Pending" || o.Status == "shipping" || o.Status == "shipped" || o.Status == "Cancelled").ToList();
+            orders = orders.Where(o => o.Status == "Đang xử lý" || o.Status == "Đang giao hàng" || o.Status == "Đã giao hàng" || o.Status == "Đã hủy").ToList();
 
             // Truyền thông tin phân trang cho ViewBag
             ViewBag.PageNumber = pageNumber;
