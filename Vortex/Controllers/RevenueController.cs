@@ -166,7 +166,8 @@ namespace Vortex.Controllers
 
                 document.Add(totalSection);
 
-        
+                document.Close();
+
             }
 
             return File(ms.ToArray(), "application/pdf", "RevenueReport.pdf");
