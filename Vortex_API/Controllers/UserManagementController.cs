@@ -26,7 +26,7 @@ namespace Vortex_API.Controllers
      string? sortBy,
      bool isAscending = true,
      int pageNumber = 1,
-     int pageSize = 10)
+     int pageSize = 100)
         {
             var users = await _userManagementRepository.GetAllUsersAsync(filterOn, filterQuery, sortBy, isAscending, pageNumber, pageSize);
             return Ok(users);

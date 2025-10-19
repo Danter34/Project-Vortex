@@ -1,0 +1,28 @@
+2025-10-18 22:19:05.053 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Amount], [p].[CreatedAt], [p].[MomoOrderId], [p].[OrderId], [p].[PayUrl], [p].[PaymentMethod], [p].[Status], [o].[Id], [o].[CreatedAt], [o].[Name], [o].[Phone], [o].[ShippingAddress], [o].[Status], [o].[TotalAmount], [o].[UserId]
+FROM [Payments] AS [p]
+INNER JOIN [Orders] AS [o] ON [p].[OrderId] = [o].[Id]
+WHERE [p].[Status] IN (N'Đang xử lý', N'Thanh toán thất bại')
+2025-10-18 22:19:52.875 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Banner/Get-all-banner - null null
+2025-10-18 22:19:52.877 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.BannerController.GetAll (Vortex_API)'
+2025-10-18 22:19:52.878 +07:00 [INF] Route matched with {action = "GetAll", controller = "Banner"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Vortex_API.Controllers.BannerController (Vortex_API).
+2025-10-18 22:19:52.890 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[Description], [b].[ImageUrl], [b].[Title]
+FROM [Banners] AS [b]
+ORDER BY [b].[CreatedAt] DESC
+2025-10-18 22:19:52.892 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.Domain.Banner, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-18 22:19:52.893 +07:00 [INF] Executed action Vortex_API.Controllers.BannerController.GetAll (Vortex_API) in 13.8484ms
+2025-10-18 22:19:52.894 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.BannerController.GetAll (Vortex_API)'
+2025-10-18 22:19:52.895 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Banner/Get-all-banner - 200 null application/json; charset=utf-8 20.5067ms
+2025-10-18 22:19:52.921 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161/uploads/banners/fd84c099-c02a-43b4-98b2-9eb9b8324ea1.jpg - null null
+2025-10-18 22:19:52.921 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161/uploads/banners/5a595e71-577e-4756-87e0-847fa24620a1.jpg - null null
+2025-10-18 22:19:52.921 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161/uploads/banners/8a40eb99-6799-4534-bf97-a3859635c301.jpg - null null
+2025-10-18 22:19:52.921 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161/uploads/banners/a72eeb59-6be5-47a9-9cb5-f96906a7d1f5.jpg - null null
+2025-10-18 22:19:52.929 +07:00 [INF] The file /uploads/banners/fd84c099-c02a-43b4-98b2-9eb9b8324ea1.jpg was not modified
+2025-10-18 22:19:52.932 +07:00 [INF] The file /uploads/banners/5a595e71-577e-4756-87e0-847fa24620a1.jpg was not modified
+2025-10-18 22:19:52.934 +07:00 [INF] The file /uploads/banners/8a40eb99-6799-4534-bf97-a3859635c301.jpg was not modified
+2025-10-18 22:19:52.941 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161/uploads/banners/5a595e71-577e-4756-87e0-847fa24620a1.jpg - 304 null image/jpeg 17.8599ms
+2025-10-18 22:19:52.937 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161/uploads/banners/fd84c099-c02a-43b4-98b2-9eb9b8324ea1.jpg - 304 null image/jpeg 16.7473ms
+2025-10-18 22:19:52.936 +07:00 [INF] The file /uploads/banners/a72eeb59-6be5-47a9-9cb5-f96906a7d1f5.jpg was not modified
+2025-10-18 22:19:52.944 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161/uploads/banners/8a40eb99-6799-4534-bf97-a3859635c301.jpg - 304 null image/jpeg 23.0687ms
+2025-10-18 22:19:52.951 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161/uploads/banners/a72eeb59-6be5-47a9-9cb5-f96906a7d1f5.jpg - 304 null image/jpeg 29.9934ms

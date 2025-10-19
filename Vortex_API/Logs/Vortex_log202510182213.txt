@@ -1,0 +1,52 @@
+2025-10-18 22:13:04.981 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Amount], [p].[CreatedAt], [p].[MomoOrderId], [p].[OrderId], [p].[PayUrl], [p].[PaymentMethod], [p].[Status], [o].[Id], [o].[CreatedAt], [o].[Name], [o].[Phone], [o].[ShippingAddress], [o].[Status], [o].[TotalAmount], [o].[UserId]
+FROM [Payments] AS [p]
+INNER JOIN [Orders] AS [o] ON [p].[OrderId] = [o].[Id]
+WHERE [p].[Status] IN (N'Đang xử lý', N'Thanh toán thất bại')
+2025-10-18 22:13:42.872 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161/api/payment/momo-return?partnerCode=MOMO&orderId=638964223707271417&requestId=638964223707271417&amount=6200000&orderInfo=Thanh+to%C3%A1n+%C4%91%C6%A1n+h%C3%A0ng+%2370&orderType=momo_wallet&transId=1760800419332&resultCode=1006&message=Giao+d%E1%BB%8Bch+b%E1%BB%8B+t%E1%BB%AB+ch%E1%BB%91i+b%E1%BB%9Fi+ng%C6%B0%E1%BB%9Di+d%C3%B9ng.&payType=&responseTime=1760800419333&extraData=&signature=21d109dbe0ef23e0c4b6b9e1a588bc83bf0b782a2fc041686f97fbc8d3547c04 - null null
+2025-10-18 22:13:42.885 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.PaymentController.MomoReturn (Vortex_API)'
+2025-10-18 22:13:42.887 +07:00 [INF] Route matched with {action = "MomoReturn", controller = "Payment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MomoReturn(System.String, System.String) on controller Vortex_API.Controllers.PaymentController (Vortex_API).
+2025-10-18 22:13:42.916 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__orderId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Amount], [t].[CreatedAt], [t].[MomoOrderId], [t].[OrderId], [t].[PayUrl], [t].[PaymentMethod], [t].[Status], [t].[Id0], [t].[CreatedAt0], [t].[Name], [t].[Phone], [t].[ShippingAddress], [t].[Status0], [t].[TotalAmount], [t].[UserId], [t0].[Id], [t0].[OrderId], [t0].[ProductId], [t0].[Quantity], [t0].[UnitPrice], [t0].[Id0], [t0].[AverageRating], [t0].[CategoryId], [t0].[CreatedAt], [t0].[Description], [t0].[IsHot], [t0].[IsNew], [t0].[Price], [t0].[StockQuantity], [t0].[Title]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[Amount], [p].[CreatedAt], [p].[MomoOrderId], [p].[OrderId], [p].[PayUrl], [p].[PaymentMethod], [p].[Status], [o].[Id] AS [Id0], [o].[CreatedAt] AS [CreatedAt0], [o].[Name], [o].[Phone], [o].[ShippingAddress], [o].[Status] AS [Status0], [o].[TotalAmount], [o].[UserId]
+    FROM [Payments] AS [p]
+    INNER JOIN [Orders] AS [o] ON [p].[OrderId] = [o].[Id]
+    WHERE [p].[MomoOrderId] = @__orderId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[UnitPrice], [p0].[Id] AS [Id0], [p0].[AverageRating], [p0].[CategoryId], [p0].[CreatedAt], [p0].[Description], [p0].[IsHot], [p0].[IsNew], [p0].[Price], [p0].[StockQuantity], [p0].[Title]
+    FROM [OrderItems] AS [o0]
+    INNER JOIN [Products] AS [p0] ON [o0].[ProductId] = [p0].[Id]
+) AS [t0] ON [t].[Id0] = [t0].[OrderId]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id]
+2025-10-18 22:13:42.926 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Payments] SET [Status] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2025-10-18 22:13:42.930 +07:00 [INF] Executing RedirectResult, redirecting to https://localhost:7080/Checkout/Failed?orderId=638964223707271417.
+2025-10-18 22:13:42.931 +07:00 [INF] Executed action Vortex_API.Controllers.PaymentController.MomoReturn (Vortex_API) in 42.4663ms
+2025-10-18 22:13:42.932 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.PaymentController.MomoReturn (Vortex_API)'
+2025-10-18 22:13:42.932 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161/api/payment/momo-return?partnerCode=MOMO&orderId=638964223707271417&requestId=638964223707271417&amount=6200000&orderInfo=Thanh+to%C3%A1n+%C4%91%C6%A1n+h%C3%A0ng+%2370&orderType=momo_wallet&transId=1760800419332&resultCode=1006&message=Giao+d%E1%BB%8Bch+b%E1%BB%8B+t%E1%BB%AB+ch%E1%BB%91i+b%E1%BB%9Fi+ng%C6%B0%E1%BB%9Di+d%C3%B9ng.&payType=&responseTime=1760800419333&extraData=&signature=21d109dbe0ef23e0c4b6b9e1a588bc83bf0b782a2fc041686f97fbc8d3547c04 - 302 0 null 60.804ms
+2025-10-18 22:13:42.960 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Cart/get-cart - null null
+2025-10-18 22:13:42.962 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.CartController.GetCart (Vortex_API)'
+2025-10-18 22:13:42.962 +07:00 [INF] Route matched with {action = "GetCart", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCart() on controller Vortex_API.Controllers.CartController (Vortex_API).
+2025-10-18 22:13:42.973 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[UserId], [t0].[Id], [t0].[CartId], [t0].[ProductId], [t0].[Quantity], [t0].[Id0], [t0].[AverageRating], [t0].[CategoryId], [t0].[CreatedAt], [t0].[Description], [t0].[IsHot], [t0].[IsNew], [t0].[Price], [t0].[StockQuantity], [t0].[Title]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [c0].[Id], [c0].[CartId], [c0].[ProductId], [c0].[Quantity], [p].[Id] AS [Id0], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title]
+    FROM [CartItems] AS [c0]
+    INNER JOIN [Products] AS [p] ON [c0].[ProductId] = [p].[Id]
+) AS [t0] ON [t].[Id] = [t0].[CartId]
+ORDER BY [t].[Id], [t0].[Id]
+2025-10-18 22:13:42.975 +07:00 [INF] Executing OkObjectResult, writing value of type 'Vortex_API.Model.Domain.Cart'.
+2025-10-18 22:13:42.976 +07:00 [INF] Executed action Vortex_API.Controllers.CartController.GetCart (Vortex_API) in 12.3781ms
+2025-10-18 22:13:42.977 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.CartController.GetCart (Vortex_API)'
+2025-10-18 22:13:42.977 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Cart/get-cart - 200 null application/json; charset=utf-8 17.6004ms

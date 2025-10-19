@@ -40,9 +40,12 @@ else
                     <td class="text-center fw-bold">@order.Status</td>
                     <td class="text-end">@order.TotalAmount.ToString("N0") đ</td>
                     <td class="text-center">
-                        <a asp-action="Details" asp-route-id="@order.OrderId" class="btn btn-sm btn-primary">
-                            Chi tiết
-                        </a>
+                        <form asp-controller="Order" asp-action="Details" method="get" style="display:inline;">
+                            <input type="hidden" name="id" value="@order.OrderId" />
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                Chi tiết
+                            </button>
+                        </form>
                     </td>
                 </tr>
             }

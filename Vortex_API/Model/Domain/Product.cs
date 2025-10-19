@@ -11,8 +11,7 @@ namespace Vortex_API.Model.Domain
 
         [Required, MaxLength(200)]
         public string Title { get; set; }
-
-        [MaxLength(2000)]
+        [Column(TypeName = "nvarchar(max)")]
         public string? Description { get; set; }
 
         [Required]

@@ -6,6 +6,7 @@ using Vortex_API.Repositories.Interface;
 using Vortex_API.Model.DTO;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using System.Net;
 
 namespace Vortex_API.Repositories.Service
 {
@@ -165,6 +166,147 @@ namespace Vortex_API.Repositories.Service
             }
 
             await _context.SaveChangesAsync();
+        }
+        public async Task<PaymentResponse> CreateVnPayPayment(PaymentRequest dto)
+        {
+            var order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == dto.OrderId);
+            if (order == null) throw new Exception("Order not found");
+
+            var config = _config.GetSection("VnPaySettings");
+            string tmnCode = config["TmnCode"];
+            string hashSecret = config["HashSecret"];
+            string baseUrl = config["BaseUrl"];
+            string returnUrl = config["ReturnUrl"];
+
+            var vnpParams = new SortedDictionary<string, string>()
+    {
+        {"vnp_Version", "2.1.0"},
+        {"vnp_Command", "pay"},
+        {"vnp_TmnCode", tmnCode},
+        {"vnp_Amount", ((long)(order.TotalAmount * 100)).ToString()}, // nhân 100
+        {"vnp_CurrCode", "VND"},
+        {"vnp_TxnRef", DateTime.Now.Ticks.ToString()},
+        {"vnp_OrderInfo", $"Thanh toán đơn hàng #{order.Id}"},
+        {"vnp_OrderType", "other"},
+        {"vnp_Locale", "vn"},
+        {"vnp_ReturnUrl", returnUrl},
+        {"vnp_IpAddr", "127.0.0.1"},
+        {"vnp_CreateDate", DateTime.Now.ToString("yyyyMMddHHmmss")}
+    };
+
+            var rawData = string.Join("&", vnpParams
+                .Where(x => !string.IsNullOrEmpty(x.Value))
+                .Select(x => $"{x.Key}={WebUtility.UrlEncode(x.Value)}"));
+
+            string secureHash;
+            using (var hmac = new HMACSHA512(Encoding.UTF8.GetBytes(hashSecret)))
+            {
+                byte[] hashValue = hmac.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+                secureHash = BitConverter.ToString(hashValue).Replace("-", "").ToUpper();
+            }
+
+            var query = string.Join("&", vnpParams
+                .Where(x => !string.IsNullOrEmpty(x.Value))
+                .Select(x => $"{x.Key}={WebUtility.UrlEncode(x.Value)}"));
+
+            string paymentUrl = $"{baseUrl}?{query}&vnp_SecureHash={secureHash}";
+
+            Console.WriteLine("==== RAWDATA (encoded) ====");
+            Console.WriteLine(rawData);
+            Console.WriteLine("==== SECURE HASH ====");
+            Console.WriteLine(secureHash);
+            Console.WriteLine("==== FINAL URL ====");
+            Console.WriteLine(paymentUrl);
+
+            var payment = new Payment
+            {
+                OrderId = order.Id,
+                MomoOrderId = vnpParams["vnp_TxnRef"],
+                Amount = order.TotalAmount,
+                PaymentMethod = "VNPay",
+                Status = "Đang xử lý",
+                PayUrl = paymentUrl
+            };
+
+            _context.Payments.Add(payment);
+            await _context.SaveChangesAsync();
+
+            return new PaymentResponse
+            {
+                PaymentId = payment.Id,
+                Amount = payment.Amount,
+                PayUrl = payment.PayUrl!,
+                Status = payment.Status
+            };
+        }
+        public async Task<bool> HandleVnPayReturn(IDictionary<string, string> queryParams)
+        {
+            if (!queryParams.TryGetValue("vnp_TxnRef", out string? orderId) ||
+                !queryParams.TryGetValue("vnp_ResponseCode", out string? responseCode))
+                return false;
+
+            var payment = await _context.Payments
+                .Include(p => p.Order)
+                .ThenInclude(o => o.Items)
+                .ThenInclude(i => i.Product)
+                .FirstOrDefaultAsync(p => p.MomoOrderId == orderId);
+
+            if (payment == null) return false;
+
+            if (responseCode == "00") // thành công
+            {
+                payment.Status = "Đã thanh toán";
+                if (payment.Order != null)
+                {
+                    payment.Order.Status = "Đang xử lý";
+                    foreach (var item in payment.Order.Items)
+                    {
+                        if (item.Product != null)
+                        {
+                            if (item.Product.StockQuantity < item.Quantity)
+                                throw new Exception($"Sản phẩm '{item.Product.Title}' không đủ hàng.");
+                            item.Product.StockQuantity -= item.Quantity;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                payment.Status = "Thanh toán thất bại";
+                if (payment.Order != null)
+                    payment.Order.Status = "Thanh toán thất bại";
+            }
+
+            await _context.SaveChangesAsync();
+            return responseCode == "00";
+        }
+
+
+        public static string CreateRequestUrl(Dictionary<string, string> vnp_Params, string vnp_HashSecret, string vnp_Url)
+        {
+            // Sắp xếp theo key tăng dần
+            var sorted = vnp_Params.OrderBy(k => k.Key);
+
+            //  Tạo chuỗi dữ liệu để hash
+            var signData = string.Join("&", sorted
+                .Where(p => !string.IsNullOrEmpty(p.Value))
+                .Select(p => $"{p.Key}={WebUtility.UrlEncode(p.Value)}"));
+
+            //  Tạo secure hash
+            string signValue;
+            using (var hmac = new HMACSHA512(Encoding.UTF8.GetBytes(vnp_HashSecret)))
+            {
+                byte[] hashValue = hmac.ComputeHash(Encoding.UTF8.GetBytes(signData));
+                signValue = BitConverter.ToString(hashValue).Replace("-", "").ToUpper();
+            }
+
+            // Tạo URL đầy đủ
+            var query = string.Join("&", sorted
+                .Where(p => !string.IsNullOrEmpty(p.Value))
+                .Select(p => $"{p.Key}={WebUtility.UrlEncode(p.Value)}"));
+
+            string paymentUrl = $"{vnp_Url}?{query}&vnp_SecureHash={signValue}";
+            return paymentUrl;
         }
 
     }

@@ -28,7 +28,7 @@ namespace Vortex_API.Controllers
                                          [FromQuery] string? sortBy,
                                          [FromQuery] bool isAscending = true,
                                          [FromQuery] int pageNumber = 1,
-                                         [FromQuery] int pageSize = 10)
+                                         [FromQuery] int pageSize = 100)
         {
             _logger.LogInformation(
                 "Fetching all products. Page: {PageNumber}, PageSize: {PageSize}, FilterOn: {FilterOn}, FilterQuery: {FilterQuery}, SortBy: {SortBy}, Ascending: {IsAscending}",

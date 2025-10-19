@@ -39,7 +39,6 @@ namespace Vortex_API.Controllers
             {
                 var success = await _paymentRepository.HandleMomoReturn(orderId, resultCode);
 
-                // Nếu đang chạy local (localhost:7080 hoặc 7161) thì redirect sang MVC view
                 var isLocal = Request.Host.Host.Contains("localhost");
 
                 if (isLocal)
@@ -81,6 +80,32 @@ namespace Vortex_API.Controllers
                 _logger.LogWarning("MoMo notify failed for OrderId: {OrderId}", orderId);
                 return BadRequest();
             }
+        }
+        [HttpPost("create-vnpay")]
+        public async Task<IActionResult> CreateVnPayPayment([FromBody] PaymentRequest dto)
+        {
+            var result = await _paymentRepository.CreateVnPayPayment(dto);
+            return Ok(result);
+        }
+
+        [HttpGet("vnpay-return")]
+        public async Task<IActionResult> VnPayReturn()
+        {
+            var queryParams = Request.Query.ToDictionary(k => k.Key, v => v.Value.ToString());
+            bool success = await _paymentRepository.HandleVnPayReturn(queryParams);
+
+            bool isLocal = Request.Host.Host.Contains("localhost");
+            string orderId = queryParams.ContainsKey("vnp_TxnRef") ? queryParams["vnp_TxnRef"] : "";
+
+            if (isLocal)
+            {
+                if (success)
+                    return Redirect($"https://localhost:7080/Checkout/Success?orderId={orderId}");
+                else
+                    return Redirect($"https://localhost:7080/Checkout/Failed?orderId={orderId}");
+            }
+
+            return success ? Ok("Payment successful!") : BadRequest("Payment failed!");
         }
     }
 }

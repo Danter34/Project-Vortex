@@ -100,13 +100,13 @@ namespace Vortex_API.Repositories.Service
             return result;
         }
 
-        public async Task<OrderDTOView?> GetOrderDetail(int orderId, string userId)
+        public async Task<OrderDTOView?> GetOrderDetail(int orderId)
         {
             var order = await _context.Orders
                 .Include(o => o.Items)
                     .ThenInclude(i => i.Product)
                         .ThenInclude(p => p.Images)
-                .Where(o => o.Id == orderId && o.UserId == userId)
+                .Where(o => o.Id == orderId )
                 .FirstOrDefaultAsync();
 
             if (order == null) return null;
@@ -161,7 +161,7 @@ namespace Vortex_API.Repositories.Service
             return order;
         }
 
-        public async Task<IEnumerable<OrderDTOView>> GetAllOrders(int page = 1, int pageSize = 10)
+        public async Task<IEnumerable<OrderDTOView>> GetAllOrders(int page = 1, int pageSize = 100)
         {
             var orders = await _context.Orders
                 .Include(o => o.Items)

@@ -71,16 +71,16 @@ namespace Vortex_API.Controllers
         public async Task<IActionResult> GetOrderDetail(int id)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            _logger.LogInformation("Fetching details for order {OrderId} by user {UserId}.", id, userId);
+            _logger.LogInformation("Fetching details for order {OrderId} by user {UserId}.", id);
 
-            var order = await _orderRepository.GetOrderDetail(id, userId);
+            var order = await _orderRepository.GetOrderDetail(id);
             if (order == null)
             {
-                _logger.LogWarning("Order {OrderId} not found for user {UserId}.", id, userId);
+                _logger.LogWarning("Order {OrderId} not found for user {UserId}.", id);
                 return NotFound(new { message = "Order not found" });
             }
 
-            _logger.LogInformation("Order {OrderId} retrieved successfully for user {UserId}.", id, userId);
+            _logger.LogInformation("Order {OrderId} retrieved successfully for user {UserId}.", id);
             return Ok(order);
         }
 

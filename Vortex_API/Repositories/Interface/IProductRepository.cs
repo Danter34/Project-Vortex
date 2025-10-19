@@ -10,7 +10,7 @@ namespace Vortex_API.Repositories.Interface
             string? sortBy = null,
             bool isAscending = true,
             int pageNumber = 1,
-            int pageSize = 10);
+            int pageSize = 100);
         Task<Product?> GetProductById(int id);
         Task<Product> CreateProduct(ProductDTO dto);
         Task<Product?> UpdateProduct(int id, EdditProductDTO dto);

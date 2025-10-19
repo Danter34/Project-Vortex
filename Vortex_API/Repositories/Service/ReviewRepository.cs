@@ -38,7 +38,7 @@ namespace Vortex_API.Repositories.Service
                 .Include(o => o.Items)
                 .AnyAsync(o =>
                     o.UserId == userId &&
-                    o.Status == "Shipped" &&
+                    o.Status == "Đã giao hàng" &&
                     o.Items.Any(i => i.ProductId == dto.ProductId));
 
             if (!hasBought)

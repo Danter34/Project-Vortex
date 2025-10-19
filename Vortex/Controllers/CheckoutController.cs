@@ -107,6 +107,25 @@ namespace Vortex.Controllers
             {
                 return RedirectToAction("Success", new { orderId });
             }
+            else if (model.PaymentMethod == "VNPay")
+            {
+                var paymentResponseDto = new { OrderId = orderId };
+                var paymentContent = new StringContent(JsonConvert.SerializeObject(paymentResponseDto), Encoding.UTF8, "application/json");
+                var paymentResponse = await client.PostAsync("Payment/create-vnpay", paymentContent);
+
+                if (!paymentResponse.IsSuccessStatusCode)
+                {
+                    TempData["Error"] = "Tạo thanh toán VNPay thất bại.";
+                    return View("Index", model);
+                }
+
+                var paymentJson = await paymentResponse.Content.ReadAsStringAsync();
+                dynamic payment = JsonConvert.DeserializeObject(paymentJson)!;
+
+                string payUrl = payment.payUrl;
+
+                return Redirect(payUrl);
+            }
             else
             {
                 // Nếu MoMo → call API create payment
@@ -129,14 +148,12 @@ namespace Vortex.Controllers
             }
         }
 
-        // GET: Thanh toán thành công
         public IActionResult Success(int orderId)
         {
             ViewBag.OrderId = orderId;
             return View();
         }
 
-        // GET: Thanh toán thất bại
         public IActionResult Failed(int orderId)
         {
             ViewBag.OrderId = orderId;

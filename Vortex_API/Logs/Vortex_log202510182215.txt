@@ -1,0 +1,160 @@
+2025-10-18 22:15:00.131 +07:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7161/api/Order/update-status/64 - application/json; charset=utf-8 26
+2025-10-18 22:15:00.134 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.OrderController.UpdateOrderStatus (Vortex_API)'
+2025-10-18 22:15:00.138 +07:00 [INF] Route matched with {action = "UpdateOrderStatus", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateOrderStatus(Int32, System.String) on controller Vortex_API.Controllers.OrderController (Vortex_API).
+2025-10-18 22:15:00.140 +07:00 [INF] Admin updating status for order 64 to Đang giao hàng.
+2025-10-18 22:15:00.162 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__orderId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Name], [t].[Phone], [t].[ShippingAddress], [t].[Status], [t].[TotalAmount], [t].[UserId], [t0].[Id], [t0].[OrderId], [t0].[ProductId], [t0].[Quantity], [t0].[UnitPrice], [t0].[Id0], [t0].[AverageRating], [t0].[CategoryId], [t0].[CreatedAt], [t0].[Description], [t0].[IsHot], [t0].[IsNew], [t0].[Price], [t0].[StockQuantity], [t0].[Title]
+FROM (
+    SELECT TOP(1) [o].[Id], [o].[CreatedAt], [o].[Name], [o].[Phone], [o].[ShippingAddress], [o].[Status], [o].[TotalAmount], [o].[UserId]
+    FROM [Orders] AS [o]
+    WHERE [o].[Id] = @__orderId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[UnitPrice], [p].[Id] AS [Id0], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title]
+    FROM [OrderItems] AS [o0]
+    INNER JOIN [Products] AS [p] ON [o0].[ProductId] = [p].[Id]
+) AS [t0] ON [t].[Id] = [t0].[OrderId]
+ORDER BY [t].[Id], [t0].[Id]
+2025-10-18 22:15:00.174 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Orders] SET [Status] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2025-10-18 22:15:00.175 +07:00 [INF] Order 64 status updated to Đang giao hàng successfully.
+2025-10-18 22:15:00.176 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType4`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[Vortex_API.Model.Domain.Order, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-18 22:15:00.178 +07:00 [INF] Executed action Vortex_API.Controllers.OrderController.UpdateOrderStatus (Vortex_API) in 38.9363ms
+2025-10-18 22:15:00.179 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.OrderController.UpdateOrderStatus (Vortex_API)'
+2025-10-18 22:15:00.180 +07:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7161/api/Order/update-status/64 - 200 null application/json; charset=utf-8 48.4792ms
+2025-10-18 22:15:00.191 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Order/get-all-order?page=1&pageSize=10 - null null
+2025-10-18 22:15:00.193 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.OrderController.GetAllOrders (Vortex_API)'
+2025-10-18 22:15:00.194 +07:00 [INF] Route matched with {action = "GetAllOrders", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders(Int32, Int32) on controller Vortex_API.Controllers.OrderController (Vortex_API).
+2025-10-18 22:15:00.195 +07:00 [INF] Admin is fetching all orders, page 1, pageSize 10.
+2025-10-18 22:15:00.206 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Name], [t].[Phone], [t].[ShippingAddress], [t].[Status], [t].[TotalAmount], [t].[UserId], [a].[Id], [t0].[Id], [t0].[OrderId], [t0].[ProductId], [t0].[Quantity], [t0].[UnitPrice], [t0].[Id0], [t0].[AverageRating], [t0].[CategoryId], [t0].[CreatedAt], [t0].[Description], [t0].[IsHot], [t0].[IsNew], [t0].[Price], [t0].[StockQuantity], [t0].[Title], [t0].[Id1], [t0].[FileDescription], [t0].[FileExtension], [t0].[FileName], [t0].[FilePath], [t0].[FileSizeInBytes], [t0].[ProductId0], [a].[AccessFailedCount], [a].[Balance], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM (
+    SELECT [o].[Id], [o].[CreatedAt], [o].[Name], [o].[Phone], [o].[ShippingAddress], [o].[Status], [o].[TotalAmount], [o].[UserId]
+    FROM [Orders] AS [o]
+    ORDER BY [o].[CreatedAt] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [AspNetUsers] AS [a] ON [t].[UserId] = [a].[Id]
+LEFT JOIN (
+    SELECT [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[UnitPrice], [p].[Id] AS [Id0], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title], [i].[Id] AS [Id1], [i].[FileDescription], [i].[FileExtension], [i].[FileName], [i].[FilePath], [i].[FileSizeInBytes], [i].[ProductId] AS [ProductId0]
+    FROM [OrderItems] AS [o0]
+    INNER JOIN [Products] AS [p] ON [o0].[ProductId] = [p].[Id]
+    LEFT JOIN [Images] AS [i] ON [p].[Id] = [i].[ProductId]
+) AS [t0] ON [t].[Id] = [t0].[OrderId]
+ORDER BY [t].[CreatedAt] DESC, [t].[Id], [a].[Id], [t0].[Id], [t0].[Id0]
+2025-10-18 22:15:00.211 +07:00 [INF] 8 orders retrieved.
+2025-10-18 22:15:00.211 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.DTO.OrderDTOView, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-18 22:15:00.212 +07:00 [INF] Executed action Vortex_API.Controllers.OrderController.GetAllOrders (Vortex_API) in 17.3436ms
+2025-10-18 22:15:00.213 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.OrderController.GetAllOrders (Vortex_API)'
+2025-10-18 22:15:00.214 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Order/get-all-order?page=1&pageSize=10 - 200 null application/json; charset=utf-8 23.411ms
+2025-10-18 22:15:05.002 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Amount], [p].[CreatedAt], [p].[MomoOrderId], [p].[OrderId], [p].[PayUrl], [p].[PaymentMethod], [p].[Status], [o].[Id], [o].[CreatedAt], [o].[Name], [o].[Phone], [o].[ShippingAddress], [o].[Status], [o].[TotalAmount], [o].[UserId]
+FROM [Payments] AS [p]
+INNER JOIN [Orders] AS [o] ON [p].[OrderId] = [o].[Id]
+WHERE [p].[Status] IN (N'Đang xử lý', N'Thanh toán thất bại')
+2025-10-18 22:15:05.013 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Orders] SET [Status] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2025-10-18 22:15:07.008 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Order/my-orders?page=1&pageSize=5 - null null
+2025-10-18 22:15:07.010 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.OrderController.GetMyOrders (Vortex_API)'
+2025-10-18 22:15:07.011 +07:00 [INF] Route matched with {action = "GetMyOrders", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyOrders(Int32, Int32) on controller Vortex_API.Controllers.OrderController (Vortex_API).
+2025-10-18 22:15:07.012 +07:00 [INF] Fetching orders for user 4b8d0ffd-6de3-4cdc-8804-2fee885267de, page 1, pageSize 5.
+2025-10-18 22:15:07.024 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Name], [t].[Phone], [t].[ShippingAddress], [t].[Status], [t].[TotalAmount], [t].[UserId], [t0].[Id], [t0].[OrderId], [t0].[ProductId], [t0].[Quantity], [t0].[UnitPrice], [t0].[Id0], [t0].[AverageRating], [t0].[CategoryId], [t0].[CreatedAt], [t0].[Description], [t0].[IsHot], [t0].[IsNew], [t0].[Price], [t0].[StockQuantity], [t0].[Title], [t0].[Id1], [t0].[FileDescription], [t0].[FileExtension], [t0].[FileName], [t0].[FilePath], [t0].[FileSizeInBytes], [t0].[ProductId0]
+FROM (
+    SELECT [o].[Id], [o].[CreatedAt], [o].[Name], [o].[Phone], [o].[ShippingAddress], [o].[Status], [o].[TotalAmount], [o].[UserId]
+    FROM [Orders] AS [o]
+    WHERE [o].[UserId] = @__userId_0
+    ORDER BY [o].[CreatedAt] DESC
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[UnitPrice], [p].[Id] AS [Id0], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title], [i].[Id] AS [Id1], [i].[FileDescription], [i].[FileExtension], [i].[FileName], [i].[FilePath], [i].[FileSizeInBytes], [i].[ProductId] AS [ProductId0]
+    FROM [OrderItems] AS [o0]
+    INNER JOIN [Products] AS [p] ON [o0].[ProductId] = [p].[Id]
+    LEFT JOIN [Images] AS [i] ON [p].[Id] = [i].[ProductId]
+) AS [t0] ON [t].[Id] = [t0].[OrderId]
+ORDER BY [t].[CreatedAt] DESC, [t].[Id], [t0].[Id], [t0].[Id0]
+2025-10-18 22:15:07.028 +07:00 [INF] 5 orders retrieved for user 4b8d0ffd-6de3-4cdc-8804-2fee885267de.
+2025-10-18 22:15:07.028 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Vortex_API.Model.DTO.OrderDTOView, Vortex_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-18 22:15:07.029 +07:00 [INF] Executed action Vortex_API.Controllers.OrderController.GetMyOrders (Vortex_API) in 17.332ms
+2025-10-18 22:15:07.030 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.OrderController.GetMyOrders (Vortex_API)'
+2025-10-18 22:15:07.031 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Order/my-orders?page=1&pageSize=5 - 200 null application/json; charset=utf-8 23.107ms
+2025-10-18 22:15:07.037 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Cart/get-cart - null null
+2025-10-18 22:15:07.039 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.CartController.GetCart (Vortex_API)'
+2025-10-18 22:15:07.040 +07:00 [INF] Route matched with {action = "GetCart", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCart() on controller Vortex_API.Controllers.CartController (Vortex_API).
+2025-10-18 22:15:07.051 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[UserId], [t0].[Id], [t0].[CartId], [t0].[ProductId], [t0].[Quantity], [t0].[Id0], [t0].[AverageRating], [t0].[CategoryId], [t0].[CreatedAt], [t0].[Description], [t0].[IsHot], [t0].[IsNew], [t0].[Price], [t0].[StockQuantity], [t0].[Title]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [c0].[Id], [c0].[CartId], [c0].[ProductId], [c0].[Quantity], [p].[Id] AS [Id0], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title]
+    FROM [CartItems] AS [c0]
+    INNER JOIN [Products] AS [p] ON [c0].[ProductId] = [p].[Id]
+) AS [t0] ON [t].[Id] = [t0].[CartId]
+ORDER BY [t].[Id], [t0].[Id]
+2025-10-18 22:15:07.053 +07:00 [INF] Executing OkObjectResult, writing value of type 'Vortex_API.Model.Domain.Cart'.
+2025-10-18 22:15:07.054 +07:00 [INF] Executed action Vortex_API.Controllers.CartController.GetCart (Vortex_API) in 12.6876ms
+2025-10-18 22:15:07.055 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.CartController.GetCart (Vortex_API)'
+2025-10-18 22:15:07.056 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Cart/get-cart - 200 null application/json; charset=utf-8 18.4385ms
+2025-10-18 22:15:28.996 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Order/get-order-detail/68 - null null
+2025-10-18 22:15:28.998 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.OrderController.GetOrderDetail (Vortex_API)'
+2025-10-18 22:15:28.999 +07:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32) on controller Vortex_API.Controllers.OrderController (Vortex_API).
+2025-10-18 22:15:29.011 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__orderId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Name], [t].[Phone], [t].[ShippingAddress], [t].[Status], [t].[TotalAmount], [t].[UserId], [t0].[Id], [t0].[OrderId], [t0].[ProductId], [t0].[Quantity], [t0].[UnitPrice], [t0].[Id0], [t0].[AverageRating], [t0].[CategoryId], [t0].[CreatedAt], [t0].[Description], [t0].[IsHot], [t0].[IsNew], [t0].[Price], [t0].[StockQuantity], [t0].[Title], [t0].[Id1], [t0].[FileDescription], [t0].[FileExtension], [t0].[FileName], [t0].[FilePath], [t0].[FileSizeInBytes], [t0].[ProductId0]
+FROM (
+    SELECT TOP(1) [o].[Id], [o].[CreatedAt], [o].[Name], [o].[Phone], [o].[ShippingAddress], [o].[Status], [o].[TotalAmount], [o].[UserId]
+    FROM [Orders] AS [o]
+    WHERE [o].[Id] = @__orderId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[UnitPrice], [p].[Id] AS [Id0], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title], [i].[Id] AS [Id1], [i].[FileDescription], [i].[FileExtension], [i].[FileName], [i].[FilePath], [i].[FileSizeInBytes], [i].[ProductId] AS [ProductId0]
+    FROM [OrderItems] AS [o0]
+    INNER JOIN [Products] AS [p] ON [o0].[ProductId] = [p].[Id]
+    LEFT JOIN [Images] AS [i] ON [p].[Id] = [i].[ProductId]
+) AS [t0] ON [t].[Id] = [t0].[OrderId]
+ORDER BY [t].[Id], [t0].[Id], [t0].[Id0]
+2025-10-18 22:15:29.014 +07:00 [INF] Executing OkObjectResult, writing value of type 'Vortex_API.Model.DTO.OrderDTOView'.
+2025-10-18 22:15:29.016 +07:00 [INF] Executed action Vortex_API.Controllers.OrderController.GetOrderDetail (Vortex_API) in 15.0323ms
+2025-10-18 22:15:29.017 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.OrderController.GetOrderDetail (Vortex_API)'
+2025-10-18 22:15:29.018 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Order/get-order-detail/68 - 200 null application/json; charset=utf-8 21.2345ms
+2025-10-18 22:15:29.035 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161//uploads/products/adfd26cb-58a5-4cbf-b673-f1260e5f5ddb.webp - null null
+2025-10-18 22:15:29.037 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161//uploads/products/6c5b838a-b206-4151-9eed-652e71cc0a29.jpg - null null
+2025-10-18 22:15:29.044 +07:00 [INF] The file //uploads/products/adfd26cb-58a5-4cbf-b673-f1260e5f5ddb.webp was not modified
+2025-10-18 22:15:29.046 +07:00 [INF] The file //uploads/products/6c5b838a-b206-4151-9eed-652e71cc0a29.jpg was not modified
+2025-10-18 22:15:29.046 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161//uploads/products/adfd26cb-58a5-4cbf-b673-f1260e5f5ddb.webp - 304 null image/webp 11.4337ms
+2025-10-18 22:15:29.047 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161//uploads/products/6c5b838a-b206-4151-9eed-652e71cc0a29.jpg - 304 null image/jpeg 9.8862ms
+2025-10-18 22:15:39.439 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7161/api/Order/get-order-detail/69 - null null
+2025-10-18 22:15:39.440 +07:00 [INF] Executing endpoint 'Vortex_API.Controllers.OrderController.GetOrderDetail (Vortex_API)'
+2025-10-18 22:15:39.441 +07:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32) on controller Vortex_API.Controllers.OrderController (Vortex_API).
+2025-10-18 22:15:39.453 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__orderId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Name], [t].[Phone], [t].[ShippingAddress], [t].[Status], [t].[TotalAmount], [t].[UserId], [t0].[Id], [t0].[OrderId], [t0].[ProductId], [t0].[Quantity], [t0].[UnitPrice], [t0].[Id0], [t0].[AverageRating], [t0].[CategoryId], [t0].[CreatedAt], [t0].[Description], [t0].[IsHot], [t0].[IsNew], [t0].[Price], [t0].[StockQuantity], [t0].[Title], [t0].[Id1], [t0].[FileDescription], [t0].[FileExtension], [t0].[FileName], [t0].[FilePath], [t0].[FileSizeInBytes], [t0].[ProductId0]
+FROM (
+    SELECT TOP(1) [o].[Id], [o].[CreatedAt], [o].[Name], [o].[Phone], [o].[ShippingAddress], [o].[Status], [o].[TotalAmount], [o].[UserId]
+    FROM [Orders] AS [o]
+    WHERE [o].[Id] = @__orderId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[UnitPrice], [p].[Id] AS [Id0], [p].[AverageRating], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[IsHot], [p].[IsNew], [p].[Price], [p].[StockQuantity], [p].[Title], [i].[Id] AS [Id1], [i].[FileDescription], [i].[FileExtension], [i].[FileName], [i].[FilePath], [i].[FileSizeInBytes], [i].[ProductId] AS [ProductId0]
+    FROM [OrderItems] AS [o0]
+    INNER JOIN [Products] AS [p] ON [o0].[ProductId] = [p].[Id]
+    LEFT JOIN [Images] AS [i] ON [p].[Id] = [i].[ProductId]
+) AS [t0] ON [t].[Id] = [t0].[OrderId]
+ORDER BY [t].[Id], [t0].[Id], [t0].[Id0]
+2025-10-18 22:15:39.456 +07:00 [INF] Executing OkObjectResult, writing value of type 'Vortex_API.Model.DTO.OrderDTOView'.
+2025-10-18 22:15:39.457 +07:00 [INF] Executed action Vortex_API.Controllers.OrderController.GetOrderDetail (Vortex_API) in 14.5254ms
+2025-10-18 22:15:39.458 +07:00 [INF] Executed endpoint 'Vortex_API.Controllers.OrderController.GetOrderDetail (Vortex_API)'
+2025-10-18 22:15:39.459 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7161/api/Order/get-order-detail/69 - 200 null application/json; charset=utf-8 20.1109ms
+2025-10-18 22:15:39.477 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7161//uploads/products/3c206857-a62d-43be-93db-66fd03bc654d.jpg - null null
+2025-10-18 22:15:39.490 +07:00 [INF] Sending file. Request path: '//uploads/products/3c206857-a62d-43be-93db-66fd03bc654d.jpg'. Physical path: 'D:\Project-Vortex\Vortex_API\wwwroot\uploads\products\3c206857-a62d-43be-93db-66fd03bc654d.jpg'
+2025-10-18 22:15:39.491 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7161//uploads/products/3c206857-a62d-43be-93db-66fd03bc654d.jpg - 200 199528 image/jpeg 13.9521ms
